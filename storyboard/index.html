@@ -159,7 +159,7 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <button data-filter="all" class="on">全コマ</button>
 <button data-filter="todo">画像未生成のみ</button>
 </nav>
-<div class="guide"><h3>この画面の使い方</h3><p>左がコマ枠です。画像が確定していれば絵が入り、未生成なら「絵の指示」と画像プロンプト草案が入ります。右がそのコマのナレーションとセリフです。</p><p>入力は <code>02_scenario_v2.md</code> と <code>03_koma_v2_*.md</code> だけです。<code>koma_data.py</code> は読み書きしません（統合は全章承認後）。修正はマークダウンを直してから、このページを再生成してください。</p><p>右端の列が、実際に画面へ出る文字です。3種類あります。</p><div class="legend"><span><b>吹き出し</b> — 人物のセリフ。画像の中に描く</span><span><b>ナレーション</b> — 音声のみ。画像には描かず、動画側で字幕帯にする</span><span><b>テロップ</b> — 日付・場所などの短い文字。画像の中に描く</span></div><p style="margin-top:10px">数字の表記は分けます。<b>絵の中の文字（吹き出し・書類・帳簿・日記・命令書・看板・札）は漢数字</b>——1941年の日本は縦書き・漢数字なので、算用数字だと時代考証が壊れます。<b>テロップ・図解ボード・地図のラベル・ナレーション字幕は算用数字</b>——視聴者が一目で読めるようにするためです。</p></div>
+<div class="guide"><h3>この画面の使い方</h3><p>左がコマ枠です。画像が確定していれば絵が入り、未生成なら「絵の指示」と画像プロンプト草案が入ります。右がそのコマのナレーションとセリフです。</p><p>入力は <code>02_scenario_v2.md</code> と <code>03_koma_v2_*.md</code> だけです。<code>koma_data.py</code> は読み書きしません（統合は全章承認後）。修正はマークダウンを直してから、このページを再生成してください。</p><p>右端の列が、実際に画面へ出る文字です。3種類あります。</p><div class="legend"><span><b>吹き出し</b> — 人物のセリフ。<b>絵の中</b>に描く</span><span><b>テロップ</b> — 日付・場所などの短い文字。<b>絵の中</b>に描く</span><span><b>字幕帯</b> — ナレーション。<b>レンダラー</b>が画面下部の帯へ出す</span></div><p style="margin-top:10px">人物のセリフは吹き出しだけに出し、<b>字幕帯へは重ねて出しません</b>（decisions 2-5）。同じ言葉が絵の中と画面下部に二重で出るのを避けるためです。吹き出しが音声の一部だけを描く場合、残りは音声だけで流れます。</p><p style="margin-top:10px">数字の表記は分けます。<b>絵の中の文字（吹き出し・書類・帳簿・日記・命令書・看板・札）は漢数字</b>——1941年の日本は縦書き・漢数字なので、算用数字だと時代考証が壊れます。<b>テロップ・図解ボード・地図のラベル・ナレーション字幕は算用数字</b>——視聴者が一目で読めるようにするためです。</p></div>
 <div class="flow" id="flow"><h3>全体の流れ</h3>
 <div class="fcard"><div class="ltr">A<small>18コマ<br>2:25</small></div><div>
 <div class="ttl"><a href="#cA">内閣を倒す男</a></div>
@@ -296,7 +296,7 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>登場</b>近衛文麿</div>
 </div></div>
 <div class="draw"><h4>画面に描く文字</h4>
-<div class="nb"><span class="who">ナレーション（画像には描かない）</span>1941年10月16日。
+<div class="nb"><span class="who">字幕帯（画面下部・絵の中には描かない）</span>1941年10月16日。
 大日本帝国の近衛内閣が、突然、総辞職した。</div>
 </div></div>
 <div class="koma" data-img="0" id="kA02">
@@ -362,7 +362,7 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>登場</b>東條英機・近衛文麿</div>
 </div></div>
 <div class="draw"><h4>画面に描く文字</h4>
-<div class="nb"><span class="who">ナレーション（画像には描かない）</span>陸軍を代表して撤兵に反対し、内閣を倒すきっかけを作ったのが、陸軍大臣・東條英機。
+<div class="nb"><span class="who">字幕帯（画面下部・絵の中には描かない）</span>陸軍を代表して撤兵に反対し、内閣を倒すきっかけを作ったのが、陸軍大臣・東條英機。
 ところが、その2日後。
 次の総理大臣になったのも、東條だった。</div>
 </div></div>
@@ -427,7 +427,7 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>登場</b>東條英機</div>
 </div></div>
 <div class="draw"><h4>画面に描く文字</h4>
-<div class="nb"><span class="who">ナレーション（画像には描かない）</span>内閣を壊した男が、なぜ次の内閣を任されたのか。
+<div class="nb"><span class="who">字幕帯（画面下部・絵の中には描かない）</span>内閣を壊した男が、なぜ次の内閣を任されたのか。
 その理由を見る前に、当時の日本が置かれていた状況を整理しよう。</div>
 </div></div>
 <div class="koma" data-img="0" id="kA04">
@@ -489,7 +489,7 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>役割・事実根拠</b>背景の最小説明。ch3・ch4</div>
 </div></div>
 <div class="draw"><h4>画面に描く文字</h4>
-<div class="nb"><span class="who">ナレーション（画像には描かない）</span>当時、日本は中国との戦争を始めてから、すでに4年以上が過ぎていた。
+<div class="nb"><span class="who">字幕帯（画面下部・絵の中には描かない）</span>当時、日本は中国との戦争を始めてから、すでに4年以上が過ぎていた。
 戦争は終わらず、日本軍は中国大陸に残り続けていた。</div>
 </div></div>
 <div class="koma" data-img="0" id="kA05">
@@ -555,7 +555,7 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 </div></div>
 <div class="draw"><h4>画面に描く文字</h4>
 <div class="tl"><span class="who">テロップ</span>1941年7月</div>
-<div class="nb"><span class="who">ナレーション（画像には描かない）</span>1941年7月、日本はさらに、東南アジアの南部仏印へ軍を進めた。
+<div class="nb"><span class="who">字幕帯（画面下部・絵の中には描かない）</span>1941年7月、日本はさらに、東南アジアの南部仏印へ軍を進めた。
 これに強く反発したのが、アメリカだった。</div>
 </div></div>
 <div class="koma" data-img="0" id="kA06">
@@ -622,7 +622,7 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 </div></div>
 <div class="draw"><h4>画面に描く文字</h4>
 <div class="tl"><span class="who">テロップ</span>1941年8月1日</div>
-<div class="nb"><span class="who">ナレーション（画像には描かない）</span>8月1日。アメリカは、日本への石油輸出を全面的に止めた。
+<div class="nb"><span class="who">字幕帯（画面下部・絵の中には描かない）</span>8月1日。アメリカは、日本への石油輸出を全面的に止めた。
 石油が尽きれば、軍艦も飛行機も動かせない。
 日本には、いつまでも待てる時間がなくなった。</div>
 </div></div>
@@ -685,7 +685,7 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>役割・事実根拠</b>撤兵を中心争点として提示</div>
 </div></div>
 <div class="draw"><h4>画面に描く文字</h4>
-<div class="nb"><span class="who">ナレーション（画像には描かない）</span>アメリカは、日本軍を中国やフランス領インドシナから引き揚げるよう求めていた。
+<div class="nb"><span class="who">字幕帯（画面下部・絵の中には描かない）</span>アメリカは、日本軍を中国やフランス領インドシナから引き揚げるよう求めていた。
 しかし、4年以上戦ってきた陸軍は、中国からの撤兵に強く反対した。</div>
 </div></div>
 <div class="koma" data-img="0" id="kA08">
@@ -746,7 +746,7 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>役割・事実根拠</b>ユーザー指定の宣言</div>
 </div></div>
 <div class="draw"><h4>画面に描く文字</h4>
-<div class="nb"><span class="who">ナレーション（画像には描かない）</span>この時点で、日本に残された選択肢は、大きく3つあった。</div>
+<div class="nb"><span class="who">字幕帯（画面下部・絵の中には描かない）</span>この時点で、日本に残された選択肢は、大きく3つあった。</div>
 </div></div>
 <div class="koma" data-img="0" id="kA09">
 <div class="left">
@@ -807,7 +807,7 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>役割・事実根拠</b>選択肢を1つずつ理解させる</div>
 </div></div>
 <div class="draw"><h4>画面に描く文字</h4>
-<div class="nb"><span class="who">ナレーション（画像には描かない）</span>1つ。
+<div class="nb"><span class="who">字幕帯（画面下部・絵の中には描かない）</span>1つ。
 中国から軍を引いて、アメリカと妥協する。</div>
 </div></div>
 <div class="koma" data-img="0" id="kA10">
@@ -869,7 +869,7 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>役割・事実根拠</b>Yes, butの種</div>
 </div></div>
 <div class="draw"><h4>画面に描く文字</h4>
-<div class="nb"><span class="who">ナレーション（画像には描かない）</span>2つ。
+<div class="nb"><span class="who">字幕帯（画面下部・絵の中には描かない）</span>2つ。
 交渉を続けながら、アメリカとの戦争に備える。</div>
 </div></div>
 <div class="koma" data-img="0" id="kA11">
@@ -931,7 +931,7 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>役割・事実根拠</b>3択完成。以後反復する基準画面</div>
 </div></div>
 <div class="draw"><h4>画面に描く文字</h4>
-<div class="nb"><span class="who">ナレーション（画像には描かない）</span>3つ。
+<div class="nb"><span class="who">字幕帯（画面下部・絵の中には描かない）</span>3つ。
 交渉を諦め、アメリカとの戦争へ進む。</div>
 </div></div>
 <div class="koma" data-img="0" id="kA12">
@@ -995,7 +995,7 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>登場</b>近衛文麿</div>
 </div></div>
 <div class="draw"><h4>画面に描く文字</h4>
-<div class="nb"><span class="who">ナレーション（画像には描かない）</span>近衛首相は、陸軍と海軍をまとめ、この3つから国の進路を決めなければならなかった。
+<div class="nb"><span class="who">字幕帯（画面下部・絵の中には描かない）</span>近衛首相は、陸軍と海軍をまとめ、この3つから国の進路を決めなければならなかった。
 当時の重大な国策は、首相1人では決められない。陸軍と海軍、それぞれの同意が必要だった。</div>
 </div></div>
 <div class="koma" data-img="0" id="kA13">
@@ -1067,7 +1067,7 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 </div></div>
 <div class="draw"><h4>画面に描く文字</h4>
 <div class="tl"><span class="who">テロップ</span>総辞職の4日前　10月12日</div>
-<div class="nb"><span class="who">ナレーション（画像には描かない）</span>総辞職の4日前。10月12日。
+<div class="nb"><span class="who">字幕帯（画面下部・絵の中には描かない）</span>総辞職の4日前。10月12日。
 近衛は自宅の荻外荘に、東條と海軍大臣の及川を集めた。
 ここで、陸軍と海軍の本音を確かめようとした。
 しかし、この日も結論は出なかった。</div>
@@ -1139,7 +1139,7 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 </div></div>
 <div class="draw"><h4>画面に描く文字</h4>
 <div class="bl"><span class="who">東條英機</span>駐兵問題は、陸軍としては一歩も譲れない。</div>
-<div class="nb"><span class="who">ナレーション（画像には描かない）</span>東條は、4年以上の戦争と犠牲を、成果なく終わらせることはできないと訴えた。</div>
+<div class="nb"><span class="who">字幕帯（画面下部・絵の中には描かない）</span>東條は、4年以上の戦争と犠牲を、成果なく終わらせることはできないと訴えた。</div>
 </div></div>
 <div class="koma" data-img="0" id="kA15">
 <div class="left">
@@ -1203,7 +1203,7 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>登場</b>近衛文麿・及川古志郎</div>
 </div></div>
 <div class="draw"><h4>画面に描く文字</h4>
-<div class="nb"><span class="who">ナレーション（画像には描かない）</span>アメリカと戦う海軍も、「戦争はできない」とは明言しなかった。
+<div class="nb"><span class="who">字幕帯（画面下部・絵の中には描かない）</span>アメリカと戦う海軍も、「戦争はできない」とは明言しなかった。
 及川は、はっきりとした答えを避け、最後の判断を近衛に委ねた。</div>
 </div></div>
 <div class="koma" data-img="0" id="kA16">
@@ -1277,9 +1277,9 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 </div></div>
 <div class="draw"><h4>画面に描く文字</h4>
 <div class="tl"><span class="who">テロップ</span>10月14日　閣議</div>
-<div class="nb"><span class="who">ナレーション（画像には描かない）</span>10月14日の閣議。東條は、さらに強く撤兵を拒んだ。</div>
+<div class="nb"><span class="who">字幕帯（画面下部・絵の中には描かない）</span>10月14日の閣議。東條は、さらに強く撤兵を拒んだ。</div>
 <div class="bl"><span class="who">東條英機</span>撤兵問題は、心臓だ。</div>
-<div class="nb"><span class="who">ナレーション（画像には描かない）</span>陸軍は引かない。海軍も止めない。そして、撤兵に代わる具体案も出ない。</div>
+<div class="nb"><span class="who">字幕帯（画面下部・絵の中には描かない）</span>陸軍は引かない。海軍も止めない。そして、撤兵に代わる具体案も出ない。</div>
 </div></div>
 <div class="koma" data-img="0" id="kA17">
 <div class="left">
@@ -1342,7 +1342,7 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>登場</b>近衛文麿</div>
 </div></div>
 <div class="draw"><h4>画面に描く文字</h4>
-<div class="nb"><span class="who">ナレーション（画像には描かない）</span>交渉をまとめる案も、開戦を決める統一見解もない。
+<div class="nb"><span class="who">字幕帯（画面下部・絵の中には描かない）</span>交渉をまとめる案も、開戦を決める統一見解もない。
 近衛内閣は、総辞職した。</div>
 </div></div>
 <div class="koma" data-img="0" id="kA18">
@@ -1411,8 +1411,8 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 </div></div>
 <div class="draw"><h4>画面に描く文字</h4>
 <div class="tl"><span class="who">テロップ</span>2日後　10月18日</div>
-<div class="nb"><span class="who">ナレーション（画像には描かない）</span>そして2日後、この行き詰まりを作った東條が、次の総理大臣になる。</div>
-<div class="nb"><span class="who">ナレーション（画像には描かない）</span>なぜ、東條だったのか。
+<div class="nb"><span class="who">字幕帯（画面下部・絵の中には描かない）</span>そして2日後、この行き詰まりを作った東條が、次の総理大臣になる。</div>
+<div class="nb"><span class="who">字幕帯（画面下部・絵の中には描かない）</span>なぜ、東條だったのか。
 その答えは、内閣とは別の場所にあった。</div>
 </div></div>
 <div class="check"><h3>A章の理解検査</h3><ul>
@@ -1497,8 +1497,8 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 </div></div>
 <div class="draw"><h4>画面に描く文字</h4>
 <div class="tl"><span class="who">テロップ</span>10月6日</div>
-<div class="nb"><span class="who">ナレーション（画像には描かない）</span>話を、総辞職の10日前まで戻そう。10月6日。海軍の作戦担当者が、対米戦を始めた場合の損害を報告した。</div>
-<div class="nb"><span class="who">ナレーション（画像には描かない）</span>船舶の損耗に就き、戦争第1年、140万トン撃沈せられ、自信なし。</div>
+<div class="nb"><span class="who">字幕帯（画面下部・絵の中には描かない）</span>話を、総辞職の10日前まで戻そう。10月6日。海軍の作戦担当者が、対米戦を始めた場合の損害を報告した。</div>
+<div class="nb"><span class="who">字幕帯（画面下部・絵の中には描かない）</span>船舶の損耗に就き、戦争第1年、140万トン撃沈せられ、自信なし。</div>
 </div></div>
 <div class="koma" data-img="0" id="kB02">
 <div class="left">
@@ -1559,7 +1559,7 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>役割・事実根拠</b>数字の意味を初心者向けに説明</div>
 </div></div>
 <div class="draw"><h4>画面に描く文字</h4>
-<div class="nb"><span class="who">ナレーション（画像には描かない）</span>輸送船が沈めば、戦地へ武器や食糧を運べない。海外から日本へ、石油や資源を持ち帰ることもできない。
+<div class="nb"><span class="who">字幕帯（画面下部・絵の中には描かない）</span>輸送船が沈めば、戦地へ武器や食糧を運べない。海外から日本へ、石油や資源を持ち帰ることもできない。
 海軍は、戦争を続ける土台そのものが危ういと見ていた。</div>
 </div></div>
 <div class="koma" data-img="0" id="kB03">
@@ -1628,7 +1628,7 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>登場</b>東條英機</div>
 </div></div>
 <div class="draw"><h4>画面に描く文字</h4>
-<div class="nb"><span class="who">ナレーション（画像には描かない）</span>報告を聞いた東條は、その夜、参謀総長の杉山元にこう持ちかけた。</div>
+<div class="nb"><span class="who">字幕帯（画面下部・絵の中には描かない）</span>報告を聞いた東條は、その夜、参謀総長の杉山元にこう持ちかけた。</div>
 <div class="bl"><span class="who">東條英機（音声の一部を描く）</span>引責辞職しようではないか</div>
 </div></div>
 <div class="koma" data-img="0" id="kB04">
@@ -1698,7 +1698,7 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>登場</b>東條英機・及川古志郎</div>
 </div></div>
 <div class="draw"><h4>画面に描く文字</h4>
-<div class="nb"><span class="who">ナレーション（画像には描かない）</span>翌10月7日。東條は、海軍大臣の及川古志郎と向かい合った。</div>
+<div class="nb"><span class="who">字幕帯（画面下部・絵の中には描かない）</span>翌10月7日。東條は、海軍大臣の及川古志郎と向かい合った。</div>
 <div class="bl"><span class="who">東條英機（音声の一部を描く）</span>陸海軍が割れたら亡国である</div>
 </div></div>
 <div class="koma" data-img="0" id="kB05">
@@ -1768,7 +1768,7 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 </div></div>
 <div class="draw"><h4>画面に描く文字</h4>
 <div class="bl"><span class="who">東條英機（音声の一部を描く）</span>永久に禍根を残すことになる</div>
-<div class="nb"><span class="who">ナレーション（画像には描かない）</span>アメリカが求める撤兵に、東條はここで線を引いた。</div>
+<div class="nb"><span class="who">字幕帯（画面下部・絵の中には描かない）</span>アメリカが求める撤兵に、東條はここで線を引いた。</div>
 </div></div>
 <div class="koma" data-img="0" id="kB06">
 <div class="left">
@@ -1837,9 +1837,9 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>登場</b>東條英機・近衛文麿</div>
 </div></div>
 <div class="draw"><h4>画面に描く文字</h4>
-<div class="nb"><span class="who">ナレーション（画像には描かない）</span>同じ夜。近衛は東條に、折衷案を出した。</div>
+<div class="nb"><span class="who">字幕帯（画面下部・絵の中には描かない）</span>同じ夜。近衛は東條に、折衷案を出した。</div>
 <div class="bl"><span class="who">近衛文麿（音声の一部を描く）</span>その運用によって駐兵の実質をとることにできないか</div>
-<div class="nb"><span class="who">ナレーション（画像には描かない）</span>書類の上では撤兵と書き、実際には軍を残す。近衛は、そこに交渉の余地を探した。</div>
+<div class="nb"><span class="who">字幕帯（画面下部・絵の中には描かない）</span>書類の上では撤兵と書き、実際には軍を残す。近衛は、そこに交渉の余地を探した。</div>
 </div></div>
 <div class="koma" data-img="0" id="kB07">
 <div class="left">
@@ -1973,8 +1973,8 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>登場</b>東條英機</div>
 </div></div>
 <div class="draw"><h4>画面に描く文字</h4>
-<div class="nb"><span class="who">ナレーション（画像には描かない）</span>10月8日。海軍次官の沢本頼雄が、その日の東條の言葉を日記に残している。</div>
-<div class="nb"><span class="who">ナレーション（画像には描かない）</span>支那事変にて数万の生霊を失い、見すみす去ることは忍びず。但し日米戦とならば更に数万の人員を失うことを思えば、撤兵も考えざるべからざるも、決し兼ぬる所なり。</div>
+<div class="nb"><span class="who">字幕帯（画面下部・絵の中には描かない）</span>10月8日。海軍次官の沢本頼雄が、その日の東條の言葉を日記に残している。</div>
+<div class="nb"><span class="who">字幕帯（画面下部・絵の中には描かない）</span>支那事変にて数万の生霊を失い、見すみす去ることは忍びず。但し日米戦とならば更に数万の人員を失うことを思えば、撤兵も考えざるべからざるも、決し兼ぬる所なり。</div>
 </div></div>
 <div class="koma" data-img="0" id="kB09">
 <div class="left">
@@ -2037,7 +2037,7 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>登場</b>東條英機</div>
 </div></div>
 <div class="draw"><h4>画面に描く文字</h4>
-<div class="nb"><span class="who">ナレーション（画像には描かない）</span>東條も、戦争の危険を知らなかったわけではない。撤兵を考えた記録もある。
+<div class="nb"><span class="who">字幕帯（画面下部・絵の中には描かない）</span>東條も、戦争の危険を知らなかったわけではない。撤兵を考えた記録もある。
 それでも、陸軍へ撤兵を命じる決断まではできなかった。</div>
 </div></div>
 <div class="koma" data-img="0" id="kB10">
@@ -2103,7 +2103,7 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>登場</b>東條英機・近衛文麿・及川古志郎</div>
 </div></div>
 <div class="draw"><h4>画面に描く文字</h4>
-<div class="nb"><span class="who">ナレーション（画像には描かない）</span>10月12日。近衛の私邸、荻外荘。
+<div class="nb"><span class="who">字幕帯（画面下部・絵の中には描かない）</span>10月12日。近衛の私邸、荻外荘。
 近衛、東條、及川の3人が、公式の会議では言えないことを確かめるために向かい合った。</div>
 </div></div>
 <div class="koma" data-img="0" id="kB11">
@@ -2176,7 +2176,7 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div class="draw"><h4>画面に描く文字</h4>
 <div class="bl"><span class="who">近衛文麿</span>戦争に、私は自信ない。</div>
 <div class="bl"><span class="who">東條英機（音声の一部を描く）</span>これは意外だ。戦争に自信がないとは何ですか</div>
-<div class="nb"><span class="who">ナレーション（画像には描かない）</span>9月の方針は、政府と陸海軍が共同で決めたものだった。いま覆すなら、誰がその責任を負うのか。</div>
+<div class="nb"><span class="who">字幕帯（画面下部・絵の中には描かない）</span>9月の方針は、政府と陸海軍が共同で決めたものだった。いま覆すなら、誰がその責任を負うのか。</div>
 </div></div>
 <div class="koma" data-img="0" id="kB12">
 <div class="left">
@@ -2245,7 +2245,7 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 </div></div>
 <div class="draw"><h4>画面に描く文字</h4>
 <div class="bl"><span class="who">東條英機（音声の一部を描く）</span>退却を基礎とすることはできぬ。陸軍はがたがたになる</div>
-<div class="nb"><span class="who">ナレーション（画像には描かない）</span>駐兵の期間を問われた東條は、永久のつもりだと答えている。</div>
+<div class="nb"><span class="who">字幕帯（画面下部・絵の中には描かない）</span>駐兵の期間を問われた東條は、永久のつもりだと答えている。</div>
 </div></div>
 <div class="koma" data-img="0" id="kB13">
 <div class="left">
@@ -2313,7 +2313,7 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>登場</b>東條英機</div>
 </div></div>
 <div class="draw"><h4>画面に描く文字</h4>
-<div class="nb"><span class="who">ナレーション（画像には描かない）</span>その東條が、この日、戦争準備を止める条件を自分の口で述べている。</div>
+<div class="nb"><span class="who">字幕帯（画面下部・絵の中には描かない）</span>その東條が、この日、戦争準備を止める条件を自分の口で述べている。</div>
 <div class="bl"><span class="who">東條英機（音声の一部を描く）</span>納得できる確信があるなら、戦争準備は止める</div>
 </div></div>
 <div class="koma" data-img="0" id="kB14">
@@ -2383,9 +2383,9 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>登場</b>近衛文麿・及川古志郎</div>
 </div></div>
 <div class="draw"><h4>画面に描く文字</h4>
-<div class="nb"><span class="who">ナレーション（画像には描かない）</span>近衛は、太平洋で実際に戦う海軍へ向き直った。</div>
+<div class="nb"><span class="who">字幕帯（画面下部・絵の中には描かない）</span>近衛は、太平洋で実際に戦う海軍へ向き直った。</div>
 <div class="bl"><span class="who">及川古志郎</span>開戦か外交かは、総理が判断されることです。</div>
-<div class="nb"><span class="who">ナレーション（画像には描かない）</span>海軍は、勝算があるとも、戦争はできないとも言わなかった。判断の責任は、総理へ戻された。</div>
+<div class="nb"><span class="who">字幕帯（画面下部・絵の中には描かない）</span>海軍は、勝算があるとも、戦争はできないとも言わなかった。判断の責任は、総理へ戻された。</div>
 </div></div>
 <div class="koma" data-img="0" id="kB15">
 <div class="left">
@@ -2449,7 +2449,7 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>登場</b>近衛文麿</div>
 </div></div>
 <div class="draw"><h4>画面に描く文字</h4>
-<div class="nb"><span class="who">ナレーション（画像には描かない）</span>近衛は陸海軍に判断を求め、陸軍は海軍が戦えないと言わない以上は撤兵できないと考え、海軍は最後の判断を近衛へ返す。
+<div class="nb"><span class="who">字幕帯（画面下部・絵の中には描かない）</span>近衛は陸海軍に判断を求め、陸軍は海軍が戦えないと言わない以上は撤兵できないと考え、海軍は最後の判断を近衛へ返す。
 全員が、戦争の危険を見ていた。だが、自分の組織から「やめる」と言い出す者はいなかった。
 戦争を止める責任だけが、会議のテーブルを回り続けた。</div>
 </div></div>
@@ -2514,7 +2514,7 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>登場</b>東條英機</div>
 </div></div>
 <div class="draw"><h4>画面に描く文字</h4>
-<div class="nb"><span class="who">ナレーション（画像には描かない）</span>では、なぜ東條は、撤兵を最後まで決断できなかったのか。
+<div class="nb"><span class="who">字幕帯（画面下部・絵の中には描かない）</span>では、なぜ東條は、撤兵を最後まで決断できなかったのか。
 そこには、4年以上の戦争が積み上げた、あまりにも重い代償があった。</div>
 </div></div>
 <div class="check"><h3>B章の理解検査</h3><ul>
@@ -2597,7 +2597,7 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>登場</b>東條英機</div>
 </div></div>
 <div class="draw"><h4>画面に描く文字</h4>
-<div class="nb"><span class="who">ナレーション（画像には描かない）</span>中国からの撤兵。
+<div class="nb"><span class="who">字幕帯（画面下部・絵の中には描かない）</span>中国からの撤兵。
 言葉にすれば、それは軍を引き揚げるだけに聞こえる。
 しかし東條と陸軍にとっては、そうではなかった。</div>
 </div></div>
@@ -2660,7 +2660,7 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>役割・事実根拠</b>ch3 10/14東條発言。人数は出さない</div>
 </div></div>
 <div class="draw"><h4>画面に描く文字</h4>
-<div class="nb"><span class="who">ナレーション（画像には描かない）</span>4年以上の戦争。
+<div class="nb"><span class="who">字幕帯（画面下部・絵の中には描かない）</span>4年以上の戦争。
 前線へ送られた兵士。届き続ける戦死公報。残された遺族。そして、使われた莫大な国費。</div>
 </div></div>
 <div class="koma" data-img="0" id="kC03">
@@ -2728,7 +2728,7 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>登場</b>東條英機</div>
 </div></div>
 <div class="draw"><h4>画面に描く文字</h4>
-<div class="nb"><span class="who">ナレーション（画像には描かない）</span>この年の9月7日。東條は、皇族の東久邇宮に対して、中国からの全面撤兵を認められない理由をこう述べている。</div>
+<div class="nb"><span class="who">字幕帯（画面下部・絵の中には描かない）</span>この年の9月7日。東條は、皇族の東久邇宮に対して、中国からの全面撤兵を認められない理由をこう述べている。</div>
 <div class="bl"><span class="who">東條英機（音声の一部を描く）</span>支那大陸にて生命を捧げし尊き犠牲に対し　絶対に認むる事ができない</div>
 </div></div>
 <div class="koma" data-img="0" id="kC04">
@@ -2793,7 +2793,7 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>登場</b>東條英機</div>
 </div></div>
 <div class="draw"><h4>画面に描く文字</h4>
-<div class="nb"><span class="who">ナレーション（画像には描かない）</span>撤兵を拒む理由として東條が挙げたのは、戦況でも、勝算でもなかった。
+<div class="nb"><span class="who">字幕帯（画面下部・絵の中には描かない）</span>撤兵を拒む理由として東條が挙げたのは、戦況でも、勝算でもなかった。
 すでに死んだ兵士に対して、それは認められない。そういう理屈だった。
 10月14日の閣議でも、東條は同じ犠牲を1つずつ挙げて、撤兵を拒んでいる。</div>
 </div></div>
@@ -2858,7 +2858,7 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>登場</b>東條英機</div>
 </div></div>
 <div class="draw"><h4>画面に描く文字</h4>
-<div class="nb"><span class="who">ナレーション（画像には描かない）</span>東條は、過去の犠牲と、これから起こりうる犠牲の両方を見ていた。
+<div class="nb"><span class="who">字幕帯（画面下部・絵の中には描かない）</span>東條は、過去の犠牲と、これから起こりうる犠牲の両方を見ていた。
 その2つを比べた記録が残っている。</div>
 </div></div>
 <div class="koma" data-img="0" id="kC06">
@@ -2926,7 +2926,7 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 </div></div>
 <div class="draw"><h4>画面に描く文字</h4>
 <div class="tl"><span class="who">テロップ</span>10月8日</div>
-<div class="nb"><span class="who">ナレーション（画像には描かない）</span>10月8日。海軍次官の日記には、東條が、中国を去りがたい思いと、日米戦でさらに多くを失う恐れを比べ、
+<div class="nb"><span class="who">字幕帯（画面下部・絵の中には描かない）</span>10月8日。海軍次官の日記には、東條が、中国を去りがたい思いと、日米戦でさらに多くを失う恐れを比べ、
 撤兵も考えながら決めかねていた、と記録されている。</div>
 </div></div>
 <div class="koma" data-img="0" id="kC07">
@@ -2992,7 +2992,7 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>登場</b>東條英機</div>
 </div></div>
 <div class="draw"><h4>画面に描く文字</h4>
-<div class="nb"><span class="who">ナレーション（画像には描かない）</span>この一連の記録を並べると、東條が置かれた板挟みが見えてくる。
+<div class="nb"><span class="who">字幕帯（画面下部・絵の中には描かない）</span>この一連の記録を並べると、東條が置かれた板挟みが見えてくる。
 撤兵すれば、過去の犠牲を否定する。
 撤兵しなければ、未来の犠牲を増やす。
 東條は、そのどちらの責任も引き受けられなかったと考えられる。</div>
@@ -3062,8 +3062,8 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>登場</b>東條英機・近衛文麿・鈴木貞一（参照画像なし）</div>
 </div></div>
 <div class="draw"><h4>画面に描く文字</h4>
-<div class="nb"><span class="who">ナレーション（画像には描かない）</span>10月14日の夜。東條の意向を受けた企画院総裁の鈴木貞一が、近衛へこう伝えたと記録されている。</div>
-<div class="nb"><span class="who">ナレーション（画像には描かない）</span>海軍がそういうように肚がきまらないならば、9月6日の御前会議は根本的に覆るのだ。
+<div class="nb"><span class="who">字幕帯（画面下部・絵の中には描かない）</span>10月14日の夜。東條の意向を受けた企画院総裁の鈴木貞一が、近衛へこう伝えたと記録されている。</div>
+<div class="nb"><span class="who">字幕帯（画面下部・絵の中には描かない）</span>海軍がそういうように肚がきまらないならば、9月6日の御前会議は根本的に覆るのだ。
 この際は全部辞職して、今までのことを御破算にして、もう一度案を練り直すということ以外にないと思う。</div>
 </div></div>
 <div class="koma" data-img="0" id="kC09">
@@ -3129,7 +3129,7 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>登場</b>東條英機・閣僚たち</div>
 </div></div>
 <div class="draw"><h4>画面に描く文字</h4>
-<div class="nb"><span class="who">ナレーション（画像には描かない）</span>東條の提案で、内閣は倒れた。
+<div class="nb"><span class="who">字幕帯（画面下部・絵の中には描かない）</span>東條の提案で、内閣は倒れた。
 総辞職は、少なくとも表向きは、これまでの国策を白紙へ戻す手続きだった。
 東條自身が、身を引くことまで望んでいたのかは分からない。</div>
 </div></div>
@@ -3193,7 +3193,7 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>登場</b>東條英機</div>
 </div></div>
 <div class="draw"><h4>画面に描く文字</h4>
-<div class="nb"><span class="who">ナレーション（画像には描かない）</span>ところが宮中が、次の総理候補として名を挙げたのは、ほかならぬ東條本人だった。</div>
+<div class="nb"><span class="who">字幕帯（画面下部・絵の中には描かない）</span>ところが宮中が、次の総理候補として名を挙げたのは、ほかならぬ東條本人だった。</div>
 </div></div>
 <div class="check"><h3>C章の理解検査</h3><ul>
 <li class="">撤兵を地理だけでなく、犠牲・組織・満洲防衛構想の問題として説明した</li>
@@ -3272,7 +3272,7 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>登場</b>東條英機・近衛文麿</div>
 </div></div>
 <div class="draw"><h4>画面に描く文字</h4>
-<div class="nb"><span class="who">ナレーション（画像には描かない）</span>近衛内閣が倒れた翌日。
+<div class="nb"><span class="who">字幕帯（画面下部・絵の中には描かない）</span>近衛内閣が倒れた翌日。
 東條は、陸軍大臣として宮中へ呼ばれた。
 自分は、撤兵を拒み、内閣を倒すきっかけを作った当人である。</div>
 </div></div>
@@ -3337,7 +3337,7 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>登場</b>東條英機</div>
 </div></div>
 <div class="draw"><h4>画面に描く文字</h4>
-<div class="nb"><span class="who">ナレーション（画像には描かない）</span>国策を行き詰まらせた責任を問われる。
+<div class="nb"><span class="who">字幕帯（画面下部・絵の中には描かない）</span>国策を行き詰まらせた責任を問われる。
 東條は、そう考えて宮中へ向かったと記録されている。</div>
 </div></div>
 <div class="koma" data-img="0" id="kD03">
@@ -3402,7 +3402,7 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>登場</b>東條英機・木戸幸一・昭和天皇</div>
 </div></div>
 <div class="draw"><h4>画面に描く文字</h4>
-<div class="nb"><span class="who">ナレーション（画像には描かない）</span>宮中で、天皇の意向を受けた内大臣・木戸幸一が、東條へこう伝えた。</div>
+<div class="nb"><span class="who">字幕帯（画面下部・絵の中には描かない）</span>宮中で、天皇の意向を受けた内大臣・木戸幸一が、東條へこう伝えた。</div>
 </div></div>
 <div class="koma" data-img="0" id="kD04">
 <div class="left">
@@ -3478,8 +3478,8 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div class="draw"><h4>画面に描く文字</h4>
 <div class="tl"><span class="who">テロップ</span>天皇の意向を受けて</div>
 <div class="bl"><span class="who">木戸幸一（音声の一部を描く）</span>九月六日の御前会議の決定を白紙に戻して再検討</div>
-<div class="nb"><span class="who">ナレーション（画像には描かない）</span>9月6日に決めた国策を、いったん取り消して考え直せ。天皇の意向は、そういうものだった。</div>
-<div class="nb"><span class="who">ナレーション（画像には描かない）</span>記録には、その言葉を受けた東條が茫然となったとある。
+<div class="nb"><span class="who">字幕帯（画面下部・絵の中には描かない）</span>9月6日に決めた国策を、いったん取り消して考え直せ。天皇の意向は、そういうものだった。</div>
+<div class="nb"><span class="who">字幕帯（画面下部・絵の中には描かない）</span>記録には、その言葉を受けた東條が茫然となったとある。
 そして東條へ、次の内閣を組織するよう命令が下された。</div>
 </div></div>
 <div class="koma" data-img="0" id="kD05">
@@ -3546,10 +3546,10 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>登場</b>東條英機・木戸幸一</div>
 </div></div>
 <div class="draw"><h4>画面に描く文字</h4>
-<div class="nb"><span class="who">ナレーション（画像には描かない）</span>なぜ、内閣を倒す原因となった東條が、次の首相に選ばれたのか。
+<div class="nb"><span class="who">字幕帯（画面下部・絵の中には描かない）</span>なぜ、内閣を倒す原因となった東條が、次の首相に選ばれたのか。
 宮中では、皇族を首相にする案も出ていた。しかし木戸は、その案に反対して日記にこう記している。</div>
-<div class="nb"><span class="who">ナレーション（画像には描かない）</span>万一皇族内閣にて日米戦に突入するが如き場合には、皇室は国民の怨府となるの虞れあり。</div>
-<div class="nb"><span class="who">ナレーション（画像には描かない）</span>戦争になれば、その責任が皇室へ向かう。木戸はそれを避けた。</div>
+<div class="nb"><span class="who">字幕帯（画面下部・絵の中には描かない）</span>万一皇族内閣にて日米戦に突入するが如き場合には、皇室は国民の怨府となるの虞れあり。</div>
+<div class="nb"><span class="who">字幕帯（画面下部・絵の中には描かない）</span>戦争になれば、その責任が皇室へ向かう。木戸はそれを避けた。</div>
 </div></div>
 <div class="koma" data-img="0" id="kD06">
 <div class="left">
@@ -3613,7 +3613,7 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>登場</b>東條英機</div>
 </div></div>
 <div class="draw"><h4>画面に描く文字</h4>
-<div class="nb"><span class="who">ナレーション（画像には描かない）</span>強硬派の東條自身に、国策を白紙から調べ直させる。
+<div class="nb"><span class="who">字幕帯（画面下部・絵の中には描かない）</span>強硬派の東條自身に、国策を白紙から調べ直させる。
 東條なら陸軍を抑えられ、結果への責任も陸軍が負う。
 内閣を倒した東條は、陸軍を止められる可能性がある男として選ばれたのである。</div>
 </div></div>
@@ -3678,7 +3678,7 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>登場</b>東條英機</div>
 </div></div>
 <div class="draw"><h4>画面に描く文字</h4>
-<div class="nb"><span class="who">ナレーション（画像には描かない）</span>東條に与えられたのは、即時和平の命令ではない。
+<div class="nb"><span class="who">字幕帯（画面下部・絵の中には描かない）</span>東條に与えられたのは、即時和平の命令ではない。
 外交、資源、作戦をすべて調べ、開戦か和平かを決め直す仕事だった。</div>
 </div></div>
 <div class="koma" data-img="0" id="kD08">
@@ -3742,7 +3742,7 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>登場</b>東條英機</div>
 </div></div>
 <div class="draw"><h4>画面に描く文字</h4>
-<div class="nb"><span class="who">ナレーション（画像には描かない）</span>翌10月18日。東條内閣が成立した。
+<div class="nb"><span class="who">字幕帯（画面下部・絵の中には描かない）</span>翌10月18日。東條内閣が成立した。
 東條は総理大臣だけでなく、陸軍大臣と内務大臣も兼ねた。</div>
 </div></div>
 <div class="koma" data-img="0" id="kD09">
@@ -3812,9 +3812,9 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>登場</b>東條英機</div>
 </div></div>
 <div class="draw"><h4>画面に描く文字</h4>
-<div class="nb"><span class="who">ナレーション（画像には描かない）</span>内務大臣は、警察を動かせる。東條は、兼任の理由を本人の記録にこう残している。</div>
+<div class="nb"><span class="who">字幕帯（画面下部・絵の中には描かない）</span>内務大臣は、警察を動かせる。東條は、兼任の理由を本人の記録にこう残している。</div>
 <div class="bl"><span class="who">東條英機（音声の一部を描く）</span>断乎　涙をふるってこれを弾圧する必要あり</div>
-<div class="nb"><span class="who">ナレーション（画像には描かない）</span>対米妥協を選べば国内が荒れる。荒れたら自分で抑える。東條は、その両方を引き受けようとした。</div>
+<div class="nb"><span class="who">字幕帯（画面下部・絵の中には描かない）</span>対米妥協を選べば国内が荒れる。荒れたら自分で抑える。東條は、その両方を引き受けようとした。</div>
 </div></div>
 <div class="koma" data-img="0" id="kD10">
 <div class="left">
@@ -3876,7 +3876,7 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>登場</b>東條英機</div>
 </div></div>
 <div class="draw"><h4>画面に描く文字</h4>
-<div class="nb"><span class="who">ナレーション（画像には描かない）</span>こうして東條の前に、3つの選択肢が再び並んだ。妥協か。交渉と準備か。開戦か。</div>
+<div class="nb"><span class="who">字幕帯（画面下部・絵の中には描かない）</span>こうして東條の前に、3つの選択肢が再び並んだ。妥協か。交渉と準備か。開戦か。</div>
 </div></div>
 <div class="koma" data-img="0" id="kD11">
 <div class="left">
@@ -3942,7 +3942,7 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>登場</b>東條英機・木戸幸一・昭和天皇</div>
 </div></div>
 <div class="draw"><h4>画面に描く文字</h4>
-<div class="nb"><span class="who">ナレーション（画像には描かない）</span>内閣を倒して退場するはずだった東條が、今度は再検討を主導し、その結論に責任を負う立場になった。
+<div class="nb"><span class="who">字幕帯（画面下部・絵の中には描かない）</span>内閣を倒して退場するはずだった東條が、今度は再検討を主導し、その結論に責任を負う立場になった。
 それは東條1人の選択ではない。天皇、木戸、政府、陸海軍の判断が重なった結果だった。
 白紙からの再検討は、日本をどの道へ導くのか。</div>
 </div></div>
@@ -4028,7 +4028,7 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>登場</b>東條英機</div>
 </div></div>
 <div class="draw"><h4>画面に描く文字</h4>
-<div class="nb"><span class="who">ナレーション（画像には描かない）</span>10月17日に渡された白紙。つまり、国策を振り出しへ戻して、東條が調べ直すのは外交だけではなかった。
+<div class="nb"><span class="who">字幕帯（画面下部・絵の中には描かない）</span>10月17日に渡された白紙。つまり、国策を振り出しへ戻して、東條が調べ直すのは外交だけではなかった。
 戦う場合に必要な鉄、船、兵力、食糧まで、すべてを比べなければならない。
 戦争を止めるか考えるために、戦争の準備も具体的に調べる。そこに、この再検討の矛盾があった。</div>
 </div></div>
@@ -4098,7 +4098,7 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>登場</b>東條英機</div>
 </div></div>
 <div class="draw"><h4>画面に描く文字</h4>
-<div class="nb"><span class="who">ナレーション（画像には描かない）</span>10月22日。東條は陸軍省内の会合で、まだ戦争以外の道があると述べている。</div>
+<div class="nb"><span class="who">字幕帯（画面下部・絵の中には描かない）</span>10月22日。東條は陸軍省内の会合で、まだ戦争以外の道があると述べている。</div>
 <div class="bl"><span class="who">東條英機（音声の一部を描く）</span>戦わずして目的を達することができれば　それに越したことはない</div>
 </div></div>
 <div class="koma" data-img="0" id="kE02">
@@ -4166,7 +4166,7 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>登場</b>東條英機・及川古志郎・嶋田繁太郎（参照画像なし）</div>
 </div></div>
 <div class="draw"><h4>画面に描く文字</h4>
-<div class="nb"><span class="who">ナレーション（画像には描かない）</span>10月30日。東條の新内閣では、海軍の姿勢も変わった。
+<div class="nb"><span class="who">字幕帯（画面下部・絵の中には描かない）</span>10月30日。東條の新内閣では、海軍の姿勢も変わった。
 前任の海軍大臣・及川は、開戦の是非を総理の判断へ返していた。しかし新しい海軍大臣・嶋田繁太郎は、海軍内部で対米英戦争もやむを得ないとの決意を示した。
 東條が海軍を一方的に押し切ったのではない。海軍の側からも、開戦を止める言葉が消え始めた。</div>
 </div></div>
@@ -4234,7 +4234,7 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>登場</b>東條英機</div>
 </div></div>
 <div class="draw"><h4>画面に描く文字</h4>
-<div class="nb"><span class="who">ナレーション（画像には描かない）</span>翌31日。東條の前に置かれたのは、鉄の配分だった。
+<div class="nb"><span class="who">字幕帯（画面下部・絵の中には描かない）</span>翌31日。東條の前に置かれたのは、鉄の配分だった。
 海軍は、艦艇を造るために、より多くの鉄を求めた。だが鉄は、陸軍にも、工場や鉄道などの民間にも必要だった。
 海軍の取り分を増やせば、陸軍か民間の取り分を減らさなければならない。
 海軍は艦艇建造に必要だと譲らず、陸軍も自分たちの装備と作戦に必要な鉄を手放したくない。民間を削れば、工場や鉄道、国民生活にしわ寄せが及ぶ。
@@ -4302,7 +4302,7 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>登場</b>東條英機</div>
 </div></div>
 <div class="draw"><h4>画面に描く文字</h4>
-<div class="nb"><span class="who">ナレーション（画像には描かない）</span>東條は、民間と陸軍に回る分をそれぞれ削り、海軍へ融通することで対立をまとめた。
+<div class="nb"><span class="who">字幕帯（画面下部・絵の中には描かない）</span>東條は、民間と陸軍に回る分をそれぞれ削り、海軍へ融通することで対立をまとめた。
 陸軍と海軍の争いは解けた。だが、まとまったのは、戦争を止める方法ではない。
 戦争を始められるようにするための配分だった。</div>
 </div></div>
@@ -4367,7 +4367,7 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>登場</b>東條英機</div>
 </div></div>
 <div class="draw"><h4>画面に描く文字</h4>
-<div class="nb"><span class="who">ナレーション（画像には描かない）</span>11月1日から2日。東條は、政府と陸海軍の責任者を集めて国策を検討した。
+<div class="nb"><span class="who">字幕帯（画面下部・絵の中には描かない）</span>11月1日から2日。東條は、政府と陸海軍の責任者を集めて国策を検討した。
 結論は2本立てだった。アメリカとの外交を続ける。その一方で、交渉が失敗した場合に備え、開戦準備を進める。</div>
 </div></div>
 <div class="koma" data-img="0" id="kE06">
@@ -4433,7 +4433,7 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>登場</b>東條英機</div>
 </div></div>
 <div class="draw"><h4>画面に描く文字</h4>
-<div class="nb"><span class="who">ナレーション（画像には描かない）</span>外交が成功すれば、戦争は止められる。だから、準備をしながら交渉を続けてもよい。
+<div class="nb"><span class="who">字幕帯（画面下部・絵の中には描かない）</span>外交が成功すれば、戦争は止められる。だから、準備をしながら交渉を続けてもよい。
 そう考えれば、東條の前には3つの道が残ったように見える。
 中国から撤兵して妥協する。交渉と準備を続ける。交渉を諦めて開戦する。
 しかし、鉄を移し、部隊を動かし、期限を決めるたび、引き返すための負担は大きくなっていった。</div>
@@ -4508,7 +4508,7 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>登場</b>東條英機・昭和天皇・原嘉道（参照画像なし）</div>
 </div></div>
 <div class="draw"><h4>画面に描く文字</h4>
-<div class="nb"><span class="who">ナレーション（画像には描かない）</span>11月5日。方針は御前会議へ持ち込まれた。
+<div class="nb"><span class="who">字幕帯（画面下部・絵の中には描かない）</span>11月5日。方針は御前会議へ持ち込まれた。
 御前会議とは、天皇の前で、政府と軍が決めた国策を確認する会議である。
 ここで枢密院議長の原嘉道が、東條の見通しを問いただした。</div>
 <div class="bl"><span class="who">原嘉道</span>日本が開戦の決意を示せば、アメリカは本当に条件を譲るのですか。</div>
@@ -4648,7 +4648,7 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 </div></div>
 <div class="draw"><h4>画面に描く文字</h4>
 <div class="bl"><span class="who">東條英機（音声の一部を描く）</span>百万の大兵　十数万の戦死者　四年間の忍苦　数百億の国費</div>
-<div class="nb"><span class="who">ナレーション（画像には描かない）</span>これだけの犠牲を払いながら、成果を捨てて撤兵することはできない。東條はそう続けた。</div>
+<div class="nb"><span class="who">字幕帯（画面下部・絵の中には描かない）</span>これだけの犠牲を払いながら、成果を捨てて撤兵することはできない。東條はそう続けた。</div>
 </div></div>
 <div class="koma" data-img="0" id="kE09">
 <div class="left">
@@ -4720,7 +4720,7 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 </div></div>
 <div class="draw"><h4>画面に描く文字</h4>
 <div class="bl"><span class="who">原嘉道（音声の一部を描く）</span>米が日本の決意をみて折れれば結構だが　絶望と思う</div>
-<div class="nb"><span class="who">ナレーション（画像には描かない）</span>日本は中国への駐兵を譲らない。アメリカは日本軍の撤退を求める。
+<div class="nb"><span class="who">字幕帯（画面下部・絵の中には描かない）</span>日本は中国への駐兵を譲らない。アメリカは日本軍の撤退を求める。
 交渉の中心で、双方の条件が正面からぶつかっていた。</div>
 </div></div>
 <div class="koma" data-img="0" id="kE10">
@@ -4785,7 +4785,7 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>登場</b>東條英機</div>
 </div></div>
 <div class="draw"><h4>画面に描く文字</h4>
-<div class="nb"><span class="who">ナレーション（画像には描かない）</span>東條が撤兵できない理由として挙げたのは、これから起こる被害の見通しではなかった。
+<div class="nb"><span class="who">字幕帯（画面下部・絵の中には描かない）</span>東條が撤兵できない理由として挙げたのは、これから起こる被害の見通しではなかった。
 すでに投入した兵力、戦死者、年月、国費だった。
 白紙に戻ったはずの選択肢から、妥協の道が再び暗くなった。</div>
 </div></div>
@@ -4851,7 +4851,7 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>登場</b>東條英機</div>
 </div></div>
 <div class="draw"><h4>画面に描く文字</h4>
-<div class="nb"><span class="who">ナレーション（画像には描かない）</span>交渉を続けた日本に、アメリカから新たな提案が届いた。後に、ハル・ノートと呼ばれる文書である。
+<div class="nb"><span class="who">字幕帯（画面下部・絵の中には描かない）</span>交渉を続けた日本に、アメリカから新たな提案が届いた。後に、ハル・ノートと呼ばれる文書である。
 そこには、日本軍の中国とフランス領インドシナからの撤退などが求められていた。
 日本側は、それまでの交渉から大きく後退した、最後通告に近い要求だと受け止めた。</div>
 </div></div>
@@ -4917,7 +4917,7 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>登場</b>東條英機</div>
 </div></div>
 <div class="draw"><h4>画面に描く文字</h4>
-<div class="nb"><span class="who">ナレーション（画像には描かない）</span>東條の前に、最初の問題がそのまま戻ってきた。
+<div class="nb"><span class="who">字幕帯（画面下部・絵の中には描かない）</span>東條の前に、最初の問題がそのまま戻ってきた。
 戦争を避けるには、東條が守ろうとしてきた中国への駐兵を譲らなければならない。
 外交を続けながら撤兵を避ける道は、ほとんど残っていなかった。</div>
 </div></div>
@@ -4986,7 +4986,7 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>登場</b>東條英機</div>
 </div></div>
 <div class="draw"><h4>画面に描く文字</h4>
-<div class="nb"><span class="who">ナレーション（画像には描かない）</span>翌11月27日。東條は、陸軍の大将たちを集めた会合で、国策と軍備の状況を説明した。</div>
+<div class="nb"><span class="who">字幕帯（画面下部・絵の中には描かない）</span>翌11月27日。東條は、陸軍の大将たちを集めた会合で、国策と軍備の状況を説明した。</div>
 <div class="bl"><span class="who">東條英機（音声の一部を描く）</span>人間　物資においても損耗の補充に差支なし</div>
 </div></div>
 <div class="koma" data-img="0" id="kE14">
@@ -5053,9 +5053,9 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>登場</b>東條英機・真崎甚三郎（参照画像なし）</div>
 </div></div>
 <div class="draw"><h4>画面に描く文字</h4>
-<div class="nb"><span class="who">ナレーション（画像には描かない）</span>しかし、同じ場で東條の説明を聞いた陸軍大将・真崎甚三郎は、その日の日記にこう残した。</div>
-<div class="nb"><span class="who">ナレーション（画像には描かない）</span>十分之を納得する能わざりし。説明も曖昧なり。</div>
-<div class="nb"><span class="who">ナレーション（画像には描かない）</span>そして、東京を守る防空戦力について記した横に、短くこう書き添えている。心細し。</div>
+<div class="nb"><span class="who">字幕帯（画面下部・絵の中には描かない）</span>しかし、同じ場で東條の説明を聞いた陸軍大将・真崎甚三郎は、その日の日記にこう残した。</div>
+<div class="nb"><span class="who">字幕帯（画面下部・絵の中には描かない）</span>十分之を納得する能わざりし。説明も曖昧なり。</div>
+<div class="nb"><span class="who">字幕帯（画面下部・絵の中には描かない）</span>そして、東京を守る防空戦力について記した横に、短くこう書き添えている。心細し。</div>
 </div></div>
 <div class="koma" data-img="0" id="kE15">
 <div class="left">
@@ -5118,7 +5118,7 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>登場</b>東條英機</div>
 </div></div>
 <div class="draw"><h4>画面に描く文字</h4>
-<div class="nb"><span class="who">ナレーション（画像には描かない）</span>東條が選んだ「外交と準備の並行」は、第3の解決策ではなかった。
+<div class="nb"><span class="who">字幕帯（画面下部・絵の中には描かない）</span>東條が選んだ「外交と準備の並行」は、第3の解決策ではなかった。
 外交が成功しなければ終わる、期限付きの待合室だったのである。</div>
 </div></div>
 <div class="koma" data-img="0" id="kE16">
@@ -5184,7 +5184,7 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>登場</b>東條英機</div>
 </div></div>
 <div class="draw"><h4>画面に描く文字</h4>
-<div class="nb"><span class="who">ナレーション（画像には描かない）</span>撤兵して妥協する道は、東條自身が閉じた。
+<div class="nb"><span class="who">字幕帯（画面下部・絵の中には描かない）</span>撤兵して妥協する道は、東條自身が閉じた。
 交渉を続ける時間も、尽きようとしていた。
 白紙に戻った3つの選択肢は、再検討するほど減っていった。
 残るのは、開戦するか。それとも、ここまで進めた準備を止めるか。</div>
@@ -5271,7 +5271,7 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>登場</b>東條英機</div>
 </div></div>
 <div class="draw"><h4>画面に描く文字</h4>
-<div class="nb"><span class="who">ナレーション（画像には描かない）</span>11月末。外交は行き詰まり、部隊は開戦に向けて動き始めていた。
+<div class="nb"><span class="who">字幕帯（画面下部・絵の中には描かない）</span>11月末。外交は行き詰まり、部隊は開戦に向けて動き始めていた。
 白紙から始まった再検討は、戦争をするかどうかの議論から、いつ始めるかの確認へ変わりつつあった。</div>
 </div></div>
 <div class="koma" data-img="0" id="kF02">
@@ -5336,7 +5336,7 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>登場</b>東條英機</div>
 </div></div>
 <div class="draw"><h4>画面に描く文字</h4>
-<div class="nb"><span class="who">ナレーション（画像には描かない）</span>東條の前には、戦争の危険を示す材料も残っていた。
+<div class="nb"><span class="who">字幕帯（画面下部・絵の中には描かない）</span>東條の前には、戦争の危険を示す材料も残っていた。
 海上輸送の大きな損失予測。長期戦を支える資源への不安。説明を聞いた大将が、心細いと記した防空戦力。
 そして、アメリカとの交渉はまとまっていない。</div>
 </div></div>
@@ -5402,7 +5402,7 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>登場</b>東條英機</div>
 </div></div>
 <div class="draw"><h4>画面に描く文字</h4>
-<div class="nb"><span class="who">ナレーション（画像には描かない）</span>しかし、危険が分かることと、準備を止められることは同じではなかった。
+<div class="nb"><span class="who">字幕帯（画面下部・絵の中には描かない）</span>しかし、危険が分かることと、準備を止められることは同じではなかった。
 止めるには、政府が対米妥協を選び、東條が陸軍をまとめて撤兵を受け入れ、これまでの犠牲を国民へ説明しなければならない。
 東條が10月から守り続けたものを、自ら手放す決断が必要だった。</div>
 </div></div>
@@ -5468,7 +5468,7 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>登場</b>東條英機・昭和天皇</div>
 </div></div>
 <div class="draw"><h4>画面に描く文字</h4>
-<div class="nb"><span class="who">ナレーション（画像には描かない）</span>12月1日。開戦方針は、再び御前会議へ上げられた。
+<div class="nb"><span class="who">字幕帯（画面下部・絵の中には描かない）</span>12月1日。開戦方針は、再び御前会議へ上げられた。
 ここで一から議論したのではない。東條が率いる政府と、陸軍、海軍が、合同会議で固めた結論を、天皇の前で正式に決定する場だった。</div>
 </div></div>
 <div class="koma" data-img="0" id="kF05">
@@ -5533,7 +5533,7 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>登場</b>東條英機</div>
 </div></div>
 <div class="draw"><h4>画面に描く文字</h4>
-<div class="nb"><span class="who">ナレーション（画像には描かない）</span>この決定は、東條1人の命令ではない。
+<div class="nb"><span class="who">字幕帯（画面下部・絵の中には描かない）</span>この決定は、東條1人の命令ではない。
 政府、陸軍、海軍が会議を重ね、合意した結論だった。
 だが、その内閣を率い、決定をまとめた首相としての責任まで消えるわけではない。</div>
 </div></div>
@@ -5598,7 +5598,7 @@ D章の白紙へ「開戦決定」の印。陸軍大将の男の顔は横から�
 <div><b>登場</b>東條英機</div>
 </div></div>
 <div class="draw"><h4>画面に描く文字</h4>
-<div class="nb"><span class="who">ナレーション（画像には描かない）</span>会議は、アメリカ、イギリス、オランダとの開戦を決定した。
+<div class="nb"><span class="who">字幕帯（画面下部・絵の中には描かない）</span>会議は、アメリカ、イギリス、オランダとの開戦を決定した。
 10月17日、東條へ渡された白紙。その再検討が出した結論は、和平ではなく開戦だった。</div>
 </div></div>
 <div class="koma" data-img="0" id="kF07">
@@ -5663,7 +5663,7 @@ D章の白紙へ「開戦決定」の印。陸軍大将の男の顔は横から�
 <div><b>登場</b>東條英機</div>
 </div></div>
 <div class="draw"><h4>画面に描く文字</h4>
-<div class="nb"><span class="who">ナレーション（画像には描かない）</span>東條は、戦えると確信できたから撤兵を退けたのではない。
+<div class="nb"><span class="who">字幕帯（画面下部・絵の中には描かない）</span>東條は、戦えると確信できたから撤兵を退けたのではない。
 戦争の危険を知った後も、陸軍が引く決断を選ばなかった。
 3つの選択肢のうち、「撤兵」と「交渉を続ける時間」が消えた。</div>
 </div></div>
@@ -5728,7 +5728,7 @@ D章の白紙へ「開戦決定」の印。陸軍大将の男の顔は横から�
 <div><b>登場</b>東條英機</div>
 </div></div>
 <div class="draw"><h4>画面に描く文字</h4>
-<div class="nb"><span class="who">ナレーション（画像には描かない）</span>翌12月2日。開戦日は12月8日と定められた。
+<div class="nb"><span class="who">字幕帯（画面下部・絵の中には描かない）</span>翌12月2日。開戦日は12月8日と定められた。
 日付が決まると、準備してきた組織が一斉に動き出す。封じられた命令が運ばれ、艦隊と部隊は決められた位置へ進んだ。</div>
 </div></div>
 <div class="koma" data-img="0" id="kF09">
@@ -5793,7 +5793,7 @@ D章の白紙へ「開戦決定」の印。陸軍大将の男の顔は横から�
 <div><b>登場</b>東條英機</div>
 </div></div>
 <div class="draw"><h4>画面に描く文字</h4>
-<div class="nb"><span class="who">ナレーション（画像には描かない）</span>陸軍を抑えられると期待された東條からも、陸軍を撤兵させる決定は出なかった。
+<div class="nb"><span class="who">字幕帯（画面下部・絵の中には描かない）</span>陸軍を抑えられると期待された東條からも、陸軍を撤兵させる決定は出なかった。
 政府からも海軍からも、開戦を止める決定は出なかった。
 誰か1人が始めた戦争ではない。だからこそ、最後に止める1人も現れなかった。</div>
 </div></div>
@@ -5863,7 +5863,7 @@ D章の白紙へ「開戦決定」の印。陸軍大将の男の顔は横から�
 </div></div>
 <div class="draw"><h4>画面に描く文字</h4>
 <div class="tl"><span class="who">テロップ</span>12月8日　未明</div>
-<div class="nb"><span class="who">ナレーション（画像には描かない）</span>白紙の上に残った道は、開戦だけになった。
+<div class="nb"><span class="who">字幕帯（画面下部・絵の中には描かない）</span>白紙の上に残った道は、開戦だけになった。
 そして12月8日、未明。開戦まで、あとわずか。
 その決定をまとめた東條を乗せ、公用車がまだ暗い東京を走っていた。</div>
 </div></div>
@@ -5944,7 +5944,7 @@ D章の白紙へ「開戦決定」の印。陸軍大将の男の顔は横から�
 <div><b>登場</b>東條英機・柄澤好三郎（参照画像なし）</div>
 </div></div>
 <div class="draw"><h4>画面に描く文字</h4>
-<div class="nb"><span class="who">ナレーション（画像には描かない）</span>ハンドルを握っていたのは、運転手の柄澤好三郎だった。
+<div class="nb"><span class="who">字幕帯（画面下部・絵の中には描かない）</span>ハンドルを握っていたのは、運転手の柄澤好三郎だった。
 柄澤は、バックミラー越しに、後部座席の東條の顔を見た。</div>
 </div></div>
 <div class="koma" data-img="0" id="kG02">
@@ -6015,7 +6015,7 @@ G01と同じ画像からバックミラーへゆっくり寄る。鏡の中だ�
 </div></div>
 <div class="draw"><h4>画面に描く文字</h4>
 <div class="bl"><span class="who">柄澤好三郎</span>緊張の極、というんでしょうか。ひきつったような顔をしていました。</div>
-<div class="nb"><span class="who">ナレーション（画像には描かない）</span>本人が何を考えていたのかは分からない。ただ、開戦直前の表情だけが、運転手の記憶に残った。</div>
+<div class="nb"><span class="who">字幕帯（画面下部・絵の中には描かない）</span>本人が何を考えていたのかは分からない。ただ、開戦直前の表情だけが、運転手の記憶に残った。</div>
 </div></div>
 <div class="koma" data-img="0" id="kG03">
 <div class="left">
@@ -6077,7 +6077,7 @@ G01と同じ画像からバックミラーへゆっくり寄る。鏡の中だ�
 <div><b>登場</b>東條英機</div>
 </div></div>
 <div class="draw"><h4>画面に描く文字</h4>
-<div class="nb"><span class="who">ナレーション（画像には描かない）</span>やがて、真珠湾攻撃が予定どおり進んだという報告が届いた。</div>
+<div class="nb"><span class="who">字幕帯（画面下部・絵の中には描かない）</span>やがて、真珠湾攻撃が予定どおり進んだという報告が届いた。</div>
 </div></div>
 <div class="koma" data-img="0" id="kG04">
 <div class="left">
@@ -6147,9 +6147,9 @@ G01と同じ画像からバックミラーへゆっくり寄る。鏡の中だ�
 <div><b>登場</b>東條英機・柄澤好三郎（参照画像なし）</div>
 </div></div>
 <div class="draw"><h4>画面に描く文字</h4>
-<div class="nb"><span class="who">ナレーション（画像には描かない）</span>その後、同じ運転手が見た東條は、先ほどとは違っていた。</div>
+<div class="nb"><span class="who">字幕帯（画面下部・絵の中には描かない）</span>その後、同じ運転手が見た東條は、先ほどとは違っていた。</div>
 <div class="bl"><span class="who">柄澤好三郎</span>本当にほがらかな、うれしそうな顔をしていました。</div>
-<div class="nb"><span class="who">ナレーション（画像には描かない）</span>表情の理由は、証言に残っていない。不安からの解放だったのか、最初の戦果への喜びだったのかは分からない。</div>
+<div class="nb"><span class="who">字幕帯（画面下部・絵の中には描かない）</span>表情の理由は、証言に残っていない。不安からの解放だったのか、最初の戦果への喜びだったのかは分からない。</div>
 </div></div>
 <div class="koma" data-img="0" id="kG05">
 <div class="left">
@@ -6213,7 +6213,7 @@ D章の陸軍大将の男と白紙、F章の開戦印を左右に並べる
 <div><b>登場</b>東條英機</div>
 </div></div>
 <div class="draw"><h4>画面に描く文字</h4>
-<div class="nb"><span class="who">ナレーション（画像には描かない）</span>なぜ、開戦強硬派の東條に、戦争を止める仕事が任されたのか。
+<div class="nb"><span class="who">字幕帯（画面下部・絵の中には描かない）</span>なぜ、開戦強硬派の東條に、戦争を止める仕事が任されたのか。
 強硬派の東條なら、陸軍を抑え、国策を白紙から調べ直せると期待されたからである。
 しかし、期待された東條から、陸軍を撤兵させる決定は出なかった。</div>
 </div></div>
@@ -6279,7 +6279,7 @@ D章の陸軍大将の男と白紙、F章の開戦印を左右に並べる
 <div><b>登場</b>東條英機</div>
 </div></div>
 <div class="draw"><h4>画面に描く文字</h4>
-<div class="nb"><span class="who">ナレーション（画像には描かない）</span>開戦は東條1人だけで決めたものではない。政府、陸軍、海軍が、それぞれ止める決定を出さないまま合意した結果だった。
+<div class="nb"><span class="who">字幕帯（画面下部・絵の中には描かない）</span>開戦は東條1人だけで決めたものではない。政府、陸軍、海軍が、それぞれ止める決定を出さないまま合意した結果だった。
 内閣を倒した男は、国の退路を開く役を与えられ、最後には自らその退路を塞ぐ決定をまとめた。
 白紙から始まった3つの道は、こうして1本になった。</div>
 </div></div>
@@ -6344,7 +6344,7 @@ D章の陸軍大将の男と白紙、F章の開戦印を左右に並べる
 <div><b>登場</b>東條英機</div>
 </div></div>
 <div class="draw"><h4>画面に描く文字</h4>
-<div class="nb"><span class="who">ナレーション（画像には描かない）</span>だが、東條はすでに、物量と輸送の不安を知っていた。
+<div class="nb"><span class="who">字幕帯（画面下部・絵の中には描かない）</span>だが、東條はすでに、物量と輸送の不安を知っていた。
 その東條は、始まった戦争を、どう続けようとしたのか。</div>
 </div></div>
 <div class="check"><h3>G章の理解検査</h3><ul>
