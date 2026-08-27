@@ -109,6 +109,20 @@ margin:18px 0 0;font-size:13px}
 .check li::before{content:"✓ ";color:var(--ok);font-weight:800}
 .check li.open::before{content:"□ ";color:var(--warn)}
 .check ul{margin:0;padding:0}
+.flow{margin:26px 0 0}
+.flow h3{font-size:15px;margin:0 0 12px;padding-bottom:6px;border-bottom:1px solid var(--line)}
+.fcard{display:grid;grid-template-columns:52px minmax(0,1fr);gap:0 14px;background:var(--paper);
+border:1px solid var(--line);border-radius:8px;padding:12px 16px;margin:8px 0;box-shadow:var(--shadow)}
+.fcard .ltr{font-size:28px;font-weight:800;color:var(--acc);line-height:1;padding-top:2px}
+.fcard .ltr small{display:block;font-size:10px;color:var(--muted);font-weight:400;margin-top:5px;
+line-height:1.4}
+.fcard .ttl{font-weight:700;font-size:15px;margin-bottom:7px}
+.fcard .ttl a{color:inherit;text-decoration:none;border-bottom:1px dotted var(--muted)}
+.fcard dl{display:grid;grid-template-columns:82px minmax(0,1fr);gap:3px 10px;margin:0;font-size:13px}
+.fcard dt{color:var(--muted);font-size:11px;font-weight:700;padding-top:3px}
+.fcard dd{margin:0}
+.fcard .board{grid-column:1/-1;margin-top:7px;padding-top:7px;border-top:1px dashed var(--line);
+font-size:12px;color:var(--acc);font-weight:700}
 .guide{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:16px 20px;
 margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 .guide h3{margin:0 0 8px;font-size:15px}
@@ -125,14 +139,15 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <p class="lede">軸 — 陸軍の退路を守って内閣を倒した男が、国家の退路を開く役を与えられ、最後には自分でその退路を塞ぐ話。</p>
 <p class="lede">問い — なぜ開戦強硬派の東條英機に、戦争を止める仕事が任されたのか。</p>
 <div class="stats">
-<div class="stat"><b>88</b>コマ</div>
-<div class="stat"><b>15:09</b>想定尺</div>
-<div class="stat"><b>0 / 88</b>コマ画像</div>
+<div class="stat"><b>90</b>コマ</div>
+<div class="stat"><b>15:58</b>想定尺</div>
+<div class="stat"><b>0 / 90</b>コマ画像</div>
 <div class="stat"><b>0</b>1枚で描けない指示</div>
 <div class="stat"><b>A–D</b>確認済み</div>
 <div class="stat"><b>E–G</b>確認中</div>
 </div></header>
 <nav class="bar">
+<a href="#flow">全体の流れ</a>
 <a href="#cA">A. 内閣を倒す男</a>
 <a href="#cB">B. 誰も『戦えない』と言わない</a>
 <a href="#cC">C. 退路の値段</a>
@@ -145,9 +160,81 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <button data-filter="todo">画像未生成のみ</button>
 </nav>
 <div class="guide"><h3>この画面の使い方</h3><p>左がコマ枠です。画像が確定していれば絵が入り、未生成なら「絵の指示」と画像プロンプト草案が入ります。右がそのコマのナレーションとセリフです。</p><p>入力は <code>02_scenario_v2.md</code> と <code>03_koma_v2_*.md</code> だけです。<code>koma_data.py</code> は読み書きしません（統合は全章承認後）。修正はマークダウンを直してから、このページを再生成してください。</p><p>右端の列が、実際に画面へ出る文字です。3種類あります。</p><div class="legend"><span><b>吹き出し</b> — 人物のセリフ。画像の中に描く</span><span><b>ナレーション</b> — 音声のみ。画像には描かず、動画側で字幕帯にする</span><span><b>テロップ</b> — 日付・場所などの短い文字。画像の中に描く</span></div><p style="margin-top:10px">数字の表記は分けます。<b>絵の中の文字（吹き出し・書類・帳簿・日記・命令書・看板・札）は漢数字</b>——1941年の日本は縦書き・漢数字なので、算用数字だと時代考証が壊れます。<b>テロップ・図解ボード・地図のラベル・ナレーション字幕は算用数字</b>——視聴者が一目で読めるようにするためです。</p></div>
+<div class="flow" id="flow"><h3>全体の流れ</h3>
+<div class="fcard"><div class="ltr">A<small>18コマ<br>2:25</small></div><div>
+<div class="ttl"><a href="#cA">内閣を倒す男</a></div>
+<dl>
+<dt>現在地</dt><dd>1941年10月16日、近衛内閣が総辞職。日中戦争は4年以上続き、米国に石油を止められている</dd>
+<dt>障害</dt><dd>米国は中国からの撤兵を要求。陸軍は拒否。重大な国策は首相1人では決められない</dd>
+<dt>判断</dt><dd>駐兵問題は一歩も譲れない。撤兵問題は心臓だ</dd>
+<dt>結果</dt><dd>交渉をまとめる案も、開戦を決める統一見解もないまま内閣が倒れる。2日後、東條が総理になる</dd>
+<dt>次の問い</dt><dd>内閣を壊した男が、なぜ次の首相に選ばれたのか</dd>
+<div class="board">選択肢ボード — 3本とも点滅（どれも選べない）</div>
+</dl></div></div>
+<div class="fcard"><div class="ltr">B<small>16コマ<br>3:16</small></div><div>
+<div class="ttl"><a href="#cB">誰も『戦えない』と言わない</a></div>
+<dl>
+<dt>現在地</dt><dd>総辞職の10日前。海軍が対米戦の損害を「140万トン撃沈、自信なし」と報告する</dd>
+<dt>障害</dt><dd>海軍は戦争不能と明言せず判断を総理へ返す。近衛は戦争に自信がないと漏らす</dd>
+<dt>判断</dt><dd>陸海軍が割れたら亡国。駐兵は譲れない。ただし納得できる確信があるなら戦争準備は止める</dd>
+<dt>結果</dt><dd>全員が危険を見ていたが、自分の組織から「やめる」と言い出す者はいなかった</dd>
+<dt>次の問い</dt><dd>なぜ東條は、撤兵を最後まで決断できなかったのか</dd>
+<div class="board">選択肢ボード — 撤兵に最初の亀裂が入る</div>
+</dl></div></div>
+<div class="fcard"><div class="ltr">C<small>10コマ<br>1:37</small></div><div>
+<div class="ttl"><a href="#cC">退路の値段</a></div>
+<dl>
+<dt>現在地</dt><dd>撤兵という言葉の意味を問い直す</dd>
+<dt>障害</dt><dd>4年以上の戦争が積み上げた戦死者、遺族、国費。撤兵はそれを成果なしで終わらせる</dd>
+<dt>判断</dt><dd>すでに生命を捧げた兵士に対して、撤兵は絶対に認められない</dd>
+<dt>結果</dt><dd>過去の犠牲も未来の犠牲も引き受けられず、内閣ごと御破算にする道を選ぶ</dd>
+<dt>次の問い</dt><dd>退場するはずだった東條に、宮中は何を求めたのか</dd>
+<div class="board">選択肢ボード — 撤兵が暗くなる</div>
+</dl></div></div>
+<div class="fcard"><div class="ltr">D<small>11コマ<br>1:56</small></div><div>
+<div class="ttl"><a href="#cD">白紙に戻せ</a></div>
+<dl>
+<dt>現在地</dt><dd>10月17日。内閣を倒した当人が宮中へ呼ばれる。叱責を覚悟していた</dd>
+<dt>障害</dt><dd>陸軍を抑えて国策を練り直せる人物が、ほかにいない。皇族内閣は皇室へ責任が及ぶため退けられた</dd>
+<dt>判断</dt><dd>白紙再検討と組閣を引き受ける。内相も兼ね、対米妥協で暴動が起きれば自ら弾圧すると述べる</dd>
+<dt>結果</dt><dd>内閣を倒した責任が、国策をやり直す権限へ変わる（偽りの勝利）</dd>
+<dt>次の問い</dt><dd>白紙からの再検討は、日本をどの道へ導くのか</dd>
+<div class="board">選択肢ボード — 3本すべてが明るくなる</div>
+</dl></div></div>
+<div class="fcard"><div class="ltr">E<small>18コマ<br>3:44</small></div><div>
+<div class="ttl"><a href="#cE">再検討するほど準備が進む</a></div>
+<dl>
+<dt>現在地</dt><dd>外交だけでなく、鉄、船、兵力、食糧まで調べ直す。まだ和平の道も口にしていた</dd>
+<dt>障害</dt><dd>新海相も開戦容認へ。限られた鉄を陸海軍と民間が奪い合う。11月26日に米側の最終提案が届く</dd>
+<dt>判断</dt><dd>外交と開戦準備を並行させる。撤兵は、すでに払った犠牲を理由に退ける</dd>
+<dt>結果</dt><dd>調べ直すほど準備が具体化し、引き返すための負担が上がっていく</dd>
+<dt>次の問い</dt><dd>誰が、この準備を止めるのか</dd>
+<div class="board">選択肢ボード — 撤兵が暗転し、並行は残り時間がゼロ寸前になる</div>
+</dl></div></div>
+<div class="fcard"><div class="ltr">F<small>10コマ<br>2:00</small></div><div>
+<div class="ttl"><a href="#cF">誰が止めるのか</a></div>
+<dl>
+<dt>現在地</dt><dd>11月末。外交は行き詰まり、部隊は開戦へ向けて動き始めている</dd>
+<dt>障害</dt><dd>止めるには、東條が陸軍をまとめて撤兵を受け入れ、これまでの犠牲を国民へ説明しなければならない</dd>
+<dt>判断</dt><dd>危険を示す材料を確認したうえで、陸軍が引く決定を出さない</dd>
+<dt>結果</dt><dd>12月1日に開戦を決定し、12月2日に開戦日を12月8日と定める</dd>
+<dt>次の問い</dt><dd>その決定をまとめた男は、開戦の朝をどう迎えたのか</dd>
+<div class="board">選択肢ボード — 開戦だけが残る</div>
+</dl></div></div>
+<div class="fcard"><div class="ltr">G<small>7コマ<br>1:00</small></div><div>
+<div class="ttl"><a href="#cG">12月8日の顔</a></div>
+<dl>
+<dt>現在地</dt><dd>12月8日未明。開戦直前の公用車。運転手の柄澤好三郎が鏡越しに東條を見る</dd>
+<dt>障害</dt><dd>本人は何も語っていない。分かるのは、証言に残る表情だけ</dd>
+<dt>判断</dt><dd>本編で下した判断の結果を受け取る側に回る</dd>
+<dt>結果</dt><dd>攻撃前は緊張の極、戦果報告のあとは朗らかな顔。中心問いへ答えて完結する</dd>
+<dt>次の問い</dt><dd>物量の不足を知っていた東條は、始まった戦争をどう続けようとしたのか（第2話）</dd>
+<div class="board">選択肢ボード — 3本が1本になる</div>
+</dl></div></div>
+</div>
 <section class="chap" id="cA">
-<h2 class="chap"><span class="ltr">A</span>内閣を倒す男<span class="badge done">確認済み</span><small>18 コマ・2:23</small></h2>
-<p class="chapnote">18コマ／約2分29秒。各コマの音声は1〜3行とし、同じ画像上で情報を増やす場合も</p>
+<h2 class="chap"><span class="ltr">A</span>内閣を倒す男<span class="badge done">確認済み</span><small>18 コマ・2:25</small></h2>
+<p class="chapnote">18コマ／約2分31秒。各コマの音声は1〜3行とし、同じ画像上で情報を増やす場合も</p>
 <div class="koma" data-img="0" id="kA01">
 <div class="left">
 <div class="frame empty"><span class="kid">A01</span><span class="nostate">画像 未生成</span><div class="artdir">黒背景から、1941年10月16日の官邸。新聞号外の「総辞職」だけ赤</div></div>
@@ -1042,12 +1129,12 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 </div></details>
 </div>
 <div class="right">
-<div class="rhead"><span class="t">東條の拒絶</span><span class="sec">A14 ／ 約9秒</span></div>
+<div class="rhead"><span class="t">東條の拒絶</span><span class="sec">A14 ／ 約11秒</span></div>
 <div class="line"><div class="sp">東條英機<span class="em">〔強く〕</span></div><div class="tx">駐兵問題は、陸軍としては一歩も譲れない。</div></div>
 <div class="line nar"><div class="sp">ナレーション</div><div class="tx">東條は、4年以上の戦争と犠牲を、成果なく終わらせることはできないと訴えた。</div></div>
 <div class="meta">
-<div><b>音声の要点</b>「駐兵問題は一歩も譲れない」</div>
-<div><b>役割・事実根拠</b>ch3 10/12の記録。逐語は短くする</div>
+<div><b>音声の要点</b>「駐兵問題は一歩も譲れない」「支那事変の終末を駐兵に求める」</div>
+<div><b>役割・事実根拠</b>ch3 10/12の逐語。吹き出しは前半だけ描く</div>
 <div><b>登場</b>東條英機・近衛文麿</div>
 </div></div>
 <div class="draw"><h4>画面に描く文字</h4>
@@ -2446,8 +2533,8 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 </ul></div>
 </section>
 <section class="chap" id="cC">
-<h2 class="chap"><span class="ltr">C</span>退路の値段<span class="badge done">確認済み</span><small>10 コマ・1:32</small></h2>
-<p class="chapnote">10コマ／約1分45秒。撤兵を「過去の犠牲」と「未来の犠牲」の板挟みとして可視化し、</p>
+<h2 class="chap"><span class="ltr">C</span>退路の値段<span class="badge done">確認済み</span><small>10 コマ・1:37</small></h2>
+<p class="chapnote">10コマ／約1分42秒。撤兵を「過去の犠牲」と「未来の犠牲」の板挟みとして可視化し、</p>
 <div class="koma" data-img="0" id="kC01">
 <div class="left">
 <div class="frame empty"><span class="kid">C01</span><span class="nostate">画像 未生成</span><div class="artdir">中国大陸から日本へ戻る兵士を、輪郭だけの単純な1本の矢印で示した図</div></div>
@@ -2578,7 +2665,7 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 </div></div>
 <div class="koma" data-img="0" id="kC03">
 <div class="left">
-<div class="frame empty"><span class="kid">C03</span><span class="nostate">画像 未生成</span><div class="artdir">積み上がった犠牲の前で演説する東條、沈黙する閣僚</div></div>
+<div class="frame empty"><span class="kid">C03</span><span class="nostate">画像 未生成</span><div class="artdir">皇族の前に立つ東條。奥に一段高い位置の皇族を後ろ姿で小さく置き、東條の背後へ戦死公報の束を積む</div></div>
 <details class="pr"><summary>画像プロンプト草案</summary><div class="pb">
 <p class="pnote">草案 —— koma_data.py 統合後に lib_koma.build_prompt() が確定版を作る。このまま画像生成へ渡さない。</p>
 <button class="copy" data-target="p_C03">プロンプトをコピー</button>
@@ -2611,10 +2698,13 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 【登場人物の定義（変更禁止・省略禁止）】
 ※ 人物の氏名は指定しない。下の外見定義だけに従って描くこと。
 - 主人公の陸軍大将（57歳前後）: 頭を短く刈り上げてほぼ剃り上げた坊主頭。丸い黒縁の眼鏡。鼻の下に短く整えた黒い口髭。四角い顎、引き締まった小柄な体格（身長は周囲より低め）。昭和期の日本陸軍のカーキ色の軍服（詰襟・立襟）、襟に階級章、胸に略綬（勲章のリボン）、腰に革のベルトと軍刀。姿勢は常にまっすぐで硬い。表情は生真面目で険しく、笑うときも目が笑わない。私邸の場面では和服（濃紺の着物）または白いシャツ姿。
-- 閣僚たち（モブ・複数人）: 40〜60代の男性。国民服または濃色の三つ揃いの背広。短く整えた髪、丸眼鏡の者が混じる。個々の表情は目立たせず、一様に押し黙って視線を落としている集団として描く。彩度を落とす。
 
 【シーン（コマC03）】
-積み上がった犠牲の前で演説する陸軍大将の男、沈黙する閣僚たち
+皇族の前に立つ陸軍大将の男。奥に一段高い位置の皇族を後ろ姿で小さく置き、陸軍大将の男の背後へ戦死公報の束を積む
+
+【画面に描くセリフ】
+- 陸軍大将の男〈吹き出し〉:「支那大陸にて生命を捧げし尊き犠牲に対し　絶対に認むる事ができない」
+※ 話者の呼び名は誰のセリフかを示す制作上の記号であり、画面には描かない。
 
 【文字ルール】
 文字の扱い: セリフは太めのゴシック体風の日本語で吹き出しに描く。心の声・独白はしっぽのない角丸のモノローグ枠にする。
@@ -2629,17 +2719,17 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 </div></details>
 </div>
 <div class="right">
-<div class="rhead"><span class="t">何のためだったのか</span><span class="sec">C03 ／ 約8秒</span></div>
-<div class="line nar"><div class="sp">ナレーション</div><div class="tx">東條は閣議で、それらを1つずつ挙げた。
-撤兵すれば、これまでの犠牲と戦果を、自分たちで失うことになると訴えた。</div></div>
+<div class="rhead"><span class="t">皇族への言葉</span><span class="sec">C03 ／ 約13秒</span></div>
+<div class="line nar"><div class="sp">ナレーション</div><div class="tx">この年の9月7日。東條は、皇族の東久邇宮に対して、中国からの全面撤兵を認められない理由をこう述べている。</div></div>
+<div class="line"><div class="sp">東條英機<span class="em">〔きっぱりと〕</span></div><div class="tx">陸軍大臣として、また日本陸軍として、支那大陸にて生命を捧げし尊き犠牲に対し、絶対に認むる事ができない。</div></div>
 <div class="meta">
-<div><b>音声の要点</b>撤兵すれば犠牲と戦果を失うとの主張</div>
-<div><b>役割・事実根拠</b>ch3 10/14。著者表現を写さず要約</div>
-<div><b>登場</b>東條英機・閣僚たち</div>
+<div><b>音声の要点</b>「支那大陸にて生命を捧げし尊き犠牲に対し、絶対に認むる事ができない」</div>
+<div><b>役割・事実根拠</b>ch3 1941/9/7 東久邇宮日記の逐語。皇族の顔は大きく描かない</div>
+<div><b>登場</b>東條英機</div>
 </div></div>
 <div class="draw"><h4>画面に描く文字</h4>
-<div class="nb"><span class="who">ナレーション（画像には描かない）</span>東條は閣議で、それらを1つずつ挙げた。
-撤兵すれば、これまでの犠牲と戦果を、自分たちで失うことになると訴えた。</div>
+<div class="nb"><span class="who">ナレーション（画像には描かない）</span>この年の9月7日。東條は、皇族の東久邇宮に対して、中国からの全面撤兵を認められない理由をこう述べている。</div>
+<div class="bl"><span class="who">東條英機（音声の一部を描く）</span>支那大陸にて生命を捧げし尊き犠牲に対し　絶対に認むる事ができない</div>
 </div></div>
 <div class="koma" data-img="0" id="kC04">
 <div class="left">
@@ -2693,17 +2783,19 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 </div></details>
 </div>
 <div class="right">
-<div class="rhead"><span class="t">陸軍が恐れたもの</span><span class="sec">C04 ／ 約10秒</span></div>
-<div class="line nar"><div class="sp">ナレーション</div><div class="tx">陸軍は、中国北部などへの駐兵を、満洲国と日本の権益を守るために必要だと考えていた。
-東條は、撤兵を基礎にすれば、陸軍そのものがまとまらなくなるとも語った。</div></div>
+<div class="rhead"><span class="t">誰に対しての拒否か</span><span class="sec">C04 ／ 約10秒</span></div>
+<div class="line nar"><div class="sp">ナレーション</div><div class="tx">撤兵を拒む理由として東條が挙げたのは、戦況でも、勝算でもなかった。
+すでに死んだ兵士に対して、それは認められない。そういう理屈だった。
+10月14日の閣議でも、東條は同じ犠牲を1つずつ挙げて、撤兵を拒んでいる。</div></div>
 <div class="meta">
 <div><b>音声の要点</b>駐兵は満洲・権益の防衛、撤兵で陸軍がまとまらない</div>
 <div><b>役割・事実根拠</b>ch3 10/12東條発言</div>
 <div><b>登場</b>東條英機</div>
 </div></div>
 <div class="draw"><h4>画面に描く文字</h4>
-<div class="nb"><span class="who">ナレーション（画像には描かない）</span>陸軍は、中国北部などへの駐兵を、満洲国と日本の権益を守るために必要だと考えていた。
-東條は、撤兵を基礎にすれば、陸軍そのものがまとまらなくなるとも語った。</div>
+<div class="nb"><span class="who">ナレーション（画像には描かない）</span>撤兵を拒む理由として東條が挙げたのは、戦況でも、勝算でもなかった。
+すでに死んだ兵士に対して、それは認められない。そういう理屈だった。
+10月14日の閣議でも、東條は同じ犠牲を1つずつ挙げて、撤兵を拒んでいる。</div>
 </div></div>
 <div class="koma" data-img="0" id="kC05">
 <div class="left">
@@ -3115,8 +3207,8 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 </ul></div>
 </section>
 <section class="chap" id="cD">
-<h2 class="chap"><span class="ltr">D</span>白紙に戻せ<span class="badge done">確認済み</span><small>11 コマ・1:48</small></h2>
-<p class="chapnote">11コマ／約2分。A章から続いた「なぜ東條だったのか」へ答え、3つの選択肢を</p>
+<h2 class="chap"><span class="ltr">D</span>白紙に戻せ<span class="badge done">確認済み</span><small>11 コマ・1:56</small></h2>
+<p class="chapnote">11コマ／約2分15秒。A章から続いた「なぜ東條だったのか」へ答え、3つの選択肢を</p>
 <div class="koma" data-img="0" id="kD01">
 <div class="left">
 <div class="frame empty"><span class="kid">D01</span><span class="nostate">画像 未生成</span><div class="artdir">総辞職翌朝、軍服の東條が1人で宮中へ向かう</div></div>
@@ -3354,7 +3446,7 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 宮中の一室。宮中の側近が文書を読み上げ、その正面で陸軍大将の男が引きの構図のまま止まる。縦書きの文書の冒頭に「九月六日」の文字が見え、その下に封を切った組閣命令書が重ねてある。テロップ「大元帥服の君主の意向を受けて」
 
 【画面に描くセリフ】
-- 宮中の側近〈吹き出し〉:「九月六日の決定を白紙に戻し、慎重に検討されたい」
+- 宮中の側近〈吹き出し〉:「九月六日の御前会議の決定を白紙に戻して再検討」
 ※ 話者の呼び名は誰のセリフかを示す制作上の記号であり、画面には描かない。
 
 【テロップ】
@@ -3373,8 +3465,9 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 </div></details>
 </div>
 <div class="right">
-<div class="rhead"><span class="t">白紙に戻せ</span><span class="sec">D04 ／ 約13秒</span></div>
-<div class="line"><div class="sp">木戸幸一<span class="em">〔天皇の意向を受け、静かに〕</span></div><div class="tx">9月6日の決定を白紙に戻し、もう一度、慎重に検討されたい。</div></div>
+<div class="rhead"><span class="t">白紙に戻せ</span><span class="sec">D04 ／ 約16秒</span></div>
+<div class="line"><div class="sp">木戸幸一<span class="em">〔天皇の意向を受け、静かに〕</span></div><div class="tx">九月六日の御前会議の決定を白紙に戻して再検討し、慎重なる考究を加うることを要する。</div></div>
+<div class="line nar"><div class="sp">ナレーション</div><div class="tx">9月6日に決めた国策を、いったん取り消して考え直せ。天皇の意向は、そういうものだった。</div></div>
 <div class="line nar"><div class="sp">ナレーション</div><div class="tx">記録には、その言葉を受けた東條が茫然となったとある。
 そして東條へ、次の内閣を組織するよう命令が下された。</div></div>
 <div class="meta">
@@ -3384,13 +3477,14 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 </div></div>
 <div class="draw"><h4>画面に描く文字</h4>
 <div class="tl"><span class="who">テロップ</span>天皇の意向を受けて</div>
-<div class="bl"><span class="who">木戸幸一（音声の一部を描く）</span>九月六日の決定を白紙に戻し、慎重に検討されたい</div>
+<div class="bl"><span class="who">木戸幸一（音声の一部を描く）</span>九月六日の御前会議の決定を白紙に戻して再検討</div>
+<div class="nb"><span class="who">ナレーション（画像には描かない）</span>9月6日に決めた国策を、いったん取り消して考え直せ。天皇の意向は、そういうものだった。</div>
 <div class="nb"><span class="who">ナレーション（画像には描かない）</span>記録には、その言葉を受けた東條が茫然となったとある。
 そして東條へ、次の内閣を組織するよう命令が下された。</div>
 </div></div>
 <div class="koma" data-img="0" id="kD05">
 <div class="left">
-<div class="frame empty"><span class="kid">D05</span><span class="nostate">画像 未生成</span><div class="artdir">茫然とする東條を手前に残し、奥に首相候補書類。皇族案は札1枚で消える</div></div>
+<div class="frame empty"><span class="kid">D05</span><span class="nostate">画像 未生成</span><div class="artdir">茫然とする東條を手前に残し、奥の机に首相候補の書類。皇族の名を書いた札の上へ、開いた日記が伏せて置かれる</div></div>
 <details class="pr"><summary>画像プロンプト草案</summary><div class="pb">
 <p class="pnote">草案 —— koma_data.py 統合後に lib_koma.build_prompt() が確定版を作る。このまま画像生成へ渡さない。</p>
 <button class="copy" data-target="p_D05">プロンプトをコピー</button>
@@ -3423,9 +3517,10 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 【登場人物の定義（変更禁止・省略禁止）】
 ※ 人物の氏名は指定しない。下の外見定義だけに従って描くこと。
 - 主人公の陸軍大将（57歳前後）: 頭を短く刈り上げてほぼ剃り上げた坊主頭。丸い黒縁の眼鏡。鼻の下に短く整えた黒い口髭。四角い顎、引き締まった小柄な体格（身長は周囲より低め）。昭和期の日本陸軍のカーキ色の軍服（詰襟・立襟）、襟に階級章、胸に略綬（勲章のリボン）、腰に革のベルトと軍刀。姿勢は常にまっすぐで硬い。表情は生真面目で険しく、笑うときも目が笑わない。私邸の場面では和服（濃紺の着物）または白いシャツ姿。
+- 宮中の側近（50歳前後）: 中背。七三に分けた黒髪、丸眼鏡、口髭はない。隙のない濃色の三つ揃いの背広。手帳と万年筆を常に持つ。表情は読ませない、静かな官僚の顔。
 
 【シーン（コマD05）】
-茫然とする陸軍大将の男を手前に残し、奥に首相候補書類。皇族案は札1枚で消える
+茫然とする陸軍大将の男を手前に残し、奥の机に首相候補の書類。皇族の名を書いた札の上へ、開いた日記が伏せて置かれる
 
 【文字ルール】
 文字の扱い: セリフは太めのゴシック体風の日本語で吹き出しに描く。心の声・独白はしっぽのない角丸のモノローグ枠にする。
@@ -3440,19 +3535,21 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 </div></details>
 </div>
 <div class="right">
-<div class="rhead"><span class="t">なぜ東條が選ばれたのか</span><span class="sec">D05 ／ 約10秒</span></div>
+<div class="rhead"><span class="t">なぜ東條が選ばれたのか</span><span class="sec">D05 ／ 約15秒</span></div>
 <div class="line nar"><div class="sp">ナレーション</div><div class="tx">なぜ、内閣を倒す原因となった東條が、次の首相に選ばれたのか。
-宮中では、皇族を首相にする案も出ていた。
-しかし、戦争の責任が皇室へ及ぶ危険から、その案は退けられた。</div></div>
+宮中では、皇族を首相にする案も出ていた。しかし木戸は、その案に反対して日記にこう記している。</div></div>
+<div class="line nar"><div class="sp">ナレーション<span class="em">〔日記の文面を読む〕</span></div><div class="tx">万一皇族内閣にて日米戦に突入するが如き場合には、皇室は国民の怨府となるの虞れあり。</div></div>
+<div class="line nar"><div class="sp">ナレーション</div><div class="tx">戦争になれば、その責任が皇室へ向かう。木戸はそれを避けた。</div></div>
 <div class="meta">
-<div><b>音声の要点</b>なぜ東條が選ばれたのかを問い、皇族案が退けられた経緯を示す</div>
-<div><b>役割・事実根拠</b>驚きの後に理由を説明し、ネタバレを避ける</div>
-<div><b>登場</b>東條英機</div>
+<div><b>音声の要点</b>皇族内閣なら皇室が国民の怨府となる、という木戸の日記</div>
+<div><b>役割・事実根拠</b>ch3 木戸幸一日記 1941/10/16 の逐語。ナレーターが日記の文面として読む</div>
+<div><b>登場</b>東條英機・木戸幸一</div>
 </div></div>
 <div class="draw"><h4>画面に描く文字</h4>
 <div class="nb"><span class="who">ナレーション（画像には描かない）</span>なぜ、内閣を倒す原因となった東條が、次の首相に選ばれたのか。
-宮中では、皇族を首相にする案も出ていた。
-しかし、戦争の責任が皇室へ及ぶ危険から、その案は退けられた。</div>
+宮中では、皇族を首相にする案も出ていた。しかし木戸は、その案に反対して日記にこう記している。</div>
+<div class="nb"><span class="who">ナレーション（画像には描かない）</span>万一皇族内閣にて日米戦に突入するが如き場合には、皇室は国民の怨府となるの虞れあり。</div>
+<div class="nb"><span class="who">ナレーション（画像には描かない）</span>戦争になれば、その責任が皇室へ向かう。木戸はそれを避けた。</div>
 </div></div>
 <div class="koma" data-img="0" id="kD06">
 <div class="left">
@@ -3687,6 +3784,10 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 【シーン（コマD09）】
 陸軍大将の男から内相の札へ線が伸び、その先に警察組織を置く。反対側に暴動の予兆を小さく描き、2つを陸軍大将の男の手元で束ねる図
 
+【画面に描くセリフ】
+- 陸軍大将の男〈吹き出し〉:「断乎　涙をふるってこれを弾圧する必要あり」
+※ 話者の呼び名は誰のセリフかを示す制作上の記号であり、画面には描かない。
+
 【文字ルール】
 文字の扱い: セリフは太めのゴシック体風の日本語で吹き出しに描く。心の声・独白はしっぽのない角丸のモノローグ枠にする。
 セリフやモノローグの文頭に番号（①②③…）や記号を付けない。指定した文章だけをそのまま描く。
@@ -3701,16 +3802,19 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 </div>
 <div class="right">
 <div class="rhead"><span class="t">なぜ内務大臣まで</span><span class="sec">D09 ／ 約11秒</span></div>
-<div class="line nar"><div class="sp">ナレーション</div><div class="tx">内務大臣は警察を動かせる。東條は、対米妥協で暴動が起きれば自ら鎮圧するためだと説明した。
-これは東條本人の説明である。また、この兼任には、政治と軍事を自分のもとで一致させる意味もあったと考えられる。</div></div>
+<div class="line nar"><div class="sp">ナレーション</div><div class="tx">内務大臣は、警察を動かせる。東條は、兼任の理由を本人の記録にこう残している。</div></div>
+<div class="line"><div class="sp">東條英機<span class="em">〔低く、事務的に〕</span></div><div class="tx">このまま戦争をせず、米国の申出に屈した場合には、二・二六事件以上の暴動も起るやも知れず。
+その際には、断乎、涙をふるってこれを弾圧する必要あり。</div></div>
+<div class="line nar"><div class="sp">ナレーション</div><div class="tx">対米妥協を選べば国内が荒れる。荒れたら自分で抑える。東條は、その両方を引き受けようとした。</div></div>
 <div class="meta">
 <div><b>音声の要点</b>東條本人の兼任理由と意味</div>
 <div><b>役割・事実根拠</b>説明の主語を東條に保つ</div>
 <div><b>登場</b>東條英機</div>
 </div></div>
 <div class="draw"><h4>画面に描く文字</h4>
-<div class="nb"><span class="who">ナレーション（画像には描かない）</span>内務大臣は警察を動かせる。東條は、対米妥協で暴動が起きれば自ら鎮圧するためだと説明した。
-これは東條本人の説明である。また、この兼任には、政治と軍事を自分のもとで一致させる意味もあったと考えられる。</div>
+<div class="nb"><span class="who">ナレーション（画像には描かない）</span>内務大臣は、警察を動かせる。東條は、兼任の理由を本人の記録にこう残している。</div>
+<div class="bl"><span class="who">東條英機（音声の一部を描く）</span>断乎　涙をふるってこれを弾圧する必要あり</div>
+<div class="nb"><span class="who">ナレーション（画像には描かない）</span>対米妥協を選べば国内が荒れる。荒れたら自分で抑える。東條は、その両方を引き受けようとした。</div>
 </div></div>
 <div class="koma" data-img="0" id="kD10">
 <div class="left">
@@ -3860,8 +3964,8 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 </ul></div>
 </section>
 <section class="chap" id="cE">
-<h2 class="chap"><span class="ltr">E</span>再検討するほど準備が進む<span class="badge review">確認中</span><small>16 コマ・3:10</small></h2>
-<p class="chapnote">16コマ／約3分10秒。東條が白紙再検討を進めるほど、戦争準備が具体化し、</p>
+<h2 class="chap"><span class="ltr">E</span>再検討するほど準備が進む<span class="badge review">確認中</span><small>18 コマ・3:44</small></h2>
+<p class="chapnote">18コマ／約3分40秒。東條が白紙再検討を進めるほど、戦争準備が具体化し、</p>
 <div class="koma" data-img="0" id="kE01">
 <div class="left">
 <div class="frame empty"><span class="kid">E01</span><span class="nostate">画像 未生成</span><div class="artdir">白紙を前にした東條。その周囲へ外交文書、鉄、船、兵力、食糧の札が置かれる</div></div>
@@ -3927,6 +4031,75 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div class="nb"><span class="who">ナレーション（画像には描かない）</span>10月17日に渡された白紙。つまり、国策を振り出しへ戻して、東條が調べ直すのは外交だけではなかった。
 戦う場合に必要な鉄、船、兵力、食糧まで、すべてを比べなければならない。
 戦争を止めるか考えるために、戦争の準備も具体的に調べる。そこに、この再検討の矛盾があった。</div>
+</div></div>
+<div class="koma" data-img="0" id="kE01b">
+<div class="left">
+<div class="frame empty"><span class="kid">E01b</span><span class="nostate">画像 未生成</span><div class="artdir">陸軍省の会議室。東條が机の中央へ「外交」の書類を置き、その手前に「開戦準備」の束を伏せて重ねる</div></div>
+<details class="pr"><summary>画像プロンプト草案</summary><div class="pb">
+<p class="pnote">草案 —— koma_data.py 統合後に lib_koma.build_prompt() が確定版を作る。このまま画像生成へ渡さない。</p>
+<button class="copy" data-target="p_E01b">プロンプトをコピー</button>
+<pre class="pt" id="p_E01b">【出力】1920×1080・16:9横型・PNG・1枚。
+
+【スタイル】
+昭和期の日本を舞台にした歴史劇画の1コマとして描く（1枚絵の風景画ではなく、主役を大きく見せるコマ演出）。16:9横型（1920×1080）。
+太めの黒い主線、フラット〜1段影までのアニメ塗り。写実的な写真調・3Dレンダー・厚塗り・ソフトシェーディング・強い光沢は使わない。
+人物は等身大のリアルな頭身で描く（デフォルメ・二頭身・カートゥーン調にしない）。表情は劇画らしく強く。
+添付した参照画像と同一の人物・同一の作画スタイルで描くこと。
+画風の見本として添付した過去のコマ画像は、線・塗り・色使いの参考にのみ使う。その画像の場所・背景・家具・構図は一切引き継がず、背景は本プロンプトの【シーン】の指定だけに従う。
+
+【背景スタイル】
+背景は昭和戦前〜戦中期（1930〜40年代）の日本を、彩度を落とした時代色（くすんだ茶・灰・カーキ・藍・生成り）で描く。
+塗りは人物と同じフラット〜1段影のハードシャドウまで（にじみ・グラデーション・紙テクスチャは使わない）。
+年代考証を優先する: 木造の官庁建築、畳と障子、裸電球、黒電話、木製の大机と回転椅子、軍装、軍刀、和装と国民服。
+現代的な物（液晶画面・プラスチック製品・現代の自動車・現代の服装）は絶対に描かない。実在の企業ロゴ・現代のブランドは描かない。
+
+【構図ルール】
+構図ルール（全コマ共通）:
+- 漫画のコマとして、このコマの主役を手前に大きく配置する（目安: 画面の高さの1/2以上）。背景と脇役は小さく描く。
+- 人物と家具の接地関係を物理的に正しく描く。椅子に座る・床に立つ・畳に正座する。机や台の上に立たせたり座らせたりしない。
+- 部屋の机や椅子は向きとパースを1つに統一する。家具は「向き」ではなく基準物との位置関係で捉える（机の正面が窓のある壁に正対する等）。
+- 椅子の背もたれは、座っている人物の背中の真後ろに描く（横や肘の位置に描かない）。
+- 複数人が並ぶときは身長比を参照シートどおりに保つ。
+- 軍服の階級章・勲章・徽章は人物定義の指定どおりに描く（勝手に増やさない・減らさない）。
+- 実在の企業ロゴ・ブランドロゴは描かない。
+- 流血・遺体の直接描写はしない。戦闘や死は、暗示と結果（燃える街・空の焼け跡・沈黙する人物）で見せる。
+
+【登場人物の定義（変更禁止・省略禁止）】
+※ 人物の氏名は指定しない。下の外見定義だけに従って描くこと。
+- 主人公の陸軍大将（57歳前後）: 頭を短く刈り上げてほぼ剃り上げた坊主頭。丸い黒縁の眼鏡。鼻の下に短く整えた黒い口髭。四角い顎、引き締まった小柄な体格（身長は周囲より低め）。昭和期の日本陸軍のカーキ色の軍服（詰襟・立襟）、襟に階級章、胸に略綬（勲章のリボン）、腰に革のベルトと軍刀。姿勢は常にまっすぐで硬い。表情は生真面目で険しく、笑うときも目が笑わない。私邸の場面では和服（濃紺の着物）または白いシャツ姿。
+
+【シーン（コマE01b）】
+陸軍省の会議室。陸軍大将の男が机の中央へ「外交」の書類を置き、その手前に「開戦準備」の束を伏せて重ねる
+
+【画面に描くセリフ】
+- 陸軍大将の男〈吹き出し〉:「戦わずして目的を達することができれば　それに越したことはない」
+※ 話者の呼び名は誰のセリフかを示す制作上の記号であり、画面には描かない。
+
+【文字ルール】
+文字の扱い: セリフは太めのゴシック体風の日本語で吹き出しに描く。心の声・独白はしっぽのない角丸のモノローグ枠にする。
+セリフやモノローグの文頭に番号（①②③…）や記号を付けない。指定した文章だけをそのまま描く。
+吹き出しのしっぽは必ずその話者に向ける。話者から遠い位置に置く場合も、しっぽの方向で話者が分かるようにする。
+同一コマ内のセリフは、【画面に描くセリフ】に書いた順番どおりに、上から下へ読める配置にする（順番を入れ替えない）。
+テロップ指定がある場合は指定位置に太いテロップ文字で描く。
+指定した文字以外の文字要素（貼り紙・看板・新聞の見出し・黒板の書き込み・書類の文面など）を勝手に追加しない。
+文字が多少崩れても再生成しない（軽微なものは編集で修正する）。
+ナレーションは画像へ描かない（動画側で字幕帯として載せる）。画面に描く文字は、上の【画面に描くセリフ】と【テロップ】に挙げたものだけとする。
+数字の表記: 画面の中の書類・新聞・帳簿・日記・命令書・看板・札に書く文字は、当時の日本の表記に合わせて縦書き・漢数字で描く（算用数字を書かない）。吹き出しのセリフも漢数字で描く。一方、上の【テロップ】に挙げた文字だけは、視聴者が読みやすいよう算用数字のまま描く。</pre>
+</div></details>
+</div>
+<div class="right">
+<div class="rhead"><span class="t">まだ道はあると言っていた</span><span class="sec">E01b ／ 約13秒</span></div>
+<div class="line nar"><div class="sp">ナレーション</div><div class="tx">10月22日。東條は陸軍省内の会合で、まだ戦争以外の道があると述べている。</div></div>
+<div class="line"><div class="sp">東條英機<span class="em">〔諭すように〕</span></div><div class="tx">場合によっては、戦争以外の調整方途なきに非ず。
+外交々渉によって戦わずして目的を達することができれば、それに越したことはない。</div></div>
+<div class="meta">
+<div><b>音声の要点</b>「戦わずして目的を達することができれば、それに越したことはない」</div>
+<div><b>役割・事実根拠</b>ch3 1941/10/22 局長会報の逐語。白紙再検討がまだ和平を含んでいたことを示す</div>
+<div><b>登場</b>東條英機</div>
+</div></div>
+<div class="draw"><h4>画面に描く文字</h4>
+<div class="nb"><span class="who">ナレーション（画像には描かない）</span>10月22日。東條は陸軍省内の会合で、まだ戦争以外の道があると述べている。</div>
+<div class="bl"><span class="who">東條英機（音声の一部を描く）</span>戦わずして目的を達することができれば　それに越したことはない</div>
 </div></div>
 <div class="koma" data-img="0" id="kE02">
 <div class="left">
@@ -4342,7 +4515,7 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 </div></div>
 <div class="koma" data-img="0" id="kE08">
 <div class="left">
-<div class="frame empty"><span class="kid">E08</span><span class="nostate">画像 未生成</span><div class="artdir">東條が原へ答え、兵力、戦死者、遺族、年月、国費の札を1枚ずつ置く</div></div>
+<div class="frame empty"><span class="kid">E08</span><span class="nostate">画像 未生成</span><div class="artdir">原へ向き直る東條。机上の交渉文書に縦書きで「撤兵」とあり、その裏側に「駐兵」と書いた札が隠されている図</div></div>
 <details class="pr"><summary>画像プロンプト草案</summary><div class="pb">
 <p class="pnote">草案 —— koma_data.py 統合後に lib_koma.build_prompt() が確定版を作る。このまま画像生成へ渡さない。</p>
 <button class="copy" data-target="p_E08">プロンプトをコピー</button>
@@ -4377,10 +4550,11 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 - 主人公の陸軍大将（57歳前後）: 頭を短く刈り上げてほぼ剃り上げた坊主頭。丸い黒縁の眼鏡。鼻の下に短く整えた黒い口髭。四角い顎、引き締まった小柄な体格（身長は周囲より低め）。昭和期の日本陸軍のカーキ色の軍服（詰襟・立襟）、襟に階級章、胸に略綬（勲章のリボン）、腰に革のベルトと軍刀。姿勢は常にまっすぐで硬い。表情は生真面目で険しく、笑うときも目が笑わない。私邸の場面では和服（濃紺の着物）または白いシャツ姿。
 
 【シーン（コマE08）】
-陸軍大将の男が原へ答え、兵力、戦死者、遺族、年月、国費の札を1枚ずつ置く
+原へ向き直る陸軍大将の男。机上の交渉文書に縦書きで「撤兵」とあり、その裏側に「駐兵」と書いた札が隠されている図
 
 【画面に描くセリフ】
-- 陸軍大将の男〈吹き出し〉:「日本の決意を知れば、撤兵問題で譲るはずです」
+- 陸軍大将の男〈吹き出し〉:「日本の決意を知れば　撤兵問題で譲るはずです」
+- 陸軍大将の男〈吹き出し〉:「撤兵を日本に約束させ　陰で駐兵を話し合うという態度」
 ※ 話者の呼び名は誰のセリフかを示す制作上の記号であり、画面には描かない。
 
 【文字ルール】
@@ -4396,23 +4570,89 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 </div></details>
 </div>
 <div class="right">
-<div class="rhead"><span class="t">東條が並べた犠牲</span><span class="sec">E08 ／ 約15秒</span></div>
+<div class="rhead"><span class="t">東條が並べた犠牲</span><span class="sec">E08 ／ 約16秒</span></div>
 <div class="line"><div class="sp">東條英機<span class="em">〔答弁の要旨を現代語で〕</span></div><div class="tx">アメリカは、日本が経済的に降伏すると考えている。だが、日本の決意を知れば、撤兵問題で譲るはずです。</div></div>
-<div class="line nar"><div class="sp">ナレーション</div><div class="tx">そのうえで東條は、100万人規模の兵力、10数万人の戦死者と遺族、4年の戦争、数百億円の国費を挙げた。
-そして、これだけの犠牲を払いながら、成果を捨てて撤兵することはできないという趣旨を述べた。</div></div>
+<div class="line"><div class="sp">東條英機<span class="em">〔記録に残る発言〕</span></div><div class="tx">彼のいうのは、撤兵を日本に約束させ、陰で駐兵を話し合うという態度のようにみえる。</div></div>
 <div class="meta">
-<div><b>音声の要点</b>米国が日本の決意を知れば折れるとの見通しと、撤兵できない理由</div>
-<div><b>役割・事実根拠</b>ch4の答弁を現代語要旨と明示。犠牲の数字はナレーションで補う</div>
+<div><b>音声の要点</b>米国は撤兵を約束させ、陰で駐兵を話し合う態度に見える</div>
+<div><b>役割・事実根拠</b>ch4 11/5御前会議の逐語。米側の意図をどう読んでいたかを見せる</div>
 <div><b>登場</b>東條英機</div>
 </div></div>
 <div class="draw"><h4>画面に描く文字</h4>
-<div class="bl"><span class="who">東條英機（音声の一部を描く）</span>日本の決意を知れば、撤兵問題で譲るはずです</div>
-<div class="nb"><span class="who">ナレーション（画像には描かない）</span>そのうえで東條は、100万人規模の兵力、10数万人の戦死者と遺族、4年の戦争、数百億円の国費を挙げた。
-そして、これだけの犠牲を払いながら、成果を捨てて撤兵することはできないという趣旨を述べた。</div>
+<div class="bl"><span class="who">東條英機（音声の一部を描く）</span>日本の決意を知れば　撤兵問題で譲るはずです</div>
+<div class="bl"><span class="who">東條英機（音声の一部を描く）</span>撤兵を日本に約束させ　陰で駐兵を話し合うという態度</div>
+</div></div>
+<div class="koma" data-img="0" id="kE08b">
+<div class="left">
+<div class="frame empty"><span class="kid">E08b</span><span class="nostate">画像 未生成</span><div class="artdir">東條の前へ、兵力・戦死者・遺族・年月・国費の札が縦書きで1枚ずつ積まれ、その高さが東條の背丈を超える</div></div>
+<details class="pr"><summary>画像プロンプト草案</summary><div class="pb">
+<p class="pnote">草案 —— koma_data.py 統合後に lib_koma.build_prompt() が確定版を作る。このまま画像生成へ渡さない。</p>
+<button class="copy" data-target="p_E08b">プロンプトをコピー</button>
+<pre class="pt" id="p_E08b">【出力】1920×1080・16:9横型・PNG・1枚。
+
+【スタイル】
+昭和期の日本を舞台にした歴史劇画の1コマとして描く（1枚絵の風景画ではなく、主役を大きく見せるコマ演出）。16:9横型（1920×1080）。
+太めの黒い主線、フラット〜1段影までのアニメ塗り。写実的な写真調・3Dレンダー・厚塗り・ソフトシェーディング・強い光沢は使わない。
+人物は等身大のリアルな頭身で描く（デフォルメ・二頭身・カートゥーン調にしない）。表情は劇画らしく強く。
+添付した参照画像と同一の人物・同一の作画スタイルで描くこと。
+画風の見本として添付した過去のコマ画像は、線・塗り・色使いの参考にのみ使う。その画像の場所・背景・家具・構図は一切引き継がず、背景は本プロンプトの【シーン】の指定だけに従う。
+
+【背景スタイル】
+背景は昭和戦前〜戦中期（1930〜40年代）の日本を、彩度を落とした時代色（くすんだ茶・灰・カーキ・藍・生成り）で描く。
+塗りは人物と同じフラット〜1段影のハードシャドウまで（にじみ・グラデーション・紙テクスチャは使わない）。
+年代考証を優先する: 木造の官庁建築、畳と障子、裸電球、黒電話、木製の大机と回転椅子、軍装、軍刀、和装と国民服。
+現代的な物（液晶画面・プラスチック製品・現代の自動車・現代の服装）は絶対に描かない。実在の企業ロゴ・現代のブランドは描かない。
+
+【構図ルール】
+構図ルール（全コマ共通）:
+- 漫画のコマとして、このコマの主役を手前に大きく配置する（目安: 画面の高さの1/2以上）。背景と脇役は小さく描く。
+- 人物と家具の接地関係を物理的に正しく描く。椅子に座る・床に立つ・畳に正座する。机や台の上に立たせたり座らせたりしない。
+- 部屋の机や椅子は向きとパースを1つに統一する。家具は「向き」ではなく基準物との位置関係で捉える（机の正面が窓のある壁に正対する等）。
+- 椅子の背もたれは、座っている人物の背中の真後ろに描く（横や肘の位置に描かない）。
+- 複数人が並ぶときは身長比を参照シートどおりに保つ。
+- 軍服の階級章・勲章・徽章は人物定義の指定どおりに描く（勝手に増やさない・減らさない）。
+- 実在の企業ロゴ・ブランドロゴは描かない。
+- 流血・遺体の直接描写はしない。戦闘や死は、暗示と結果（燃える街・空の焼け跡・沈黙する人物）で見せる。
+
+【登場人物の定義（変更禁止・省略禁止）】
+※ 人物の氏名は指定しない。下の外見定義だけに従って描くこと。
+- 主人公の陸軍大将（57歳前後）: 頭を短く刈り上げてほぼ剃り上げた坊主頭。丸い黒縁の眼鏡。鼻の下に短く整えた黒い口髭。四角い顎、引き締まった小柄な体格（身長は周囲より低め）。昭和期の日本陸軍のカーキ色の軍服（詰襟・立襟）、襟に階級章、胸に略綬（勲章のリボン）、腰に革のベルトと軍刀。姿勢は常にまっすぐで硬い。表情は生真面目で険しく、笑うときも目が笑わない。私邸の場面では和服（濃紺の着物）または白いシャツ姿。
+
+【シーン（コマE08b）】
+陸軍大将の男の前へ、兵力・戦死者・遺族・年月・国費の札が縦書きで1枚ずつ積まれ、その高さが陸軍大将の男の背丈を超える
+
+【画面に描くセリフ】
+- 陸軍大将の男〈吹き出し〉:「百万の大兵　十数万の戦死者　四年間の忍苦　数百億の国費」
+※ 話者の呼び名は誰のセリフかを示す制作上の記号であり、画面には描かない。
+
+【文字ルール】
+文字の扱い: セリフは太めのゴシック体風の日本語で吹き出しに描く。心の声・独白はしっぽのない角丸のモノローグ枠にする。
+セリフやモノローグの文頭に番号（①②③…）や記号を付けない。指定した文章だけをそのまま描く。
+吹き出しのしっぽは必ずその話者に向ける。話者から遠い位置に置く場合も、しっぽの方向で話者が分かるようにする。
+同一コマ内のセリフは、【画面に描くセリフ】に書いた順番どおりに、上から下へ読める配置にする（順番を入れ替えない）。
+テロップ指定がある場合は指定位置に太いテロップ文字で描く。
+指定した文字以外の文字要素（貼り紙・看板・新聞の見出し・黒板の書き込み・書類の文面など）を勝手に追加しない。
+文字が多少崩れても再生成しない（軽微なものは編集で修正する）。
+ナレーションは画像へ描かない（動画側で字幕帯として載せる）。画面に描く文字は、上の【画面に描くセリフ】と【テロップ】に挙げたものだけとする。
+数字の表記: 画面の中の書類・新聞・帳簿・日記・命令書・看板・札に書く文字は、当時の日本の表記に合わせて縦書き・漢数字で描く（算用数字を書かない）。吹き出しのセリフも漢数字で描く。一方、上の【テロップ】に挙げた文字だけは、視聴者が読みやすいよう算用数字のまま描く。</pre>
+</div></details>
+</div>
+<div class="right">
+<div class="rhead"><span class="t">挙げられた犠牲</span><span class="sec">E08b ／ 約16秒</span></div>
+<div class="line"><div class="sp">東條英機<span class="em">〔一つずつ数えるように〕</span></div><div class="tx">百万の大兵を出し、十数万の戦死者、遺家族、負傷者、四年間の忍苦、数百億の国費を費した。</div></div>
+<div class="line nar"><div class="sp">ナレーション</div><div class="tx">これだけの犠牲を払いながら、成果を捨てて撤兵することはできない。東條はそう続けた。</div></div>
+<div class="meta">
+<div><b>音声の要点</b>「百万の大兵、十数万の戦死者、四年間の忍苦、数百億の国費」</div>
+<div><b>役割・事実根拠</b>ch4 の逐語。札の文字は漢数字（decisions 2-4）</div>
+<div><b>登場</b>東條英機</div>
+</div></div>
+<div class="draw"><h4>画面に描く文字</h4>
+<div class="bl"><span class="who">東條英機（音声の一部を描く）</span>百万の大兵　十数万の戦死者　四年間の忍苦　数百億の国費</div>
+<div class="nb"><span class="who">ナレーション（画像には描かない）</span>これだけの犠牲を払いながら、成果を捨てて撤兵することはできない。東條はそう続けた。</div>
 </div></div>
 <div class="koma" data-img="0" id="kE09">
 <div class="left">
-<div class="frame empty"><span class="kid">E09</span><span class="nostate">画像 未生成</span><div class="artdir">原の言葉を受ける東條。机上で「駐兵」と「撤退要求」が正面衝突</div></div>
+<div class="frame empty"><span class="kid">E09</span><span class="nostate">画像 未生成</span><div class="artdir">原の言葉を受ける東條。机上で「駐兵」と「撤兵要求」の書類が正面から重なり、どちらも動かない</div></div>
 <details class="pr"><summary>画像プロンプト草案</summary><div class="pb">
 <p class="pnote">草案 —— koma_data.py 統合後に lib_koma.build_prompt() が確定版を作る。このまま画像生成へ渡さない。</p>
 <button class="copy" data-target="p_E09">プロンプトをコピー</button>
@@ -4449,10 +4689,10 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 - 枢密院議長の老人: 外見は未確定。仮の呼び名のまま生成に使わない。
 
 【シーン（コマE09）】
-原の言葉を受ける陸軍大将の男。机上で「駐兵」と「撤退要求」が正面衝突
+原の言葉を受ける陸軍大将の男。机上で「駐兵」と「撤兵要求」の書類が正面から重なり、どちらも動かない
 
 【画面に描くセリフ】
-- 枢密院議長の老人〈吹き出し〉:「アメリカが日本の決意を見て折れるなら結構です。しかし、その望みはないと思います。」
+- 枢密院議長の老人〈吹き出し〉:「米が日本の決意をみて折れれば結構だが　絶望と思う」
 ※ 話者の呼び名は誰のセリフかを示す制作上の記号であり、画面には描かない。
 
 【文字ルール】
@@ -4468,17 +4708,18 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 </div></details>
 </div>
 <div class="right">
-<div class="rhead"><span class="t">薄い望み</span><span class="sec">E09 ／ 約14秒</span></div>
-<div class="line"><div class="sp">原嘉道<span class="em">〔記録に残る発言を現代語で〕</span></div><div class="tx">アメリカが日本の決意を見て折れるなら結構です。しかし、その望みはないと思います。</div></div>
+<div class="rhead"><span class="t">薄い望み</span><span class="sec">E09 ／ 約15秒</span></div>
+<div class="line"><div class="sp">原嘉道<span class="em">〔記録に残る発言〕</span></div><div class="tx">米が日本の決意をみて折れれば結構だが、絶望と思う。
+対米開戦の決意をするも、やむなきものと認める。</div></div>
 <div class="line nar"><div class="sp">ナレーション</div><div class="tx">日本は中国への駐兵を譲らない。アメリカは日本軍の撤退を求める。
 交渉の中心で、双方の条件が正面からぶつかっていた。</div></div>
 <div class="meta">
-<div><b>音声の要点</b>原は「米国が折れる望みはない」と返す</div>
-<div><b>役割・事実根拠</b>記録に残る発言を現代語化し、東條へ現実を返す</div>
+<div><b>音声の要点</b>「米が日本の決意をみて折れれば結構だが、絶望と思う」</div>
+<div><b>役割・事実根拠</b>ch4 の逐語。開戦やむなしという結論まで含めて示す</div>
 <div><b>登場</b>東條英機・原嘉道（参照画像なし）</div>
 </div></div>
 <div class="draw"><h4>画面に描く文字</h4>
-<div class="bl"><span class="who">原嘉道</span>アメリカが日本の決意を見て折れるなら結構です。しかし、その望みはないと思います。</div>
+<div class="bl"><span class="who">原嘉道（音声の一部を描く）</span>米が日本の決意をみて折れれば結構だが　絶望と思う</div>
 <div class="nb"><span class="who">ナレーション（画像には描かない）</span>日本は中国への駐兵を譲らない。アメリカは日本軍の撤退を求める。
 交渉の中心で、双方の条件が正面からぶつかっていた。</div>
 </div></div>
@@ -4682,7 +4923,7 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 </div></div>
 <div class="koma" data-img="0" id="kE13">
 <div class="left">
-<div class="frame empty"><span class="kid">E13</span><span class="nostate">画像 未生成</span><div class="artdir">11/27。大将会で説明する東條。「軍備ほぼ完成」の札</div></div>
+<div class="frame empty"><span class="kid">E13</span><span class="nostate">画像 未生成</span><div class="artdir">11/27。大将会で立って説明する東條。背後の掲示に縦書きで「軍備　ほぼ完成」</div></div>
 <details class="pr"><summary>画像プロンプト草案</summary><div class="pb">
 <p class="pnote">草案 —— koma_data.py 統合後に lib_koma.build_prompt() が確定版を作る。このまま画像生成へ渡さない。</p>
 <button class="copy" data-target="p_E13">プロンプトをコピー</button>
@@ -4717,7 +4958,11 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 - 主人公の陸軍大将（57歳前後）: 頭を短く刈り上げてほぼ剃り上げた坊主頭。丸い黒縁の眼鏡。鼻の下に短く整えた黒い口髭。四角い顎、引き締まった小柄な体格（身長は周囲より低め）。昭和期の日本陸軍のカーキ色の軍服（詰襟・立襟）、襟に階級章、胸に略綬（勲章のリボン）、腰に革のベルトと軍刀。姿勢は常にまっすぐで硬い。表情は生真面目で険しく、笑うときも目が笑わない。私邸の場面では和服（濃紺の着物）または白いシャツ姿。
 
 【シーン（コマE13）】
-11/27。大将会で説明する陸軍大将の男。「軍備ほぼ完成」の札
+11/27。大将会で立って説明する陸軍大将の男。背後の掲示に縦書きで「軍備　ほぼ完成」
+
+【画面に描くセリフ】
+- 陸軍大将の男〈吹き出し〉:「人間　物資においても損耗の補充に差支なし」
+※ 話者の呼び名は誰のセリフかを示す制作上の記号であり、画面には描かない。
 
 【文字ルール】
 文字の扱い: セリフは太めのゴシック体風の日本語で吹き出しに描く。心の声・独白はしっぽのない角丸のモノローグ枠にする。
@@ -4732,17 +4977,17 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 </div></details>
 </div>
 <div class="right">
-<div class="rhead"><span class="t">準備はできた</span><span class="sec">E13 ／ 約9秒</span></div>
-<div class="line nar"><div class="sp">ナレーション</div><div class="tx">翌11月27日。東條は、陸軍の大将たちを集めた会合で、国策と軍備の状況を説明した。
-軍備は、ほぼ完成したと説明された。</div></div>
+<div class="rhead"><span class="t">準備はできた</span><span class="sec">E13 ／ 約12秒</span></div>
+<div class="line nar"><div class="sp">ナレーション</div><div class="tx">翌11月27日。東條は、陸軍の大将たちを集めた会合で、国策と軍備の状況を説明した。</div></div>
+<div class="line"><div class="sp">東條英機<span class="em">〔言い切る〕</span></div><div class="tx">日本の軍備はほとんど完成し、人間、物資においても損耗の補充に差支なし。</div></div>
 <div class="meta">
-<div><b>音声の要点</b>東條が国策・軍備を説明</div>
-<div><b>役割・事実根拠</b>ch4。会合を独立エピソードにしない</div>
+<div><b>音声の要点</b>「人間、物資においても損耗の補充に差支なし」</div>
+<div><b>役割・事実根拠</b>ch4 の逐語。掲示の文字は漢数字（decisions 2-4）</div>
 <div><b>登場</b>東條英機</div>
 </div></div>
 <div class="draw"><h4>画面に描く文字</h4>
-<div class="nb"><span class="who">ナレーション（画像には描かない）</span>翌11月27日。東條は、陸軍の大将たちを集めた会合で、国策と軍備の状況を説明した。
-軍備は、ほぼ完成したと説明された。</div>
+<div class="nb"><span class="who">ナレーション（画像には描かない）</span>翌11月27日。東條は、陸軍の大将たちを集めた会合で、国策と軍備の状況を説明した。</div>
+<div class="bl"><span class="who">東條英機（音声の一部を描く）</span>人間　物資においても損耗の補充に差支なし</div>
 </div></div>
 <div class="koma" data-img="0" id="kE14">
 <div class="left">
@@ -4945,7 +5190,7 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 残るのは、開戦するか。それとも、ここまで進めた準備を止めるか。</div>
 </div></div>
 <div class="check"><h3>E章の理解検査</h3><ul>
-<li class="">全16コマの因果を、東條が情報を受け、調整し、説明し、選択肢を失う流れへ統一した</li>
+<li class="">全18コマの因果を、東條が情報を受け、調整し、説明し、選択肢を失う流れへ統一した</li>
 <li class="">嶋田・原・真崎の発言や判断を、東條の物語へ作用するものとして配置した</li>
 <li class="">合同会議・御前会議・大将会を初見視聴者が区別できるよう役割で説明した</li>
 <li class="">海軍も自ら開戦容認へ進んだことを示し、東條単独の開戦推進へ単純化していない</li>
@@ -4957,7 +5202,9 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <li class="">3つの選択肢ボードを更新し、現在地を視覚的に維持した</li>
 <li class="">東條の見通しは現代語要旨のセリフ、犠牲の列挙と撤兵拒否の意味はナレーションに分け、逐語引用と誤認させない</li>
 <li class="">原の質問、東條の答弁、原の結論を、現代語要旨であることを明示した対話としてつないだ</li>
-<li class="">コマ秒数を190秒へ調整した</li>
+<li class="">東條の発言を逐語へ戻し、要旨のままの箇所は〔要旨を現代語で〕と明示した</li>
+<li class="">10/22の「戦わずして目的を達する」を入れ、白紙再検討が和平を含んでいたことを示した</li>
+<li class="">話者を東條・原嘉道の2名に収め、真崎の日記はナレーターの引用読みにした</li>
 </ul></div>
 </section>
 <section class="chap" id="cF">
