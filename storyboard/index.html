@@ -13,7 +13,7 @@
 *{box-sizing:border-box}
 body{margin:0;background:var(--bg);color:var(--ink);line-height:1.75;
 font-family:"Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic",-apple-system,sans-serif}
-.wrap{max-width:1180px;margin:0 auto;padding:0 20px 96px}
+.wrap{max-width:1440px;margin:0 auto;padding:0 20px 96px}
 header.top{padding:38px 0 18px;border-bottom:2px solid var(--ink)}
 .eyebrow{font-size:12px;letter-spacing:.16em;color:var(--acc);font-weight:700}
 h1{font-size:30px;margin:6px 0 10px;letter-spacing:.01em}
@@ -37,11 +37,30 @@ h2.chap small{font-weight:400;font-size:13px;color:var(--muted)}
 .badge.done{background:var(--ok-soft);color:var(--ok);border-color:var(--ok)}
 .badge.review{background:var(--warn-soft);color:var(--warn);border-color:var(--warn)}
 .chapnote{font-size:13px;color:var(--muted);margin:6px 0 18px}
-.koma{display:grid;grid-template-columns:minmax(0,46%) minmax(0,1fr);gap:0;background:var(--paper);
+.koma{display:grid;grid-template-columns:minmax(0,34%) minmax(0,1fr) minmax(230px,25%);gap:0;background:var(--paper);
 border:1px solid var(--line);border-radius:10px;margin:14px 0;overflow:hidden;box-shadow:var(--shadow);
 scroll-margin-top:64px}
 .left{padding:14px;border-right:1px solid var(--line);background:var(--frame)}
 .right{padding:16px 18px;min-width:0}
+.draw{padding:14px 16px;border-left:1px solid var(--line);background:var(--frame);min-width:0}
+.draw h4{margin:0 0 10px;font-size:10px;letter-spacing:.14em;color:var(--muted);font-weight:700}
+.bl{position:relative;background:var(--paper);border:2px solid var(--ink);border-radius:16px;
+padding:8px 12px;margin:0 0 16px;font-size:13px;line-height:1.6}
+.bl::after{content:"";position:absolute;left:22px;bottom:-11px;width:0;height:0;
+border:9px solid transparent;border-top-color:var(--ink);border-bottom:0}
+.bl::before{content:"";position:absolute;left:24px;bottom:-7px;width:0;height:0;z-index:1;
+border:7px solid transparent;border-top-color:var(--paper);border-bottom:0}
+.bl .who{display:block;font-size:10px;font-weight:700;color:var(--acc);margin-bottom:2px}
+.nb{background:var(--nar-soft);border:0;border-left:4px solid var(--nar);border-radius:0 4px 4px 0;
+padding:7px 11px;margin:0 0 10px;font-size:13px;line-height:1.6;color:var(--ink)}
+.nb .who{display:block;font-size:10px;font-weight:700;color:var(--nar);margin-bottom:2px}
+.tl{display:inline-block;background:var(--ink);color:var(--bg);border-radius:3px;
+padding:5px 12px;margin:0 6px 10px 0;font-size:13px;font-weight:700;letter-spacing:.04em}
+.tl .who{display:block;font-size:9px;font-weight:700;opacity:.75;letter-spacing:.12em;margin-bottom:1px}
+.legend{display:flex;gap:16px;flex-wrap:wrap;font-size:12px;color:var(--muted);margin:8px 0 0}
+.legend b{color:var(--ink)}
+.longwarn{font-size:11px;color:var(--warn);background:var(--warn-soft);border-radius:4px;
+padding:4px 8px;margin:0 0 10px;font-weight:700}
 .frame{position:relative;aspect-ratio:16/9;border-radius:6px;overflow:hidden;background:var(--paper);
 border:1px solid var(--line);display:flex}
 .frame.empty{border:2px dashed var(--line);background:transparent;padding:12px 14px;
@@ -95,6 +114,8 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 .guide h3{margin:0 0 8px;font-size:15px}
 .guide p{margin:6px 0;color:var(--muted)}
 .hide{display:none!important}
+@media(max-width:1100px){.koma{grid-template-columns:1fr}.left{border-right:0;border-bottom:1px solid var(--line)}
+.draw{border-left:0;border-top:1px solid var(--line)}}
 @media(max-width:860px){.koma{grid-template-columns:1fr}.left{border-right:0;border-bottom:1px solid var(--line)}
 .line{grid-template-columns:1fr}.line .sp{justify-self:start;padding:2px 10px}}
 </style>
@@ -123,7 +144,7 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <button data-filter="all" class="on">全コマ</button>
 <button data-filter="todo">画像未生成のみ</button>
 </nav>
-<div class="guide"><h3>この画面の使い方</h3><p>左がコマ枠です。画像が確定していれば絵が入り、未生成なら「絵の指示」と画像プロンプト草案が入ります。右がそのコマのナレーションとセリフです。</p><p>入力は <code>02_scenario_v2.md</code> と <code>03_koma_v2_*.md</code> だけです。<code>koma_data.py</code> は読み書きしません（統合は全章承認後）。修正はマークダウンを直してから、このページを再生成してください。</p></div>
+<div class="guide"><h3>この画面の使い方</h3><p>左がコマ枠です。画像が確定していれば絵が入り、未生成なら「絵の指示」と画像プロンプト草案が入ります。右がそのコマのナレーションとセリフです。</p><p>入力は <code>02_scenario_v2.md</code> と <code>03_koma_v2_*.md</code> だけです。<code>koma_data.py</code> は読み書きしません（統合は全章承認後）。修正はマークダウンを直してから、このページを再生成してください。</p><p>右端の列が、実際に画面へ出る文字です。3種類あります。</p><div class="legend"><span><b>吹き出し</b> — 人物のセリフ。画像の中に描く</span><span><b>ナレーション</b> — 音声のみ。画像には描かず、動画側で字幕帯にする</span><span><b>テロップ</b> — 日付・場所などの短い文字。画像の中に描く</span></div></div>
 <section class="chap" id="cA">
 <h2 class="chap"><span class="ltr">A</span>内閣を倒す男<span class="badge done">確認済み</span><small>18 コマ・2:23</small></h2>
 <p class="chapnote">18コマ／約2分29秒。各コマの音声は1〜3行とし、同じ画像上で情報を増やす場合も</p>
@@ -173,7 +194,8 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 同一コマ内のセリフは、【画面に描くセリフ】に書いた順番どおりに、上から下へ読める配置にする（順番を入れ替えない）。
 テロップ指定がある場合は指定位置に太いテロップ文字で描く。
 指定した文字以外の文字要素（貼り紙・看板・新聞の見出し・黒板の書き込み・書類の文面など）を勝手に追加しない。
-文字が多少崩れても再生成しない（軽微なものは編集で修正する）。</pre>
+文字が多少崩れても再生成しない（軽微なものは編集で修正する）。
+ナレーションは画像へ描かない（動画側で字幕帯として載せる）。画面に描く文字は、上の【画面に描くセリフ】と【テロップ】に挙げたものだけとする。</pre>
 </div></details>
 </div>
 <div class="right">
@@ -184,7 +206,11 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>音声の要点</b>近衛内閣が突然総辞職</div>
 <div><b>役割・事実根拠</b>結果で始める。ch3年表・総辞職は公知史実</div>
 <div><b>登場</b>近衛文麿</div>
-</div></div></div>
+</div></div>
+<div class="draw"><h4>画面に描く文字</h4>
+<div class="nb"><span class="who">ナレーション（画像には描かない）</span>一九四一年十月十六日。
+大日本帝国の近衛内閣が、突然、総辞職した。</div>
+</div></div>
 <div class="koma" data-img="0" id="kA02">
 <div class="left">
 <div class="frame empty"><span class="kid">A02</span><span class="nostate">画像 未生成</span><div class="artdir">首相官邸の前。奥で近衛の車が門を出ていき、その手前に軍服の東條を大きく立たせる</div></div>
@@ -232,7 +258,8 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 同一コマ内のセリフは、【画面に描くセリフ】に書いた順番どおりに、上から下へ読める配置にする（順番を入れ替えない）。
 テロップ指定がある場合は指定位置に太いテロップ文字で描く。
 指定した文字以外の文字要素（貼り紙・看板・新聞の見出し・黒板の書き込み・書類の文面など）を勝手に追加しない。
-文字が多少崩れても再生成しない（軽微なものは編集で修正する）。</pre>
+文字が多少崩れても再生成しない（軽微なものは編集で修正する）。
+ナレーションは画像へ描かない（動画側で字幕帯として載せる）。画面に描く文字は、上の【画面に描くセリフ】と【テロップ】に挙げたものだけとする。</pre>
 </div></details>
 </div>
 <div class="right">
@@ -244,7 +271,12 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>音声の要点</b>陸軍代表として反対した東條。2日後、東條が総理に</div>
 <div><b>役割・事実根拠</b>個人の頑固さへ単純化しない。10/18組閣はch4</div>
 <div><b>登場</b>東條英機・近衛文麿</div>
-</div></div></div>
+</div></div>
+<div class="draw"><h4>画面に描く文字</h4>
+<div class="nb"><span class="who">ナレーション（画像には描かない）</span>陸軍を代表して撤兵に反対し、内閣を倒すきっかけを作ったのが、陸軍大臣・東條英機。
+ところが、その二日後。
+次の総理大臣になったのも、東條だった。</div>
+</div></div>
 <div class="koma" data-img="0" id="kA03">
 <div class="left">
 <div class="frame empty"><span class="kid">A03</span><span class="nostate">画像 未生成</span><div class="artdir">東條と首相官邸を左右に置き、中央へ疑問符</div></div>
@@ -291,7 +323,8 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 同一コマ内のセリフは、【画面に描くセリフ】に書いた順番どおりに、上から下へ読める配置にする（順番を入れ替えない）。
 テロップ指定がある場合は指定位置に太いテロップ文字で描く。
 指定した文字以外の文字要素（貼り紙・看板・新聞の見出し・黒板の書き込み・書類の文面など）を勝手に追加しない。
-文字が多少崩れても再生成しない（軽微なものは編集で修正する）。</pre>
+文字が多少崩れても再生成しない（軽微なものは編集で修正する）。
+ナレーションは画像へ描かない（動画側で字幕帯として載せる）。画面に描く文字は、上の【画面に描くセリフ】と【テロップ】に挙げたものだけとする。</pre>
 </div></details>
 </div>
 <div class="right">
@@ -302,7 +335,11 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>音声の要点</b>なぜ内閣を壊した男が次の首相に</div>
 <div><b>役割・事実根拠</b>セントラルクエスチョン</div>
 <div><b>登場</b>東條英機</div>
-</div></div></div>
+</div></div>
+<div class="draw"><h4>画面に描く文字</h4>
+<div class="nb"><span class="who">ナレーション（画像には描かない）</span>内閣を壊した男が、なぜ次の内閣を任されたのか。
+その理由を見る前に、当時の日本が置かれていた状況を整理しよう。</div>
+</div></div>
 <div class="koma" data-img="0" id="kA04">
 <div class="left">
 <div class="frame empty"><span class="kid">A04</span><span class="nostate">画像 未生成</span><div class="artdir">日本列島と中国大陸を一枚に収めた地図。左下に一九三七、右下に一九四一の年号を置き、二つの年号の間に太く「四年以上」と入れる。文字はこの三つだけ</div></div>
@@ -348,7 +385,8 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 同一コマ内のセリフは、【画面に描くセリフ】に書いた順番どおりに、上から下へ読める配置にする（順番を入れ替えない）。
 テロップ指定がある場合は指定位置に太いテロップ文字で描く。
 指定した文字以外の文字要素（貼り紙・看板・新聞の見出し・黒板の書き込み・書類の文面など）を勝手に追加しない。
-文字が多少崩れても再生成しない（軽微なものは編集で修正する）。</pre>
+文字が多少崩れても再生成しない（軽微なものは編集で修正する）。
+ナレーションは画像へ描かない（動画側で字幕帯として載せる）。画面に描く文字は、上の【画面に描くセリフ】と【テロップ】に挙げたものだけとする。</pre>
 </div></details>
 </div>
 <div class="right">
@@ -358,7 +396,11 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div class="meta">
 <div><b>音声の要点</b>日中戦争開始から4年以上</div>
 <div><b>役割・事実根拠</b>背景の最小説明。ch3・ch4</div>
-</div></div></div>
+</div></div>
+<div class="draw"><h4>画面に描く文字</h4>
+<div class="nb"><span class="who">ナレーション（画像には描かない）</span>当時、日本は中国との戦争を始めてから、すでに四年以上が過ぎていた。
+戦争は終わらず、日本軍は中国大陸に残り続けていた。</div>
+</div></div>
 <div class="koma" data-img="0" id="kA05">
 <div class="left">
 <div class="frame empty"><span class="kid">A05</span><span class="nostate">画像 未生成</span><div class="artdir">中国大陸の駐留兵から南部仏印へ、太い矢印を一本描いた地図。テロップ「一九四一年七月」</div></div>
@@ -397,6 +439,9 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 【シーン（コマA05）】
 中国大陸の駐留兵から南部仏印へ、太い矢印を一本描いた地図。テロップ「一九四一年七月」
 
+【テロップ】
+- 一九四一年七月
+
 【文字ルール】
 文字の扱い: セリフは太めのゴシック体風の日本語で吹き出しに描く。心の声・独白はしっぽのない角丸のモノローグ枠にする。
 セリフやモノローグの文頭に番号（①②③…）や記号を付けない。指定した文章だけをそのまま描く。
@@ -404,7 +449,8 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 同一コマ内のセリフは、【画面に描くセリフ】に書いた順番どおりに、上から下へ読める配置にする（順番を入れ替えない）。
 テロップ指定がある場合は指定位置に太いテロップ文字で描く。
 指定した文字以外の文字要素（貼り紙・看板・新聞の見出し・黒板の書き込み・書類の文面など）を勝手に追加しない。
-文字が多少崩れても再生成しない（軽微なものは編集で修正する）。</pre>
+文字が多少崩れても再生成しない（軽微なものは編集で修正する）。
+ナレーションは画像へ描かない（動画側で字幕帯として載せる）。画面に描く文字は、上の【画面に描くセリフ】と【テロップ】に挙げたものだけとする。</pre>
 </div></details>
 </div>
 <div class="right">
@@ -414,7 +460,12 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div class="meta">
 <div><b>音声の要点</b>1941年7月、南部仏印へ進駐</div>
 <div><b>役割・事実根拠</b>ch3 7/28</div>
-</div></div></div>
+</div></div>
+<div class="draw"><h4>画面に描く文字</h4>
+<div class="tl"><span class="who">テロップ</span>一九四一年七月</div>
+<div class="nb"><span class="who">ナレーション（画像には描かない）</span>一九四一年七月、日本はさらに、東南アジアの南部仏印へ軍を進めた。
+これに強く反発したのが、アメリカだった。</div>
+</div></div>
 <div class="koma" data-img="0" id="kA06">
 <div class="left">
 <div class="frame empty"><span class="kid">A06</span><span class="nostate">画像 未生成</span><div class="artdir">閉じられた石油タンクのバルブを画面中央に大きく。背後の軍艦と飛行機を灰色に沈め、上部へ米国旗を小さく置く。テロップ「一九四一年八月一日」</div></div>
@@ -453,6 +504,9 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 【シーン（コマA06）】
 閉じられた石油タンクのバルブを画面中央に大きく。背後の軍艦と飛行機を灰色に沈め、上部へ米国旗を小さく置く。テロップ「一九四一年八月一日」
 
+【テロップ】
+- 一九四一年八月一日
+
 【文字ルール】
 文字の扱い: セリフは太めのゴシック体風の日本語で吹き出しに描く。心の声・独白はしっぽのない角丸のモノローグ枠にする。
 セリフやモノローグの文頭に番号（①②③…）や記号を付けない。指定した文章だけをそのまま描く。
@@ -460,7 +514,8 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 同一コマ内のセリフは、【画面に描くセリフ】に書いた順番どおりに、上から下へ読める配置にする（順番を入れ替えない）。
 テロップ指定がある場合は指定位置に太いテロップ文字で描く。
 指定した文字以外の文字要素（貼り紙・看板・新聞の見出し・黒板の書き込み・書類の文面など）を勝手に追加しない。
-文字が多少崩れても再生成しない（軽微なものは編集で修正する）。</pre>
+文字が多少崩れても再生成しない（軽微なものは編集で修正する）。
+ナレーションは画像へ描かない（動画側で字幕帯として載せる）。画面に描く文字は、上の【画面に描くセリフ】と【テロップ】に挙げたものだけとする。</pre>
 </div></details>
 </div>
 <div class="right">
@@ -471,7 +526,13 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div class="meta">
 <div><b>音声の要点</b>8/1石油全面禁輸。待てる時間が減る</div>
 <div><b>役割・事実根拠</b>禁輸から開戦不可避へ直結させない。ch3 8/1</div>
-</div></div></div>
+</div></div>
+<div class="draw"><h4>画面に描く文字</h4>
+<div class="tl"><span class="who">テロップ</span>一九四一年八月一日</div>
+<div class="nb"><span class="who">ナレーション（画像には描かない）</span>八月一日。アメリカは、日本への石油輸出を全面的に止めた。
+石油が尽きれば、軍艦も飛行機も動かせない。
+日本には、いつまでも待てる時間がなくなった。</div>
+</div></div>
 <div class="koma" data-img="0" id="kA07">
 <div class="left">
 <div class="frame empty"><span class="kid">A07</span><span class="nostate">画像 未生成</span><div class="artdir">日米の交渉机を挟んだ構図。米側の書類から中国と仏印へ撤兵の矢印が伸び、日本側では陸軍の手がその矢印を押し返して赤い×を重ねる。米側に「撤兵を要求」、日本側に「陸軍は撤兵拒否」の札。文字はこの二つだけ</div></div>
@@ -517,7 +578,8 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 同一コマ内のセリフは、【画面に描くセリフ】に書いた順番どおりに、上から下へ読める配置にする（順番を入れ替えない）。
 テロップ指定がある場合は指定位置に太いテロップ文字で描く。
 指定した文字以外の文字要素（貼り紙・看板・新聞の見出し・黒板の書き込み・書類の文面など）を勝手に追加しない。
-文字が多少崩れても再生成しない（軽微なものは編集で修正する）。</pre>
+文字が多少崩れても再生成しない（軽微なものは編集で修正する）。
+ナレーションは画像へ描かない（動画側で字幕帯として載せる）。画面に描く文字は、上の【画面に描くセリフ】と【テロップ】に挙げたものだけとする。</pre>
 </div></details>
 </div>
 <div class="right">
@@ -527,7 +589,11 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div class="meta">
 <div><b>音声の要点</b>米国は撤兵を要求、陸軍は反対</div>
 <div><b>役割・事実根拠</b>撤兵を中心争点として提示</div>
-</div></div></div>
+</div></div>
+<div class="draw"><h4>画面に描く文字</h4>
+<div class="nb"><span class="who">ナレーション（画像には描かない）</span>アメリカは、日本軍を中国やフランス領インドシナから引き揚げるよう求めていた。
+しかし、四年以上戦ってきた陸軍は、中国からの撤兵に強く反対した。</div>
+</div></div>
 <div class="koma" data-img="0" id="kA08">
 <div class="left">
 <div class="frame empty"><span class="kid">A08</span><span class="nostate">画像 未生成</span><div class="artdir">空の3分割ボード。中央上に「日本の選択肢は3つ」</div></div>
@@ -573,7 +639,8 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 同一コマ内のセリフは、【画面に描くセリフ】に書いた順番どおりに、上から下へ読める配置にする（順番を入れ替えない）。
 テロップ指定がある場合は指定位置に太いテロップ文字で描く。
 指定した文字以外の文字要素（貼り紙・看板・新聞の見出し・黒板の書き込み・書類の文面など）を勝手に追加しない。
-文字が多少崩れても再生成しない（軽微なものは編集で修正する）。</pre>
+文字が多少崩れても再生成しない（軽微なものは編集で修正する）。
+ナレーションは画像へ描かない（動画側で字幕帯として載せる）。画面に描く文字は、上の【画面に描くセリフ】と【テロップ】に挙げたものだけとする。</pre>
 </div></details>
 </div>
 <div class="right">
@@ -582,7 +649,10 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div class="meta">
 <div><b>音声の要点</b>選択肢は大きく3つ</div>
 <div><b>役割・事実根拠</b>ユーザー指定の宣言</div>
-</div></div></div>
+</div></div>
+<div class="draw"><h4>画面に描く文字</h4>
+<div class="nb"><span class="who">ナレーション（画像には描かない）</span>この時点で、日本に残された選択肢は、大きく三つあった。</div>
+</div></div>
 <div class="koma" data-img="0" id="kA09">
 <div class="left">
 <div class="frame empty"><span class="kid">A09</span><span class="nostate">画像 未生成</span><div class="artdir">三分割ボードの左枠だけ明るく、枠の左上に大きく「1」。枠の中に中国から日本へ戻る兵士</div></div>
@@ -628,7 +698,8 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 同一コマ内のセリフは、【画面に描くセリフ】に書いた順番どおりに、上から下へ読める配置にする（順番を入れ替えない）。
 テロップ指定がある場合は指定位置に太いテロップ文字で描く。
 指定した文字以外の文字要素（貼り紙・看板・新聞の見出し・黒板の書き込み・書類の文面など）を勝手に追加しない。
-文字が多少崩れても再生成しない（軽微なものは編集で修正する）。</pre>
+文字が多少崩れても再生成しない（軽微なものは編集で修正する）。
+ナレーションは画像へ描かない（動画側で字幕帯として載せる）。画面に描く文字は、上の【画面に描くセリフ】と【テロップ】に挙げたものだけとする。</pre>
 </div></details>
 </div>
 <div class="right">
@@ -638,7 +709,11 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div class="meta">
 <div><b>音声の要点</b>1. 撤兵して妥協</div>
 <div><b>役割・事実根拠</b>選択肢を一つずつ理解させる</div>
-</div></div></div>
+</div></div>
+<div class="draw"><h4>画面に描く文字</h4>
+<div class="nb"><span class="who">ナレーション（画像には描かない）</span>一つ。
+中国から軍を引いて、アメリカと妥協する。</div>
+</div></div>
 <div class="koma" data-img="0" id="kA10">
 <div class="left">
 <div class="frame empty"><span class="kid">A10</span><span class="nostate">画像 未生成</span><div class="artdir">左枠に加えて中央枠も明るく、中央枠の左上に大きく「2」。枠の中に握手と、その背後で積まれる軍需品</div></div>
@@ -684,7 +759,8 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 同一コマ内のセリフは、【画面に描くセリフ】に書いた順番どおりに、上から下へ読める配置にする（順番を入れ替えない）。
 テロップ指定がある場合は指定位置に太いテロップ文字で描く。
 指定した文字以外の文字要素（貼り紙・看板・新聞の見出し・黒板の書き込み・書類の文面など）を勝手に追加しない。
-文字が多少崩れても再生成しない（軽微なものは編集で修正する）。</pre>
+文字が多少崩れても再生成しない（軽微なものは編集で修正する）。
+ナレーションは画像へ描かない（動画側で字幕帯として載せる）。画面に描く文字は、上の【画面に描くセリフ】と【テロップ】に挙げたものだけとする。</pre>
 </div></details>
 </div>
 <div class="right">
@@ -694,7 +770,11 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div class="meta">
 <div><b>音声の要点</b>2. 交渉しながら戦争準備</div>
 <div><b>役割・事実根拠</b>Yes, butの種</div>
-</div></div></div>
+</div></div>
+<div class="draw"><h4>画面に描く文字</h4>
+<div class="nb"><span class="who">ナレーション（画像には描かない）</span>二つ。
+交渉を続けながら、アメリカとの戦争に備える。</div>
+</div></div>
 <div class="koma" data-img="0" id="kA11">
 <div class="left">
 <div class="frame empty"><span class="kid">A11</span><span class="nostate">画像 未生成</span><div class="artdir">三枠すべて明るく、右枠の左上に大きく「3」。右枠の中に太平洋を向く艦隊</div></div>
@@ -740,7 +820,8 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 同一コマ内のセリフは、【画面に描くセリフ】に書いた順番どおりに、上から下へ読める配置にする（順番を入れ替えない）。
 テロップ指定がある場合は指定位置に太いテロップ文字で描く。
 指定した文字以外の文字要素（貼り紙・看板・新聞の見出し・黒板の書き込み・書類の文面など）を勝手に追加しない。
-文字が多少崩れても再生成しない（軽微なものは編集で修正する）。</pre>
+文字が多少崩れても再生成しない（軽微なものは編集で修正する）。
+ナレーションは画像へ描かない（動画側で字幕帯として載せる）。画面に描く文字は、上の【画面に描くセリフ】と【テロップ】に挙げたものだけとする。</pre>
 </div></details>
 </div>
 <div class="right">
@@ -750,7 +831,11 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div class="meta">
 <div><b>音声の要点</b>3. 交渉を諦め開戦</div>
 <div><b>役割・事実根拠</b>3択完成。以後反復する基準画面</div>
-</div></div></div>
+</div></div>
+<div class="draw"><h4>画面に描く文字</h4>
+<div class="nb"><span class="who">ナレーション（画像には描かない）</span>三つ。
+交渉を諦め、アメリカとの戦争へ進む。</div>
+</div></div>
 <div class="koma" data-img="0" id="kA12">
 <div class="left">
 <div class="frame empty"><span class="kid">A12</span><span class="nostate">画像 未生成</span><div class="artdir">近衛の机。陸軍印・海軍印の二つの承認欄が空白</div></div>
@@ -797,7 +882,8 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 同一コマ内のセリフは、【画面に描くセリフ】に書いた順番どおりに、上から下へ読める配置にする（順番を入れ替えない）。
 テロップ指定がある場合は指定位置に太いテロップ文字で描く。
 指定した文字以外の文字要素（貼り紙・看板・新聞の見出し・黒板の書き込み・書類の文面など）を勝手に追加しない。
-文字が多少崩れても再生成しない（軽微なものは編集で修正する）。</pre>
+文字が多少崩れても再生成しない（軽微なものは編集で修正する）。
+ナレーションは画像へ描かない（動画側で字幕帯として載せる）。画面に描く文字は、上の【画面に描くセリフ】と【テロップ】に挙げたものだけとする。</pre>
 </div></details>
 </div>
 <div class="right">
@@ -808,7 +894,11 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>音声の要点</b>首相は両軍をまとめる必要</div>
 <div><b>役割・事実根拠</b>制度を視覚化。首相単独決定にしない</div>
 <div><b>登場</b>近衛文麿</div>
-</div></div></div>
+</div></div>
+<div class="draw"><h4>画面に描く文字</h4>
+<div class="nb"><span class="who">ナレーション（画像には描かない）</span>近衛首相は、陸軍と海軍をまとめ、この三つから国の進路を決めなければならなかった。
+当時の重大な国策は、首相一人では決められない。陸軍と海軍、それぞれの同意が必要だった。</div>
+</div></div>
 <div class="koma" data-img="0" id="kA13">
 <div class="left">
 <div class="frame empty"><span class="kid">A13</span><span class="nostate">画像 未生成</span><div class="artdir">近衛私邸・荻外荘の和室。近衛・東條・及川が三方向に座る。テロップ「総辞職の四日前　十月十二日」</div></div>
@@ -850,6 +940,9 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 【シーン（コマA13）】
 背広の首相私邸・荻外荘の和室。背広の首相・陸軍大将の男・海軍大将（丸顔）が三方向に座る。テロップ「総辞職の四日前　十月十二日」
 
+【テロップ】
+- 総辞職の四日前　十月十二日
+
 【文字ルール】
 文字の扱い: セリフは太めのゴシック体風の日本語で吹き出しに描く。心の声・独白はしっぽのない角丸のモノローグ枠にする。
 セリフやモノローグの文頭に番号（①②③…）や記号を付けない。指定した文章だけをそのまま描く。
@@ -857,7 +950,8 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 同一コマ内のセリフは、【画面に描くセリフ】に書いた順番どおりに、上から下へ読める配置にする（順番を入れ替えない）。
 テロップ指定がある場合は指定位置に太いテロップ文字で描く。
 指定した文字以外の文字要素（貼り紙・看板・新聞の見出し・黒板の書き込み・書類の文面など）を勝手に追加しない。
-文字が多少崩れても再生成しない（軽微なものは編集で修正する）。</pre>
+文字が多少崩れても再生成しない（軽微なものは編集で修正する）。
+ナレーションは画像へ描かない（動画側で字幕帯として載せる）。画面に描く文字は、上の【画面に描くセリフ】と【テロップ】に挙げたものだけとする。</pre>
 </div></details>
 </div>
 <div class="right">
@@ -870,7 +964,14 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>音声の要点</b>陸海軍の本音を確かめるが結論は出ない</div>
 <div><b>役割・事実根拠</b>ch3 10/12。荻外荘は近衛の私邸と説明</div>
 <div><b>登場</b>東條英機・近衛文麿・及川古志郎</div>
-</div></div></div>
+</div></div>
+<div class="draw"><h4>画面に描く文字</h4>
+<div class="tl"><span class="who">テロップ</span>総辞職の四日前　十月十二日</div>
+<div class="nb"><span class="who">ナレーション（画像には描かない）</span>総辞職の四日前。十月十二日。
+近衛は自宅の荻外荘に、東條と海軍大臣の及川を集めた。
+ここで、陸軍と海軍の本音を確かめようとした。
+しかし、この日も結論は出なかった。</div>
+</div></div>
 <div class="koma" data-img="0" id="kA14">
 <div class="left">
 <div class="frame empty"><span class="kid">A14</span><span class="nostate">画像 未生成</span><div class="artdir">東條が中国地図の駐兵地点を指で押さえて動かさない。地図の反対側から近衛の手が同じ地点へ伸びるが、届いていない</div></div>
@@ -911,6 +1012,10 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 【シーン（コマA14）】
 陸軍大将の男が中国地図の駐兵地点を指で押さえて動かさない。地図の反対側から背広の首相の手が同じ地点へ伸びるが、届いていない
 
+【画面に描くセリフ】
+- 陸軍大将の男〈吹き出し〉:「駐兵問題は、陸軍としては一歩も譲れない。」
+※ 話者の呼び名は誰のセリフかを示す制作上の記号であり、画面には描かない。
+
 【文字ルール】
 文字の扱い: セリフは太めのゴシック体風の日本語で吹き出しに描く。心の声・独白はしっぽのない角丸のモノローグ枠にする。
 セリフやモノローグの文頭に番号（①②③…）や記号を付けない。指定した文章だけをそのまま描く。
@@ -918,7 +1023,8 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 同一コマ内のセリフは、【画面に描くセリフ】に書いた順番どおりに、上から下へ読める配置にする（順番を入れ替えない）。
 テロップ指定がある場合は指定位置に太いテロップ文字で描く。
 指定した文字以外の文字要素（貼り紙・看板・新聞の見出し・黒板の書き込み・書類の文面など）を勝手に追加しない。
-文字が多少崩れても再生成しない（軽微なものは編集で修正する）。</pre>
+文字が多少崩れても再生成しない（軽微なものは編集で修正する）。
+ナレーションは画像へ描かない（動画側で字幕帯として載せる）。画面に描く文字は、上の【画面に描くセリフ】と【テロップ】に挙げたものだけとする。</pre>
 </div></details>
 </div>
 <div class="right">
@@ -929,7 +1035,11 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>音声の要点</b>「駐兵問題は一歩も譲れない」</div>
 <div><b>役割・事実根拠</b>ch3 10/12の記録。逐語は短くする</div>
 <div><b>登場</b>東條英機・近衛文麿</div>
-</div></div></div>
+</div></div>
+<div class="draw"><h4>画面に描く文字</h4>
+<div class="bl"><span class="who">東條英機</span>駐兵問題は、陸軍としては一歩も譲れない。</div>
+<div class="nb"><span class="who">ナレーション（画像には描かない）</span>東條は、四年以上の戦争と犠牲を、成果なく終わらせることはできないと訴えた。</div>
+</div></div>
 <div class="koma" data-img="0" id="kA15">
 <div class="left">
 <div class="frame empty"><span class="kid">A15</span><span class="nostate">画像 未生成</span><div class="artdir">太平洋海図を前にした及川が、判断書類を近衛の側へ押し戻す。近衛の手だけが画面端に入る</div></div>
@@ -977,7 +1087,8 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 同一コマ内のセリフは、【画面に描くセリフ】に書いた順番どおりに、上から下へ読める配置にする（順番を入れ替えない）。
 テロップ指定がある場合は指定位置に太いテロップ文字で描く。
 指定した文字以外の文字要素（貼り紙・看板・新聞の見出し・黒板の書き込み・書類の文面など）を勝手に追加しない。
-文字が多少崩れても再生成しない（軽微なものは編集で修正する）。</pre>
+文字が多少崩れても再生成しない（軽微なものは編集で修正する）。
+ナレーションは画像へ描かない（動画側で字幕帯として載せる）。画面に描く文字は、上の【画面に描くセリフ】と【テロップ】に挙げたものだけとする。</pre>
 </div></details>
 </div>
 <div class="right">
@@ -988,7 +1099,11 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>音声の要点</b>海軍は「戦えない」と明言せず、判断を近衛へ</div>
 <div><b>役割・事実根拠</b>ch3 10/12・及川の総理一任。現代語の直接セリフにしない</div>
 <div><b>登場</b>近衛文麿・及川古志郎</div>
-</div></div></div>
+</div></div>
+<div class="draw"><h4>画面に描く文字</h4>
+<div class="nb"><span class="who">ナレーション（画像には描かない）</span>アメリカと戦う海軍も、「戦争はできない」とは明言しなかった。
+及川は、はっきりとした答えを避け、最後の判断を近衛に委ねた。</div>
+</div></div>
 <div class="koma" data-img="0" id="kA16">
 <div class="left">
 <div class="frame empty"><span class="kid">A16</span><span class="nostate">画像 未生成</span><div class="artdir">閣議室。立って語る東條と、目を伏せて沈黙する閣僚たち。テロップ「十月十四日　閣議」</div></div>
@@ -1029,6 +1144,13 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 【シーン（コマA16）】
 閣議室。立って語る陸軍大将の男と、目を伏せて沈黙する閣僚たちたち。テロップ「十月十四日　閣議」
 
+【画面に描くセリフ】
+- 陸軍大将の男〈吹き出し〉:「撤兵問題は、心臓だ。」
+※ 話者の呼び名は誰のセリフかを示す制作上の記号であり、画面には描かない。
+
+【テロップ】
+- 十月十四日　閣議
+
 【文字ルール】
 文字の扱い: セリフは太めのゴシック体風の日本語で吹き出しに描く。心の声・独白はしっぽのない角丸のモノローグ枠にする。
 セリフやモノローグの文頭に番号（①②③…）や記号を付けない。指定した文章だけをそのまま描く。
@@ -1036,7 +1158,8 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 同一コマ内のセリフは、【画面に描くセリフ】に書いた順番どおりに、上から下へ読める配置にする（順番を入れ替えない）。
 テロップ指定がある場合は指定位置に太いテロップ文字で描く。
 指定した文字以外の文字要素（貼り紙・看板・新聞の見出し・黒板の書き込み・書類の文面など）を勝手に追加しない。
-文字が多少崩れても再生成しない（軽微なものは編集で修正する）。</pre>
+文字が多少崩れても再生成しない（軽微なものは編集で修正する）。
+ナレーションは画像へ描かない（動画側で字幕帯として載せる）。画面に描く文字は、上の【画面に描くセリフ】と【テロップ】に挙げたものだけとする。</pre>
 </div></details>
 </div>
 <div class="right">
@@ -1048,7 +1171,13 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>音声の要点</b>「撤兵問題は心臓だ」。代案も出ない</div>
 <div><b>役割・事実根拠</b>ch3 10/14。撤兵拒否演説と閣僚の沈黙</div>
 <div><b>登場</b>東條英機・閣僚たち</div>
-</div></div></div>
+</div></div>
+<div class="draw"><h4>画面に描く文字</h4>
+<div class="tl"><span class="who">テロップ</span>十月十四日　閣議</div>
+<div class="nb"><span class="who">ナレーション（画像には描かない）</span>十月十四日の閣議。東條は、さらに強く撤兵を拒んだ。</div>
+<div class="bl"><span class="who">東條英機</span>撤兵問題は、心臓だ。</div>
+<div class="nb"><span class="who">ナレーション（画像には描かない）</span>陸軍は引かない。海軍も止めない。そして、撤兵に代わる具体案も出ない。</div>
+</div></div>
 <div class="koma" data-img="0" id="kA17">
 <div class="left">
 <div class="frame empty"><span class="kid">A17</span><span class="nostate">画像 未生成</span><div class="artdir">三択ボードの三本すべてに斜線が入り、その手前に「総辞職」の号外が落ちている</div></div>
@@ -1095,7 +1224,8 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 同一コマ内のセリフは、【画面に描くセリフ】に書いた順番どおりに、上から下へ読める配置にする（順番を入れ替えない）。
 テロップ指定がある場合は指定位置に太いテロップ文字で描く。
 指定した文字以外の文字要素（貼り紙・看板・新聞の見出し・黒板の書き込み・書類の文面など）を勝手に追加しない。
-文字が多少崩れても再生成しない（軽微なものは編集で修正する）。</pre>
+文字が多少崩れても再生成しない（軽微なものは編集で修正する）。
+ナレーションは画像へ描かない（動画側で字幕帯として載せる）。画面に描く文字は、上の【画面に描くセリフ】と【テロップ】に挙げたものだけとする。</pre>
 </div></details>
 </div>
 <div class="right">
@@ -1106,7 +1236,11 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>音声の要点</b>交渉案も統一見解もないまま内閣総辞職</div>
 <div><b>役割・事実根拠</b>A01回収</div>
 <div><b>登場</b>近衛文麿</div>
-</div></div></div>
+</div></div>
+<div class="draw"><h4>画面に描く文字</h4>
+<div class="nb"><span class="who">ナレーション（画像には描かない）</span>交渉をまとめる案も、開戦を決める統一見解もない。
+近衛内閣は、総辞職した。</div>
+</div></div>
 <div class="koma" data-img="0" id="kA18">
 <div class="left">
 <div class="frame empty"><span class="kid">A18</span><span class="nostate">画像 未生成</span><div class="artdir">首相官邸の空席の椅子と、その奥に閉じた宮中の門。門の側に東條の後ろ姿。テロップ「二日後　十月十八日」</div></div>
@@ -1146,6 +1280,9 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 【シーン（コマA18）】
 首相官邸の空席の椅子と、その奥に閉じた宮中の門。門の側に陸軍大将の男の後ろ姿。テロップ「二日後　十月十八日」
 
+【テロップ】
+- 二日後　十月十八日
+
 【文字ルール】
 文字の扱い: セリフは太めのゴシック体風の日本語で吹き出しに描く。心の声・独白はしっぽのない角丸のモノローグ枠にする。
 セリフやモノローグの文頭に番号（①②③…）や記号を付けない。指定した文章だけをそのまま描く。
@@ -1153,7 +1290,8 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 同一コマ内のセリフは、【画面に描くセリフ】に書いた順番どおりに、上から下へ読める配置にする（順番を入れ替えない）。
 テロップ指定がある場合は指定位置に太いテロップ文字で描く。
 指定した文字以外の文字要素（貼り紙・看板・新聞の見出し・黒板の書き込み・書類の文面など）を勝手に追加しない。
-文字が多少崩れても再生成しない（軽微なものは編集で修正する）。</pre>
+文字が多少崩れても再生成しない（軽微なものは編集で修正する）。
+ナレーションは画像へ描かない（動画側で字幕帯として載せる）。画面に描く文字は、上の【画面に描くセリフ】と【テロップ】に挙げたものだけとする。</pre>
 </div></details>
 </div>
 <div class="right">
@@ -1165,7 +1303,13 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>音声の要点</b>2日後に東條が総理へ。答えは内閣とは別の場所に</div>
 <div><b>役割・事実根拠</b>次章の宮中へつなぐ</div>
 <div><b>登場</b>東條英機</div>
-</div></div></div>
+</div></div>
+<div class="draw"><h4>画面に描く文字</h4>
+<div class="tl"><span class="who">テロップ</span>二日後　十月十八日</div>
+<div class="nb"><span class="who">ナレーション（画像には描かない）</span>そして二日後、この行き詰まりを作った東條が、次の総理大臣になる。</div>
+<div class="nb"><span class="who">ナレーション（画像には描かない）</span>なぜ、東條だったのか。
+その答えは、内閣とは別の場所にあった。</div>
+</div></div>
 <div class="check"><h3>A章の理解検査</h3><ul>
 <li class="">最初の30秒で、誰の・何をめぐる話か分かる</li>
 <li class="">日中戦争→南部仏印→石油禁輸→期限、の因果を絵と音声で分けた</li>
@@ -1223,6 +1367,9 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 【シーン（コマB01）】
 海軍の会議机と太平洋海図。手前に開かれた報告書を大きく置き、末尾の一行が読める。テロップ「十月六日」
 
+【テロップ】
+- 十月六日
+
 【文字ルール】
 文字の扱い: セリフは太めのゴシック体風の日本語で吹き出しに描く。心の声・独白はしっぽのない角丸のモノローグ枠にする。
 セリフやモノローグの文頭に番号（①②③…）や記号を付けない。指定した文章だけをそのまま描く。
@@ -1230,7 +1377,8 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 同一コマ内のセリフは、【画面に描くセリフ】に書いた順番どおりに、上から下へ読める配置にする（順番を入れ替えない）。
 テロップ指定がある場合は指定位置に太いテロップ文字で描く。
 指定した文字以外の文字要素（貼り紙・看板・新聞の見出し・黒板の書き込み・書類の文面など）を勝手に追加しない。
-文字が多少崩れても再生成しない（軽微なものは編集で修正する）。</pre>
+文字が多少崩れても再生成しない（軽微なものは編集で修正する）。
+ナレーションは画像へ描かない（動画側で字幕帯として載せる）。画面に描く文字は、上の【画面に描くセリフ】と【テロップ】に挙げたものだけとする。</pre>
 </div></details>
 </div>
 <div class="right">
@@ -1240,7 +1388,12 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div class="meta">
 <div><b>音声の要点</b>損耗報告と「自信なし」の一文</div>
 <div><b>役割・事実根拠</b>ch3 10/6 福留繁。報告書の文面としてナレーターが読む</div>
-</div></div></div>
+</div></div>
+<div class="draw"><h4>画面に描く文字</h4>
+<div class="tl"><span class="who">テロップ</span>十月六日</div>
+<div class="nb"><span class="who">ナレーション（画像には描かない）</span>話を、総辞職の十日前まで戻そう。十月六日。海軍の作戦担当者が、対米戦を始めた場合の損害を報告した。</div>
+<div class="nb"><span class="who">ナレーション（画像には描かない）</span>船舶の損耗に就き、戦争第一年、一四〇万トン撃沈せられ、自信なし。</div>
+</div></div>
 <div class="koma" data-img="0" id="kB02">
 <div class="left">
 <div class="frame empty"><span class="kid">B02</span><span class="nostate">画像 未生成</span><div class="artdir">戦地へ向かう船と日本へ戻る資源船が両方消える</div></div>
@@ -1286,7 +1439,8 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 同一コマ内のセリフは、【画面に描くセリフ】に書いた順番どおりに、上から下へ読める配置にする（順番を入れ替えない）。
 テロップ指定がある場合は指定位置に太いテロップ文字で描く。
 指定した文字以外の文字要素（貼り紙・看板・新聞の見出し・黒板の書き込み・書類の文面など）を勝手に追加しない。
-文字が多少崩れても再生成しない（軽微なものは編集で修正する）。</pre>
+文字が多少崩れても再生成しない（軽微なものは編集で修正する）。
+ナレーションは画像へ描かない（動画側で字幕帯として載せる）。画面に描く文字は、上の【画面に描くセリフ】と【テロップ】に挙げたものだけとする。</pre>
 </div></details>
 </div>
 <div class="right">
@@ -1296,7 +1450,11 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div class="meta">
 <div><b>音声の要点</b>船を失えば補給も資源輸入も止まる</div>
 <div><b>役割・事実根拠</b>数字の意味を初心者向けに説明</div>
-</div></div></div>
+</div></div>
+<div class="draw"><h4>画面に描く文字</h4>
+<div class="nb"><span class="who">ナレーション（画像には描かない）</span>輸送船が沈めば、戦地へ武器や食糧を運べない。海外から日本へ、石油や資源を持ち帰ることもできない。
+海軍は、戦争を続ける土台そのものが危ういと見ていた。</div>
+</div></div>
 <div class="koma" data-img="0" id="kB03">
 <div class="left">
 <div class="frame empty"><span class="kid">B03</span><span class="nostate">画像 未生成</span><div class="artdir">夜の陸軍省。東條が参謀総長へ詰め寄る。机上に9/6国策文書、その土台に亀裂</div></div>
@@ -1336,6 +1494,10 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 【シーン（コマB03）】
 夜の陸軍省。陸軍大将の男が参謀総長へ詰め寄る。机上に9/6国策文書、その土台に亀裂
 
+【画面に描くセリフ】
+- 陸軍大将の男〈吹き出し〉:「引責辞職しようではないか」
+※ 話者の呼び名は誰のセリフかを示す制作上の記号であり、画面には描かない。
+
 【文字ルール】
 文字の扱い: セリフは太めのゴシック体風の日本語で吹き出しに描く。心の声・独白はしっぽのない角丸のモノローグ枠にする。
 セリフやモノローグの文頭に番号（①②③…）や記号を付けない。指定した文章だけをそのまま描く。
@@ -1343,7 +1505,8 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 同一コマ内のセリフは、【画面に描くセリフ】に書いた順番どおりに、上から下へ読める配置にする（順番を入れ替えない）。
 テロップ指定がある場合は指定位置に太いテロップ文字で描く。
 指定した文字以外の文字要素（貼り紙・看板・新聞の見出し・黒板の書き込み・書類の文面など）を勝手に追加しない。
-文字が多少崩れても再生成しない（軽微なものは編集で修正する）。</pre>
+文字が多少崩れても再生成しない（軽微なものは編集で修正する）。
+ナレーションは画像へ描かない（動画側で字幕帯として載せる）。画面に描く文字は、上の【画面に描くセリフ】と【テロップ】に挙げたものだけとする。</pre>
 </div></details>
 </div>
 <div class="right">
@@ -1355,7 +1518,11 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>音声の要点</b>「引責辞職しようではないか」</div>
 <div><b>役割・事実根拠</b>ch3 10/6夜・杉山との会談。逐語</div>
 <div><b>登場</b>東條英機</div>
-</div></div></div>
+</div></div>
+<div class="draw"><h4>画面に描く文字</h4>
+<div class="nb"><span class="who">ナレーション（画像には描かない）</span>報告を聞いた東條は、その夜、参謀総長の杉山元にこう持ちかけた。</div>
+<div class="bl"><span class="who">東條英機（音声の一部を描く）</span>引責辞職しようではないか</div>
+</div></div>
 <div class="koma" data-img="0" id="kB04">
 <div class="left">
 <div class="frame empty"><span class="kid">B04</span><span class="nostate">画像 未生成</span><div class="artdir">10/7。東條と及川が正対。左右に陸軍の中国地図と海軍の太平洋海図</div></div>
@@ -1396,6 +1563,10 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 【シーン（コマB04）】
 10/7。陸軍大将の男と海軍大将（丸顔）が正対。左右に陸軍の中国地図と海軍の太平洋海図
 
+【画面に描くセリフ】
+- 陸軍大将の男〈吹き出し〉:「陸海軍が割れたら亡国である」
+※ 話者の呼び名は誰のセリフかを示す制作上の記号であり、画面には描かない。
+
 【文字ルール】
 文字の扱い: セリフは太めのゴシック体風の日本語で吹き出しに描く。心の声・独白はしっぽのない角丸のモノローグ枠にする。
 セリフやモノローグの文頭に番号（①②③…）や記号を付けない。指定した文章だけをそのまま描く。
@@ -1403,7 +1574,8 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 同一コマ内のセリフは、【画面に描くセリフ】に書いた順番どおりに、上から下へ読める配置にする（順番を入れ替えない）。
 テロップ指定がある場合は指定位置に太いテロップ文字で描く。
 指定した文字以外の文字要素（貼り紙・看板・新聞の見出し・黒板の書き込み・書類の文面など）を勝手に追加しない。
-文字が多少崩れても再生成しない（軽微なものは編集で修正する）。</pre>
+文字が多少崩れても再生成しない（軽微なものは編集で修正する）。
+ナレーションは画像へ描かない（動画側で字幕帯として載せる）。画面に描く文字は、上の【画面に描くセリフ】と【テロップ】に挙げたものだけとする。</pre>
 </div></details>
 </div>
 <div class="right">
@@ -1415,7 +1587,11 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>音声の要点</b>「陸海軍が割れたら亡国である」</div>
 <div><b>役割・事実根拠</b>ch3 10/7・及川との会談。逐語</div>
 <div><b>登場</b>東條英機・及川古志郎</div>
-</div></div></div>
+</div></div>
+<div class="draw"><h4>画面に描く文字</h4>
+<div class="nb"><span class="who">ナレーション（画像には描かない）</span>翌十月七日。東條は、海軍大臣の及川古志郎と向かい合った。</div>
+<div class="bl"><span class="who">東條英機（音声の一部を描く）</span>陸海軍が割れたら亡国である</div>
+</div></div>
 <div class="koma" data-img="0" id="kB05">
 <div class="left">
 <div class="frame empty"><span class="kid">B05</span><span class="nostate">画像 未生成</span><div class="artdir">東條が中国北部・蒙疆の地図を押さえ、その先に満洲国が透ける</div></div>
@@ -1455,6 +1631,10 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 【シーン（コマB05）】
 陸軍大将の男が中国北部・蒙疆の地図を押さえ、その先に満洲国が透ける
 
+【画面に描くセリフ】
+- 陸軍大将の男〈吹き出し〉:「永久に禍根を残すことになる」
+※ 話者の呼び名は誰のセリフかを示す制作上の記号であり、画面には描かない。
+
 【文字ルール】
 文字の扱い: セリフは太めのゴシック体風の日本語で吹き出しに描く。心の声・独白はしっぽのない角丸のモノローグ枠にする。
 セリフやモノローグの文頭に番号（①②③…）や記号を付けない。指定した文章だけをそのまま描く。
@@ -1462,7 +1642,8 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 同一コマ内のセリフは、【画面に描くセリフ】に書いた順番どおりに、上から下へ読める配置にする（順番を入れ替えない）。
 テロップ指定がある場合は指定位置に太いテロップ文字で描く。
 指定した文字以外の文字要素（貼り紙・看板・新聞の見出し・黒板の書き込み・書類の文面など）を勝手に追加しない。
-文字が多少崩れても再生成しない（軽微なものは編集で修正する）。</pre>
+文字が多少崩れても再生成しない（軽微なものは編集で修正する）。
+ナレーションは画像へ描かない（動画側で字幕帯として載せる）。画面に描く文字は、上の【画面に描くセリフ】と【テロップ】に挙げたものだけとする。</pre>
 </div></details>
 </div>
 <div class="right">
@@ -1474,7 +1655,11 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>音声の要点</b>「撤兵は満洲国の存立にも影響する。永久に禍根を残す」</div>
 <div><b>役割・事実根拠</b>ch3 同会談。C章の駐兵論をここで本人に言わせる</div>
 <div><b>登場</b>東條英機</div>
-</div></div></div>
+</div></div>
+<div class="draw"><h4>画面に描く文字</h4>
+<div class="bl"><span class="who">東條英機（音声の一部を描く）</span>永久に禍根を残すことになる</div>
+<div class="nb"><span class="who">ナレーション（画像には描かない）</span>アメリカが求める撤兵に、東條はここで線を引いた。</div>
+</div></div>
 <div class="koma" data-img="0" id="kB06">
 <div class="left">
 <div class="frame empty"><span class="kid">B06</span><span class="nostate">画像 未生成</span><div class="artdir">同夜、近衛と東條。近衛が「撤兵」と書いた紙を置き、その下に軍を残す図</div></div>
@@ -1515,6 +1700,10 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 【シーン（コマB06）】
 同夜、背広の首相と陸軍大将の男。背広の首相が「撤兵」と書いた紙を置き、その下に軍を残す図
 
+【画面に描くセリフ】
+- 背広の首相〈吹き出し〉:「その運用によって駐兵の実質をとることにできないか」
+※ 話者の呼び名は誰のセリフかを示す制作上の記号であり、画面には描かない。
+
 【文字ルール】
 文字の扱い: セリフは太めのゴシック体風の日本語で吹き出しに描く。心の声・独白はしっぽのない角丸のモノローグ枠にする。
 セリフやモノローグの文頭に番号（①②③…）や記号を付けない。指定した文章だけをそのまま描く。
@@ -1522,7 +1711,8 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 同一コマ内のセリフは、【画面に描くセリフ】に書いた順番どおりに、上から下へ読める配置にする（順番を入れ替えない）。
 テロップ指定がある場合は指定位置に太いテロップ文字で描く。
 指定した文字以外の文字要素（貼り紙・看板・新聞の見出し・黒板の書き込み・書類の文面など）を勝手に追加しない。
-文字が多少崩れても再生成しない（軽微なものは編集で修正する）。</pre>
+文字が多少崩れても再生成しない（軽微なものは編集で修正する）。
+ナレーションは画像へ描かない（動画側で字幕帯として載せる）。画面に描く文字は、上の【画面に描くセリフ】と【テロップ】に挙げたものだけとする。</pre>
 </div></details>
 </div>
 <div class="right">
@@ -1534,7 +1724,12 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>音声の要点</b>撤兵を原則としつつ運用で駐兵の実質をとる折衷案</div>
 <div><b>役割・事実根拠</b>ch3 10/7夜。近衛の具体案を初めて画面へ出す</div>
 <div><b>登場</b>東條英機・近衛文麿</div>
-</div></div></div>
+</div></div>
+<div class="draw"><h4>画面に描く文字</h4>
+<div class="nb"><span class="who">ナレーション（画像には描かない）</span>同じ夜。近衛は東條に、折衷案を出した。</div>
+<div class="bl"><span class="who">近衛文麿（音声の一部を描く）</span>その運用によって駐兵の実質をとることにできないか</div>
+<div class="nb"><span class="who">ナレーション（画像には描かない）</span>書類の上では撤兵と書き、実際には軍を残す。近衛は、そこに交渉の余地を探した。</div>
+</div></div>
 <div class="koma" data-img="0" id="kB07">
 <div class="left">
 <div class="frame empty"><span class="kid">B07</span><span class="nostate">画像 未生成</span><div class="artdir">近衛がうつむき、東條が9/6の共同決定文書を突き出す</div></div>
@@ -1575,6 +1770,11 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 【シーン（コマB07）】
 背広の首相がうつむき、陸軍大将の男が9/6の共同決定文書を突き出す
 
+【画面に描くセリフ】
+- 背広の首相〈吹き出し〉:「戦争の決意に心配がある。作戦について、十分の自信がもてないと考える。」
+- 陸軍大将の男〈吹き出し〉:「政府と作戦当局である統帥部の共同責任でできたのである」
+※ 話者の呼び名は誰のセリフかを示す制作上の記号であり、画面には描かない。
+
 【文字ルール】
 文字の扱い: セリフは太めのゴシック体風の日本語で吹き出しに描く。心の声・独白はしっぽのない角丸のモノローグ枠にする。
 セリフやモノローグの文頭に番号（①②③…）や記号を付けない。指定した文章だけをそのまま描く。
@@ -1582,7 +1782,8 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 同一コマ内のセリフは、【画面に描くセリフ】に書いた順番どおりに、上から下へ読める配置にする（順番を入れ替えない）。
 テロップ指定がある場合は指定位置に太いテロップ文字で描く。
 指定した文字以外の文字要素（貼り紙・看板・新聞の見出し・黒板の書き込み・書類の文面など）を勝手に追加しない。
-文字が多少崩れても再生成しない（軽微なものは編集で修正する）。</pre>
+文字が多少崩れても再生成しない（軽微なものは編集で修正する）。
+ナレーションは画像へ描かない（動画側で字幕帯として載せる）。画面に描く文字は、上の【画面に描くセリフ】と【テロップ】に挙げたものだけとする。</pre>
 </div></details>
 </div>
 <div class="right">
@@ -1594,7 +1795,11 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>音声の要点</b>「作戦に十分の自信がもてない」に東條が共同責任で反論</div>
 <div><b>役割・事実根拠</b>ch3 同会談。責任の所在という争点を立てる</div>
 <div><b>登場</b>東條英機・近衛文麿</div>
-</div></div></div>
+</div></div>
+<div class="draw"><h4>画面に描く文字</h4>
+<div class="bl"><span class="who">近衛文麿</span>戦争の決意に心配がある。作戦について、十分の自信がもてないと考える。</div>
+<div class="bl"><span class="who">東條英機（音声の一部を描く）</span>政府と作戦当局である統帥部の共同責任でできたのである</div>
+</div></div>
 <div class="koma" data-img="0" id="kB08">
 <div class="left">
 <div class="frame empty"><span class="kid">B08</span><span class="nostate">画像 未生成</span><div class="artdir">10/8、沢本の日記の手元。過去の戦死公報と未来の沈む船が左右に浮かぶ</div></div>
@@ -1641,7 +1846,8 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 同一コマ内のセリフは、【画面に描くセリフ】に書いた順番どおりに、上から下へ読める配置にする（順番を入れ替えない）。
 テロップ指定がある場合は指定位置に太いテロップ文字で描く。
 指定した文字以外の文字要素（貼り紙・看板・新聞の見出し・黒板の書き込み・書類の文面など）を勝手に追加しない。
-文字が多少崩れても再生成しない（軽微なものは編集で修正する）。</pre>
+文字が多少崩れても再生成しない（軽微なものは編集で修正する）。
+ナレーションは画像へ描かない（動画側で字幕帯として載せる）。画面に描く文字は、上の【画面に描くセリフ】と【テロップ】に挙げたものだけとする。</pre>
 </div></details>
 </div>
 <div class="right">
@@ -1652,7 +1858,11 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>音声の要点</b>去りがたい思いと更なる損失を比べ、決めかねる</div>
 <div><b>役割・事実根拠</b>ch3 沢本日記。日記の文面としてナレーターが読む</div>
 <div><b>登場</b>東條英機</div>
-</div></div></div>
+</div></div>
+<div class="draw"><h4>画面に描く文字</h4>
+<div class="nb"><span class="who">ナレーション（画像には描かない）</span>十月八日。海軍次官の沢本頼雄が、その日の東條の言葉を日記に残している。</div>
+<div class="nb"><span class="who">ナレーション（画像には描かない）</span>支那事変にて数万の生霊を失い、見すみす去ることは忍びず。但し日米戦とならば更に数万の人員を失うことを思えば、撤兵も考えざるべからざるも、決し兼ぬる所なり。</div>
+</div></div>
 <div class="koma" data-img="0" id="kB09">
 <div class="left">
 <div class="frame empty"><span class="kid">B09</span><span class="nostate">画像 未生成</span><div class="artdir">3択ボードの「撤兵」へ東條の手が伸びるが止まる</div></div>
@@ -1699,7 +1909,8 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 同一コマ内のセリフは、【画面に描くセリフ】に書いた順番どおりに、上から下へ読める配置にする（順番を入れ替えない）。
 テロップ指定がある場合は指定位置に太いテロップ文字で描く。
 指定した文字以外の文字要素（貼り紙・看板・新聞の見出し・黒板の書き込み・書類の文面など）を勝手に追加しない。
-文字が多少崩れても再生成しない（軽微なものは編集で修正する）。</pre>
+文字が多少崩れても再生成しない（軽微なものは編集で修正する）。
+ナレーションは画像へ描かない（動画側で字幕帯として載せる）。画面に描く文字は、上の【画面に描くセリフ】と【テロップ】に挙げたものだけとする。</pre>
 </div></details>
 </div>
 <div class="right">
@@ -1710,7 +1921,11 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>音声の要点</b>危険は理解しても撤兵を命じられない</div>
 <div><b>役割・事実根拠</b>行動を断定せず記録から整理</div>
 <div><b>登場</b>東條英機</div>
-</div></div></div>
+</div></div>
+<div class="draw"><h4>画面に描く文字</h4>
+<div class="nb"><span class="who">ナレーション（画像には描かない）</span>東條も、戦争の危険を知らなかったわけではない。撤兵を考えた記録もある。
+それでも、陸軍へ撤兵を命じる決断まではできなかった。</div>
+</div></div>
 <div class="koma" data-img="0" id="kB10">
 <div class="left">
 <div class="frame empty"><span class="kid">B10</span><span class="nostate">画像 未生成</span><div class="artdir">「10/12 荻外荘」。和室に近衛・東條・及川が三方向で座る</div></div>
@@ -1759,7 +1974,8 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 同一コマ内のセリフは、【画面に描くセリフ】に書いた順番どおりに、上から下へ読める配置にする（順番を入れ替えない）。
 テロップ指定がある場合は指定位置に太いテロップ文字で描く。
 指定した文字以外の文字要素（貼り紙・看板・新聞の見出し・黒板の書き込み・書類の文面など）を勝手に追加しない。
-文字が多少崩れても再生成しない（軽微なものは編集で修正する）。</pre>
+文字が多少崩れても再生成しない（軽微なものは編集で修正する）。
+ナレーションは画像へ描かない（動画側で字幕帯として載せる）。画面に描く文字は、上の【画面に描くセリフ】と【テロップ】に挙げたものだけとする。</pre>
 </div></details>
 </div>
 <div class="right">
@@ -1770,7 +1986,11 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>音声の要点</b>公式には言えない本音を確かめる場</div>
 <div><b>役割・事実根拠</b>ch3 10/12。荻外荘は近衛の私邸と説明済み</div>
 <div><b>登場</b>東條英機・近衛文麿・及川古志郎</div>
-</div></div></div>
+</div></div>
+<div class="draw"><h4>画面に描く文字</h4>
+<div class="nb"><span class="who">ナレーション（画像には描かない）</span>十月十二日。近衛の私邸、荻外荘。
+近衛、東條、及川の三人が、公式の会議では言えないことを確かめるために向かい合った。</div>
+</div></div>
 <div class="koma" data-img="0" id="kB11">
 <div class="left">
 <div class="frame empty"><span class="kid">B11</span><span class="nostate">画像 未生成</span><div class="artdir">近衛の弱音に東條が身を乗り出す。二人の吹き出しが正面衝突し、机上に9/6文書</div></div>
@@ -1811,6 +2031,11 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 【シーン（コマB11）】
 背広の首相の弱音に陸軍大将の男が身を乗り出す。二人の吹き出しが正面衝突し、机上に9/6文書
 
+【画面に描くセリフ】
+- 背広の首相〈吹き出し〉:「戦争に、私は自信ない。」
+- 陸軍大将の男〈吹き出し〉:「これは意外だ。戦争に自信がないとは何ですか」
+※ 話者の呼び名は誰のセリフかを示す制作上の記号であり、画面には描かない。
+
 【文字ルール】
 文字の扱い: セリフは太めのゴシック体風の日本語で吹き出しに描く。心の声・独白はしっぽのない角丸のモノローグ枠にする。
 セリフやモノローグの文頭に番号（①②③…）や記号を付けない。指定した文章だけをそのまま描く。
@@ -1818,7 +2043,8 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 同一コマ内のセリフは、【画面に描くセリフ】に書いた順番どおりに、上から下へ読める配置にする（順番を入れ替えない）。
 テロップ指定がある場合は指定位置に太いテロップ文字で描く。
 指定した文字以外の文字要素（貼り紙・看板・新聞の見出し・黒板の書き込み・書類の文面など）を勝手に追加しない。
-文字が多少崩れても再生成しない（軽微なものは編集で修正する）。</pre>
+文字が多少崩れても再生成しない（軽微なものは編集で修正する）。
+ナレーションは画像へ描かない（動画側で字幕帯として載せる）。画面に描く文字は、上の【画面に描くセリフ】と【テロップ】に挙げたものだけとする。</pre>
 </div></details>
 </div>
 <div class="right">
@@ -1830,7 +2056,12 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>音声の要点</b>「戦争に私は自信ない」「これは意外だ」</div>
 <div><b>役割・事実根拠</b>ch3 記録に残る応酬。逐語</div>
 <div><b>登場</b>東條英機・近衛文麿</div>
-</div></div></div>
+</div></div>
+<div class="draw"><h4>画面に描く文字</h4>
+<div class="bl"><span class="who">近衛文麿</span>戦争に、私は自信ない。</div>
+<div class="bl"><span class="who">東條英機（音声の一部を描く）</span>これは意外だ。戦争に自信がないとは何ですか</div>
+<div class="nb"><span class="who">ナレーション（画像には描かない）</span>九月の方針は、政府と陸海軍が共同で決めたものだった。いま覆すなら、誰がその責任を負うのか。</div>
+</div></div>
 <div class="koma" data-img="0" id="kB12">
 <div class="left">
 <div class="frame empty"><span class="kid">B12</span><span class="nostate">画像 未生成</span><div class="artdir">東條が中国地図の駐兵地点を指で押さえたまま動かない。背後に「一年」「二年」の札が崩れる</div></div>
@@ -1870,6 +2101,10 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 【シーン（コマB12）】
 陸軍大将の男が中国地図の駐兵地点を指で押さえたまま動かない。背後に「一年」「二年」の札が崩れる
 
+【画面に描くセリフ】
+- 陸軍大将の男〈吹き出し〉:「退却を基礎とすることはできぬ。陸軍はがたがたになる」
+※ 話者の呼び名は誰のセリフかを示す制作上の記号であり、画面には描かない。
+
 【文字ルール】
 文字の扱い: セリフは太めのゴシック体風の日本語で吹き出しに描く。心の声・独白はしっぽのない角丸のモノローグ枠にする。
 セリフやモノローグの文頭に番号（①②③…）や記号を付けない。指定した文章だけをそのまま描く。
@@ -1877,7 +2112,8 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 同一コマ内のセリフは、【画面に描くセリフ】に書いた順番どおりに、上から下へ読める配置にする（順番を入れ替えない）。
 テロップ指定がある場合は指定位置に太いテロップ文字で描く。
 指定した文字以外の文字要素（貼り紙・看板・新聞の見出し・黒板の書き込み・書類の文面など）を勝手に追加しない。
-文字が多少崩れても再生成しない（軽微なものは編集で修正する）。</pre>
+文字が多少崩れても再生成しない（軽微なものは編集で修正する）。
+ナレーションは画像へ描かない（動画側で字幕帯として載せる）。画面に描く文字は、上の【画面に描くセリフ】と【テロップ】に挙げたものだけとする。</pre>
 </div></details>
 </div>
 <div class="right">
@@ -1889,7 +2125,11 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>音声の要点</b>撤兵を主体とすれば陸軍はがたがたになる</div>
 <div><b>役割・事実根拠</b>ch3 10/12。「所要期間とは永久の考えなり」はナレーションで補う</div>
 <div><b>登場</b>東條英機</div>
-</div></div></div>
+</div></div>
+<div class="draw"><h4>画面に描く文字</h4>
+<div class="bl"><span class="who">東條英機（音声の一部を描く）</span>退却を基礎とすることはできぬ。陸軍はがたがたになる</div>
+<div class="nb"><span class="who">ナレーション（画像には描かない）</span>駐兵の期間を問われた東條は、永久のつもりだと答えている。</div>
+</div></div>
 <div class="koma" data-img="0" id="kB13">
 <div class="left">
 <div class="frame empty"><span class="kid">B13</span><span class="nostate">画像 未生成</span><div class="artdir">東條の前に「戦争準備」の書類。その上へ本人の手が置かれ、止める条件が吹き出しで出る</div></div>
@@ -1929,6 +2169,10 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 【シーン（コマB13）】
 陸軍大将の男の前に「戦争準備」の書類。その上へ本人の手が置かれ、止める条件が吹き出しで出る
 
+【画面に描くセリフ】
+- 陸軍大将の男〈吹き出し〉:「納得できる確信があるなら、戦争準備は止める」
+※ 話者の呼び名は誰のセリフかを示す制作上の記号であり、画面には描かない。
+
 【文字ルール】
 文字の扱い: セリフは太めのゴシック体風の日本語で吹き出しに描く。心の声・独白はしっぽのない角丸のモノローグ枠にする。
 セリフやモノローグの文頭に番号（①②③…）や記号を付けない。指定した文章だけをそのまま描く。
@@ -1936,7 +2180,8 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 同一コマ内のセリフは、【画面に描くセリフ】に書いた順番どおりに、上から下へ読める配置にする（順番を入れ替えない）。
 テロップ指定がある場合は指定位置に太いテロップ文字で描く。
 指定した文字以外の文字要素（貼り紙・看板・新聞の見出し・黒板の書き込み・書類の文面など）を勝手に追加しない。
-文字が多少崩れても再生成しない（軽微なものは編集で修正する）。</pre>
+文字が多少崩れても再生成しない（軽微なものは編集で修正する）。
+ナレーションは画像へ描かない（動画側で字幕帯として載せる）。画面に描く文字は、上の【画面に描くセリフ】と【テロップ】に挙げたものだけとする。</pre>
 </div></details>
 </div>
 <div class="right">
@@ -1948,7 +2193,11 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>音声の要点</b>「納得できる確信があるなら戦争準備は止める」</div>
 <div><b>役割・事実根拠</b>ch3 10/12。F章「誰が止めるのか」への伏線</div>
 <div><b>登場</b>東條英機</div>
-</div></div></div>
+</div></div>
+<div class="draw"><h4>画面に描く文字</h4>
+<div class="nb"><span class="who">ナレーション（画像には描かない）</span>その東條が、この日、戦争準備を止める条件を自分の口で述べている。</div>
+<div class="bl"><span class="who">東條英機（音声の一部を描く）</span>納得できる確信があるなら、戦争準備は止める</div>
+</div></div>
 <div class="koma" data-img="0" id="kB14">
 <div class="left">
 <div class="frame empty"><span class="kid">B14</span><span class="nostate">画像 未生成</span><div class="artdir">及川の前に「勝てる」「戦えない」の札。どちらも伏せたまま、判断書類が近衛へ滑る</div></div>
@@ -1989,6 +2238,10 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 【シーン（コマB14）】
 海軍大将（丸顔）の前に「勝てる」「戦えない」の札。どちらも伏せたまま、判断書類が背広の首相へ滑る
 
+【画面に描くセリフ】
+- 海軍大将（丸顔）〈吹き出し〉:「開戦か外交かは、総理が判断されることです。」
+※ 話者の呼び名は誰のセリフかを示す制作上の記号であり、画面には描かない。
+
 【文字ルール】
 文字の扱い: セリフは太めのゴシック体風の日本語で吹き出しに描く。心の声・独白はしっぽのない角丸のモノローグ枠にする。
 セリフやモノローグの文頭に番号（①②③…）や記号を付けない。指定した文章だけをそのまま描く。
@@ -1996,7 +2249,8 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 同一コマ内のセリフは、【画面に描くセリフ】に書いた順番どおりに、上から下へ読める配置にする（順番を入れ替えない）。
 テロップ指定がある場合は指定位置に太いテロップ文字で描く。
 指定した文字以外の文字要素（貼り紙・看板・新聞の見出し・黒板の書き込み・書類の文面など）を勝手に追加しない。
-文字が多少崩れても再生成しない（軽微なものは編集で修正する）。</pre>
+文字が多少崩れても再生成しない（軽微なものは編集で修正する）。
+ナレーションは画像へ描かない（動画側で字幕帯として載せる）。画面に描く文字は、上の【画面に描くセリフ】と【テロップ】に挙げたものだけとする。</pre>
 </div></details>
 </div>
 <div class="right">
@@ -2008,7 +2262,12 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>音声の要点</b>開戦か外交かは総理の判断と答える</div>
 <div><b>役割・事実根拠</b>ch3 及川の総理一任。逐語がないため要旨と明示</div>
 <div><b>登場</b>近衛文麿・及川古志郎</div>
-</div></div></div>
+</div></div>
+<div class="draw"><h4>画面に描く文字</h4>
+<div class="nb"><span class="who">ナレーション（画像には描かない）</span>近衛は、太平洋で実際に戦う海軍へ向き直った。</div>
+<div class="bl"><span class="who">及川古志郎</span>開戦か外交かは、総理が判断されることです。</div>
+<div class="nb"><span class="who">ナレーション（画像には描かない）</span>海軍は、勝算があるとも、戦争はできないとも言わなかった。判断の責任は、総理へ戻された。</div>
+</div></div>
 <div class="koma" data-img="0" id="kB15">
 <div class="left">
 <div class="frame empty"><span class="kid">B15</span><span class="nostate">画像 未生成</span><div class="artdir">近衛・陸軍・海軍の三者を円形に配し、矢印が三者を一周する図。中央の「中止」書類に誰の印もない</div></div>
@@ -2055,7 +2314,8 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 同一コマ内のセリフは、【画面に描くセリフ】に書いた順番どおりに、上から下へ読める配置にする（順番を入れ替えない）。
 テロップ指定がある場合は指定位置に太いテロップ文字で描く。
 指定した文字以外の文字要素（貼り紙・看板・新聞の見出し・黒板の書き込み・書類の文面など）を勝手に追加しない。
-文字が多少崩れても再生成しない（軽微なものは編集で修正する）。</pre>
+文字が多少崩れても再生成しない（軽微なものは編集で修正する）。
+ナレーションは画像へ描かない（動画側で字幕帯として載せる）。画面に描く文字は、上の【画面に描くセリフ】と【テロップ】に挙げたものだけとする。</pre>
 </div></details>
 </div>
 <div class="right">
@@ -2067,7 +2327,12 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>音声の要点</b>全員が危険を見ても誰も止めない</div>
 <div><b>役割・事実根拠</b>章の答え。東條単独責任にしない</div>
 <div><b>登場</b>近衛文麿</div>
-</div></div></div>
+</div></div>
+<div class="draw"><h4>画面に描く文字</h4>
+<div class="nb"><span class="who">ナレーション（画像には描かない）</span>近衛は陸海軍に判断を求め、陸軍は海軍が戦えないと言わない以上は撤兵できないと考え、海軍は最後の判断を近衛へ返す。
+全員が、戦争の危険を見ていた。だが、自分の組織から「やめる」と言い出す者はいなかった。
+戦争を止める責任だけが、会議のテーブルを回り続けた。</div>
+</div></div>
 <div class="koma" data-img="0" id="kB16">
 <div class="left">
 <div class="frame empty"><span class="kid">B16</span><span class="nostate">画像 未生成</span><div class="artdir">戦死公報、遺族、軍費帳簿が机へ積み上がる</div></div>
@@ -2114,7 +2379,8 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 同一コマ内のセリフは、【画面に描くセリフ】に書いた順番どおりに、上から下へ読める配置にする（順番を入れ替えない）。
 テロップ指定がある場合は指定位置に太いテロップ文字で描く。
 指定した文字以外の文字要素（貼り紙・看板・新聞の見出し・黒板の書き込み・書類の文面など）を勝手に追加しない。
-文字が多少崩れても再生成しない（軽微なものは編集で修正する）。</pre>
+文字が多少崩れても再生成しない（軽微なものは編集で修正する）。
+ナレーションは画像へ描かない（動画側で字幕帯として載せる）。画面に描く文字は、上の【画面に描くセリフ】と【テロップ】に挙げたものだけとする。</pre>
 </div></details>
 </div>
 <div class="right">
@@ -2125,7 +2391,11 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>音声の要点</b>なぜ撤兵できないのか→戦争の代償へ</div>
 <div><b>役割・事実根拠</b>C章への因果フック</div>
 <div><b>登場</b>東條英機</div>
-</div></div></div>
+</div></div>
+<div class="draw"><h4>画面に描く文字</h4>
+<div class="nb"><span class="who">ナレーション（画像には描かない）</span>では、なぜ東條は、撤兵を最後まで決断できなかったのか。
+そこには、四年以上の戦争が積み上げた、あまりにも重い代償があった。</div>
+</div></div>
 <div class="check"><h3>B章の理解検査</h3><ul>
 <li class="">10月6日→7日→8日→12日の時系列を崩していない</li>
 <li class="">各発言を記録された場面へ固定し、別の会議へ移していない</li>
@@ -2190,7 +2460,8 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 同一コマ内のセリフは、【画面に描くセリフ】に書いた順番どおりに、上から下へ読める配置にする（順番を入れ替えない）。
 テロップ指定がある場合は指定位置に太いテロップ文字で描く。
 指定した文字以外の文字要素（貼り紙・看板・新聞の見出し・黒板の書き込み・書類の文面など）を勝手に追加しない。
-文字が多少崩れても再生成しない（軽微なものは編集で修正する）。</pre>
+文字が多少崩れても再生成しない（軽微なものは編集で修正する）。
+ナレーションは画像へ描かない（動画側で字幕帯として載せる）。画面に描く文字は、上の【画面に描くセリフ】と【テロップ】に挙げたものだけとする。</pre>
 </div></details>
 </div>
 <div class="right">
@@ -2202,7 +2473,12 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>音声の要点</b>撤兵は軍を戻すだけではない</div>
 <div><b>役割・事実根拠</b>言葉と意味の差を開く</div>
 <div><b>登場</b>東條英機</div>
-</div></div></div>
+</div></div>
+<div class="draw"><h4>画面に描く文字</h4>
+<div class="nb"><span class="who">ナレーション（画像には描かない）</span>中国からの撤兵。
+言葉にすれば、それは軍を引き揚げるだけに聞こえる。
+しかし東條と陸軍にとっては、そうではなかった。</div>
+</div></div>
 <div class="koma" data-img="0" id="kC02">
 <div class="left">
 <div class="frame empty"><span class="kid">C02</span><span class="nostate">画像 未生成</span><div class="artdir">一枚の机の上に、出征兵の写真、戦死公報、遺族の姿、軍費帳簿を左から右へ並べて置く。帳簿の背表紙に「昭和十二年〜昭和十六年」</div></div>
@@ -2248,7 +2524,8 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 同一コマ内のセリフは、【画面に描くセリフ】に書いた順番どおりに、上から下へ読める配置にする（順番を入れ替えない）。
 テロップ指定がある場合は指定位置に太いテロップ文字で描く。
 指定した文字以外の文字要素（貼り紙・看板・新聞の見出し・黒板の書き込み・書類の文面など）を勝手に追加しない。
-文字が多少崩れても再生成しない（軽微なものは編集で修正する）。</pre>
+文字が多少崩れても再生成しない（軽微なものは編集で修正する）。
+ナレーションは画像へ描かない（動画側で字幕帯として載せる）。画面に描く文字は、上の【画面に描くセリフ】と【テロップ】に挙げたものだけとする。</pre>
 </div></details>
 </div>
 <div class="right">
@@ -2258,7 +2535,11 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div class="meta">
 <div><b>音声の要点</b>4年以上の戦争と犠牲</div>
 <div><b>役割・事実根拠</b>ch3 10/14東條発言。人数は出さない</div>
-</div></div></div>
+</div></div>
+<div class="draw"><h4>画面に描く文字</h4>
+<div class="nb"><span class="who">ナレーション（画像には描かない）</span>四年以上の戦争。
+前線へ送られた兵士。届き続ける戦死公報。残された遺族。そして、使われた莫大な国費。</div>
+</div></div>
 <div class="koma" data-img="0" id="kC03">
 <div class="left">
 <div class="frame empty"><span class="kid">C03</span><span class="nostate">画像 未生成</span><div class="artdir">積み上がった犠牲の前で演説する東條、沈黙する閣僚</div></div>
@@ -2306,7 +2587,8 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 同一コマ内のセリフは、【画面に描くセリフ】に書いた順番どおりに、上から下へ読める配置にする（順番を入れ替えない）。
 テロップ指定がある場合は指定位置に太いテロップ文字で描く。
 指定した文字以外の文字要素（貼り紙・看板・新聞の見出し・黒板の書き込み・書類の文面など）を勝手に追加しない。
-文字が多少崩れても再生成しない（軽微なものは編集で修正する）。</pre>
+文字が多少崩れても再生成しない（軽微なものは編集で修正する）。
+ナレーションは画像へ描かない（動画側で字幕帯として載せる）。画面に描く文字は、上の【画面に描くセリフ】と【テロップ】に挙げたものだけとする。</pre>
 </div></details>
 </div>
 <div class="right">
@@ -2317,7 +2599,11 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>音声の要点</b>撤兵すれば犠牲と戦果を失うとの主張</div>
 <div><b>役割・事実根拠</b>ch3 10/14。著者表現を写さず要約</div>
 <div><b>登場</b>東條英機・閣僚たち</div>
-</div></div></div>
+</div></div>
+<div class="draw"><h4>画面に描く文字</h4>
+<div class="nb"><span class="who">ナレーション（画像には描かない）</span>東條は閣議で、それらを一つずつ挙げた。
+撤兵すれば、これまでの犠牲と戦果を、自分たちで失うことになると訴えた。</div>
+</div></div>
 <div class="koma" data-img="0" id="kC04">
 <div class="left">
 <div class="frame empty"><span class="kid">C04</span><span class="nostate">画像 未生成</span><div class="artdir">中国北部と満洲国の簡略地図を背景に、手前の陸軍組織図へ一本の亀裂が走る</div></div>
@@ -2364,7 +2650,8 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 同一コマ内のセリフは、【画面に描くセリフ】に書いた順番どおりに、上から下へ読める配置にする（順番を入れ替えない）。
 テロップ指定がある場合は指定位置に太いテロップ文字で描く。
 指定した文字以外の文字要素（貼り紙・看板・新聞の見出し・黒板の書き込み・書類の文面など）を勝手に追加しない。
-文字が多少崩れても再生成しない（軽微なものは編集で修正する）。</pre>
+文字が多少崩れても再生成しない（軽微なものは編集で修正する）。
+ナレーションは画像へ描かない（動画側で字幕帯として載せる）。画面に描く文字は、上の【画面に描くセリフ】と【テロップ】に挙げたものだけとする。</pre>
 </div></details>
 </div>
 <div class="right">
@@ -2375,7 +2662,11 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>音声の要点</b>駐兵は満洲・権益の防衛、撤兵で陸軍がまとまらない</div>
 <div><b>役割・事実根拠</b>ch3 10/12東條発言</div>
 <div><b>登場</b>東條英機</div>
-</div></div></div>
+</div></div>
+<div class="draw"><h4>画面に描く文字</h4>
+<div class="nb"><span class="who">ナレーション（画像には描かない）</span>陸軍は、中国北部などへの駐兵を、満洲国と日本の権益を守るために必要だと考えていた。
+東條は、撤兵を基礎にすれば、陸軍そのものがまとまらなくなるとも語った。</div>
+</div></div>
 <div class="koma" data-img="0" id="kC05">
 <div class="left">
 <div class="frame empty"><span class="kid">C05</span><span class="nostate">画像 未生成</span><div class="artdir">左に過去の戦死公報、右に太平洋で沈む船。東條を中央</div></div>
@@ -2422,7 +2713,8 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 同一コマ内のセリフは、【画面に描くセリフ】に書いた順番どおりに、上から下へ読める配置にする（順番を入れ替えない）。
 テロップ指定がある場合は指定位置に太いテロップ文字で描く。
 指定した文字以外の文字要素（貼り紙・看板・新聞の見出し・黒板の書き込み・書類の文面など）を勝手に追加しない。
-文字が多少崩れても再生成しない（軽微なものは編集で修正する）。</pre>
+文字が多少崩れても再生成しない（軽微なものは編集で修正する）。
+ナレーションは画像へ描かない（動画側で字幕帯として載せる）。画面に描く文字は、上の【画面に描くセリフ】と【テロップ】に挙げたものだけとする。</pre>
 </div></details>
 </div>
 <div class="right">
@@ -2433,7 +2725,11 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>音声の要点</b>過去と未来、二つの犠牲を見ていた</div>
 <div><b>役割・事実根拠</b>結論を先に置かず10/8記録へ導く</div>
 <div><b>登場</b>東條英機</div>
-</div></div></div>
+</div></div>
+<div class="draw"><h4>画面に描く文字</h4>
+<div class="nb"><span class="who">ナレーション（画像には描かない）</span>東條は、過去の犠牲と、これから起こりうる犠牲の両方を見ていた。
+その二つを比べた記録が残っている。</div>
+</div></div>
 <div class="koma" data-img="0" id="kC06">
 <div class="left">
 <div class="frame empty"><span class="kid">C06</span><span class="nostate">画像 未生成</span><div class="artdir">開かれた日記の手元を手前に、その向こうへ東條を置く。東條の左右に過去の戦死公報と沈む輸送船。テロップ「十月八日」</div></div>
@@ -2473,6 +2769,9 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 【シーン（コマC06）】
 開かれた日記の手元を手前に、その向こうへ陸軍大将の男を置く。陸軍大将の男の左右に過去の戦死公報と沈む輸送船。テロップ「十月八日」
 
+【テロップ】
+- 十月八日
+
 【文字ルール】
 文字の扱い: セリフは太めのゴシック体風の日本語で吹き出しに描く。心の声・独白はしっぽのない角丸のモノローグ枠にする。
 セリフやモノローグの文頭に番号（①②③…）や記号を付けない。指定した文章だけをそのまま描く。
@@ -2480,7 +2779,8 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 同一コマ内のセリフは、【画面に描くセリフ】に書いた順番どおりに、上から下へ読める配置にする（順番を入れ替えない）。
 テロップ指定がある場合は指定位置に太いテロップ文字で描く。
 指定した文字以外の文字要素（貼り紙・看板・新聞の見出し・黒板の書き込み・書類の文面など）を勝手に追加しない。
-文字が多少崩れても再生成しない（軽微なものは編集で修正する）。</pre>
+文字が多少崩れても再生成しない（軽微なものは編集で修正する）。
+ナレーションは画像へ描かない（動画側で字幕帯として載せる）。画面に描く文字は、上の【画面に描くセリフ】と【テロップ】に挙げたものだけとする。</pre>
 </div></details>
 </div>
 <div class="right">
@@ -2491,7 +2791,12 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>音声の要点</b>撤兵も考えながら決めかねていたとの記録</div>
 <div><b>役割・事実根拠</b>ch3沢本日記。本人の直接セリフにしない</div>
 <div><b>登場</b>東條英機</div>
-</div></div></div>
+</div></div>
+<div class="draw"><h4>画面に描く文字</h4>
+<div class="tl"><span class="who">テロップ</span>十月八日</div>
+<div class="nb"><span class="who">ナレーション（画像には描かない）</span>十月八日。海軍次官の日記には、東條が、中国を去りがたい思いと、日米戦でさらに多くを失う恐れを比べ、
+撤兵も考えながら決めかねていた、と記録されている。</div>
+</div></div>
 <div class="koma" data-img="0" id="kC07">
 <div class="left">
 <div class="frame empty"><span class="kid">C07</span><span class="nostate">画像 未生成</span><div class="artdir">過去と未来の二つの扉。画面隅に「記録から考えられる構図」</div></div>
@@ -2538,7 +2843,8 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 同一コマ内のセリフは、【画面に描くセリフ】に書いた順番どおりに、上から下へ読める配置にする（順番を入れ替えない）。
 テロップ指定がある場合は指定位置に太いテロップ文字で描く。
 指定した文字以外の文字要素（貼り紙・看板・新聞の見出し・黒板の書き込み・書類の文面など）を勝手に追加しない。
-文字が多少崩れても再生成しない（軽微なものは編集で修正する）。</pre>
+文字が多少崩れても再生成しない（軽微なものは編集で修正する）。
+ナレーションは画像へ描かない（動画側で字幕帯として載せる）。画面に描く文字は、上の【画面に描くセリフ】と【テロップ】に挙げたものだけとする。</pre>
 </div></details>
 </div>
 <div class="right">
@@ -2551,7 +2857,13 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>音声の要点</b>どちらの責任も引き受けられなかったと考えられる</div>
 <div><b>役割・事実根拠</b>事実と制作側の解釈を画面でも分離</div>
 <div><b>登場</b>東條英機</div>
-</div></div></div>
+</div></div>
+<div class="draw"><h4>画面に描く文字</h4>
+<div class="nb"><span class="who">ナレーション（画像には描かない）</span>この一連の記録を並べると、東條が置かれた板挟みが見えてくる。
+撤兵すれば、過去の犠牲を否定する。
+撤兵しなければ、未来の犠牲を増やす。
+東條は、そのどちらの責任も引き受けられなかったと考えられる。</div>
+</div></div>
 <div class="koma" data-img="0" id="kC08">
 <div class="left">
 <div class="frame empty"><span class="kid">C08</span><span class="nostate">画像 未生成</span><div class="artdir">10/14夜、鈴木が近衛へ東條の意向を伝える</div></div>
@@ -2601,7 +2913,8 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 同一コマ内のセリフは、【画面に描くセリフ】に書いた順番どおりに、上から下へ読める配置にする（順番を入れ替えない）。
 テロップ指定がある場合は指定位置に太いテロップ文字で描く。
 指定した文字以外の文字要素（貼り紙・看板・新聞の見出し・黒板の書き込み・書類の文面など）を勝手に追加しない。
-文字が多少崩れても再生成しない（軽微なものは編集で修正する）。</pre>
+文字が多少崩れても再生成しない（軽微なものは編集で修正する）。
+ナレーションは画像へ描かない（動画側で字幕帯として載せる）。画面に描く文字は、上の【画面に描くセリフ】と【テロップ】に挙げたものだけとする。</pre>
 </div></details>
 </div>
 <div class="right">
@@ -2613,7 +2926,12 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>音声の要点</b>全員辞職し御破算から練り直す</div>
 <div><b>役割・事実根拠</b>ch3鈴木貞一記録。伝聞と明示</div>
 <div><b>登場</b>東條英機・近衛文麿・鈴木貞一（参照画像なし）</div>
-</div></div></div>
+</div></div>
+<div class="draw"><h4>画面に描く文字</h4>
+<div class="nb"><span class="who">ナレーション（画像には描かない）</span>十月十四日の夜。東條の意向を受けた企画院総裁の鈴木貞一が、近衛へこう伝えたと記録されている。</div>
+<div class="nb"><span class="who">ナレーション（画像には描かない）</span>海軍がそういうように肚がきまらないならば、九月六日の御前会議は根本的に覆るのだ。
+この際は全部辞職して、今までのことを御破算にして、もう一度案を練り直すということ以外にないと思う。</div>
+</div></div>
 <div class="koma" data-img="0" id="kC09">
 <div class="left">
 <div class="frame empty"><span class="kid">C09</span><span class="nostate">画像 未生成</span><div class="artdir">閣僚が首相官邸から去り、東條の席も空になる</div></div>
@@ -2661,7 +2979,8 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 同一コマ内のセリフは、【画面に描くセリフ】に書いた順番どおりに、上から下へ読める配置にする（順番を入れ替えない）。
 テロップ指定がある場合は指定位置に太いテロップ文字で描く。
 指定した文字以外の文字要素（貼り紙・看板・新聞の見出し・黒板の書き込み・書類の文面など）を勝手に追加しない。
-文字が多少崩れても再生成しない（軽微なものは編集で修正する）。</pre>
+文字が多少崩れても再生成しない（軽微なものは編集で修正する）。
+ナレーションは画像へ描かない（動画側で字幕帯として載せる）。画面に描く文字は、上の【画面に描くセリフ】と【テロップ】に挙げたものだけとする。</pre>
 </div></details>
 </div>
 <div class="right">
@@ -2673,7 +2992,12 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>音声の要点</b>国策を白紙へ戻す手続き。東條の退場意思は不明</div>
 <div><b>役割・事実根拠</b>総辞職の効果と内心を分ける</div>
 <div><b>登場</b>東條英機・閣僚たち</div>
-</div></div></div>
+</div></div>
+<div class="draw"><h4>画面に描く文字</h4>
+<div class="nb"><span class="who">ナレーション（画像には描かない）</span>東條の提案で、内閣は倒れた。
+総辞職は、少なくとも表向きは、これまでの国策を白紙へ戻す手続きだった。
+東條自身が、身を引くことまで望んでいたのかは分からない。</div>
+</div></div>
 <div class="koma" data-img="0" id="kC10">
 <div class="left">
 <div class="frame empty"><span class="kid">C10</span><span class="nostate">画像 未生成</span><div class="artdir">閉じた宮中の門を中央に大きく。門の内側に東條の人事書類が置かれ、門の外に空席の椅子が一つ残る</div></div>
@@ -2720,7 +3044,8 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 同一コマ内のセリフは、【画面に描くセリフ】に書いた順番どおりに、上から下へ読める配置にする（順番を入れ替えない）。
 テロップ指定がある場合は指定位置に太いテロップ文字で描く。
 指定した文字以外の文字要素（貼り紙・看板・新聞の見出し・黒板の書き込み・書類の文面など）を勝手に追加しない。
-文字が多少崩れても再生成しない（軽微なものは編集で修正する）。</pre>
+文字が多少崩れても再生成しない（軽微なものは編集で修正する）。
+ナレーションは画像へ描かない（動画側で字幕帯として載せる）。画面に描く文字は、上の【画面に描くセリフ】と【テロップ】に挙げたものだけとする。</pre>
 </div></details>
 </div>
 <div class="right">
@@ -2730,7 +3055,10 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>音声の要点</b>宮中が次の総理候補に東條を挙げる</div>
 <div><b>役割・事実根拠</b>D章への事実フック。ch3・ch4</div>
 <div><b>登場</b>東條英機</div>
-</div></div></div>
+</div></div>
+<div class="draw"><h4>画面に描く文字</h4>
+<div class="nb"><span class="who">ナレーション（画像には描かない）</span>ところが宮中が、次の総理候補として名を挙げたのは、ほかならぬ東條本人だった。</div>
+</div></div>
 <div class="check"><h3>C章の理解検査</h3><ul>
 <li class="">撤兵を地理だけでなく、犠牲・組織・満洲防衛構想の問題として説明した</li>
 <li class="">過去の犠牲と未来の犠牲を同じ画面で比較した</li>
@@ -2792,7 +3120,8 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 同一コマ内のセリフは、【画面に描くセリフ】に書いた順番どおりに、上から下へ読める配置にする（順番を入れ替えない）。
 テロップ指定がある場合は指定位置に太いテロップ文字で描く。
 指定した文字以外の文字要素（貼り紙・看板・新聞の見出し・黒板の書き込み・書類の文面など）を勝手に追加しない。
-文字が多少崩れても再生成しない（軽微なものは編集で修正する）。</pre>
+文字が多少崩れても再生成しない（軽微なものは編集で修正する）。
+ナレーションは画像へ描かない（動画側で字幕帯として載せる）。画面に描く文字は、上の【画面に描くセリフ】と【テロップ】に挙げたものだけとする。</pre>
 </div></details>
 </div>
 <div class="right">
@@ -2804,7 +3133,12 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>音声の要点</b>内閣を倒した当人が呼ばれる</div>
 <div><b>役割・事実根拠</b>章の最初から主人公を東條に固定</div>
 <div><b>登場</b>東條英機・近衛文麿</div>
-</div></div></div>
+</div></div>
+<div class="draw"><h4>画面に描く文字</h4>
+<div class="nb"><span class="who">ナレーション（画像には描かない）</span>近衛内閣が倒れた翌日。
+東條は、陸軍大臣として宮中へ呼ばれた。
+自分は、撤兵を拒み、内閣を倒すきっかけを作った当人である。</div>
+</div></div>
 <div class="koma" data-img="0" id="kD02">
 <div class="left">
 <div class="frame empty"><span class="kid">D02</span><span class="nostate">画像 未生成</span><div class="artdir">宮中の廊下を歩く東條。背後に撤兵拒否の閣議と総辞職号外</div></div>
@@ -2851,7 +3185,8 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 同一コマ内のセリフは、【画面に描くセリフ】に書いた順番どおりに、上から下へ読める配置にする（順番を入れ替えない）。
 テロップ指定がある場合は指定位置に太いテロップ文字で描く。
 指定した文字以外の文字要素（貼り紙・看板・新聞の見出し・黒板の書き込み・書類の文面など）を勝手に追加しない。
-文字が多少崩れても再生成しない（軽微なものは編集で修正する）。</pre>
+文字が多少崩れても再生成しない（軽微なものは編集で修正する）。
+ナレーションは画像へ描かない（動画側で字幕帯として載せる）。画面に描く文字は、上の【画面に描くセリフ】と【テロップ】に挙げたものだけとする。</pre>
 </div></details>
 </div>
 <div class="right">
@@ -2862,7 +3197,11 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>音声の要点</b>国策を行き詰まらせた責任を問われると考える</div>
 <div><b>役割・事実根拠</b>ch4場面。感情の原因を直前に示す</div>
 <div><b>登場</b>東條英機</div>
-</div></div></div>
+</div></div>
+<div class="draw"><h4>画面に描く文字</h4>
+<div class="nb"><span class="who">ナレーション（画像には描かない）</span>国策を行き詰まらせた責任を問われる。
+東條は、そう考えて宮中へ向かったと記録されている。</div>
+</div></div>
 <div class="koma" data-img="0" id="kD03">
 <div class="left">
 <div class="frame empty"><span class="kid">D03</span><span class="nostate">画像 未生成</span><div class="artdir">宮中の一室へ入る東條。正面に木戸、画面の重心は東條</div></div>
@@ -2911,7 +3250,8 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 同一コマ内のセリフは、【画面に描くセリフ】に書いた順番どおりに、上から下へ読める配置にする（順番を入れ替えない）。
 テロップ指定がある場合は指定位置に太いテロップ文字で描く。
 指定した文字以外の文字要素（貼り紙・看板・新聞の見出し・黒板の書き込み・書類の文面など）を勝手に追加しない。
-文字が多少崩れても再生成しない（軽微なものは編集で修正する）。</pre>
+文字が多少崩れても再生成しない（軽微なものは編集で修正する）。
+ナレーションは画像へ描かない（動画側で字幕帯として載せる）。画面に描く文字は、上の【画面に描くセリフ】と【テロップ】に挙げたものだけとする。</pre>
 </div></details>
 </div>
 <div class="right">
@@ -2921,7 +3261,10 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>音声の要点</b>天皇の意向を受けた木戸が言葉を伝える</div>
 <div><b>役割・事実根拠</b>答えを先に明かさず、東條と視聴者を同じ現在地に置く</div>
 <div><b>登場</b>東條英機・木戸幸一・昭和天皇</div>
-</div></div></div>
+</div></div>
+<div class="draw"><h4>画面に描く文字</h4>
+<div class="nb"><span class="who">ナレーション（画像には描かない）</span>宮中で、天皇の意向を受けた内大臣・木戸幸一が、東條へこう伝えた。</div>
+</div></div>
 <div class="koma" data-img="0" id="kD04">
 <div class="left">
 <div class="frame empty"><span class="kid">D04</span><span class="nostate">画像 未生成</span><div class="artdir">宮中の一室。木戸が文書を読み上げ、その正面で東條が引きの構図のまま止まる。文書の冒頭に「九月六日」の文字が見え、その下に封を切った組閣命令書が重ねてある。テロップ「天皇の意向を受けて」</div></div>
@@ -2963,6 +3306,13 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 【シーン（コマD04）】
 宮中の一室。宮中の側近が文書を読み上げ、その正面で陸軍大将の男が引きの構図のまま止まる。文書の冒頭に「九月六日」の文字が見え、その下に封を切った組閣命令書が重ねてある。テロップ「大元帥服の君主の意向を受けて」
 
+【画面に描くセリフ】
+- 宮中の側近〈吹き出し〉:「九月六日の決定を白紙に戻し、もう一度、慎重に検討されたい。」
+※ 話者の呼び名は誰のセリフかを示す制作上の記号であり、画面には描かない。
+
+【テロップ】
+- 天皇の意向を受けて
+
 【文字ルール】
 文字の扱い: セリフは太めのゴシック体風の日本語で吹き出しに描く。心の声・独白はしっぽのない角丸のモノローグ枠にする。
 セリフやモノローグの文頭に番号（①②③…）や記号を付けない。指定した文章だけをそのまま描く。
@@ -2970,7 +3320,8 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 同一コマ内のセリフは、【画面に描くセリフ】に書いた順番どおりに、上から下へ読める配置にする（順番を入れ替えない）。
 テロップ指定がある場合は指定位置に太いテロップ文字で描く。
 指定した文字以外の文字要素（貼り紙・看板・新聞の見出し・黒板の書き込み・書類の文面など）を勝手に追加しない。
-文字が多少崩れても再生成しない（軽微なものは編集で修正する）。</pre>
+文字が多少崩れても再生成しない（軽微なものは編集で修正する）。
+ナレーションは画像へ描かない（動画側で字幕帯として載せる）。画面に描く文字は、上の【画面に描くセリフ】と【テロップ】に挙げたものだけとする。</pre>
 </div></details>
 </div>
 <div class="right">
@@ -2982,7 +3333,13 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>音声の要点</b>9/6決定を白紙へ。東條は茫然。その後、組閣を命じられる</div>
 <div><b>役割・事実根拠</b>東條が予想外の命令を受ける転換点</div>
 <div><b>登場</b>東條英機・木戸幸一・昭和天皇</div>
-</div></div></div>
+</div></div>
+<div class="draw"><h4>画面に描く文字</h4>
+<div class="tl"><span class="who">テロップ</span>天皇の意向を受けて</div>
+<div class="bl"><span class="who">木戸幸一</span>九月六日の決定を白紙に戻し、もう一度、慎重に検討されたい。</div>
+<div class="nb"><span class="who">ナレーション（画像には描かない）</span>記録には、その言葉を受けた東條が茫然となったとある。
+そして東條へ、次の内閣を組織するよう命令が下された。</div>
+</div></div>
 <div class="koma" data-img="0" id="kD05">
 <div class="left">
 <div class="frame empty"><span class="kid">D05</span><span class="nostate">画像 未生成</span><div class="artdir">茫然とする東條を手前に残し、奥に首相候補書類。皇族案は札1枚で消える</div></div>
@@ -3029,7 +3386,8 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 同一コマ内のセリフは、【画面に描くセリフ】に書いた順番どおりに、上から下へ読める配置にする（順番を入れ替えない）。
 テロップ指定がある場合は指定位置に太いテロップ文字で描く。
 指定した文字以外の文字要素（貼り紙・看板・新聞の見出し・黒板の書き込み・書類の文面など）を勝手に追加しない。
-文字が多少崩れても再生成しない（軽微なものは編集で修正する）。</pre>
+文字が多少崩れても再生成しない（軽微なものは編集で修正する）。
+ナレーションは画像へ描かない（動画側で字幕帯として載せる）。画面に描く文字は、上の【画面に描くセリフ】と【テロップ】に挙げたものだけとする。</pre>
 </div></details>
 </div>
 <div class="right">
@@ -3041,7 +3399,12 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>音声の要点</b>なぜ東條が選ばれたのかを問い、皇族案が退けられた経緯を示す</div>
 <div><b>役割・事実根拠</b>驚きの後に理由を説明し、ネタバレを避ける</div>
 <div><b>登場</b>東條英機</div>
-</div></div></div>
+</div></div>
+<div class="draw"><h4>画面に描く文字</h4>
+<div class="nb"><span class="who">ナレーション（画像には描かない）</span>なぜ、内閣を倒す原因となった東條が、次の首相に選ばれたのか。
+宮中では、皇族を首相にする案も出ていた。
+しかし、戦争の責任が皇室へ及ぶ危険から、その案は退けられた。</div>
+</div></div>
 <div class="koma" data-img="0" id="kD06">
 <div class="left">
 <div class="frame empty"><span class="kid">D06</span><span class="nostate">画像 未生成</span><div class="artdir">東條の背後に陸軍組織。A03の疑問符が消える</div></div>
@@ -3088,7 +3451,8 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 同一コマ内のセリフは、【画面に描くセリフ】に書いた順番どおりに、上から下へ読める配置にする（順番を入れ替えない）。
 テロップ指定がある場合は指定位置に太いテロップ文字で描く。
 指定した文字以外の文字要素（貼り紙・看板・新聞の見出し・黒板の書き込み・書類の文面など）を勝手に追加しない。
-文字が多少崩れても再生成しない（軽微なものは編集で修正する）。</pre>
+文字が多少崩れても再生成しない（軽微なものは編集で修正する）。
+ナレーションは画像へ描かない（動画側で字幕帯として載せる）。画面に描く文字は、上の【画面に描くセリフ】と【テロップ】に挙げたものだけとする。</pre>
 </div></details>
 </div>
 <div class="right">
@@ -3100,7 +3464,12 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>音声の要点</b>強硬派自身なら陸軍を抑え、責任も負わせられる</div>
 <div><b>役割・事実根拠</b>「なぜ東條か」を東條の物語として回収</div>
 <div><b>登場</b>東條英機</div>
-</div></div></div>
+</div></div>
+<div class="draw"><h4>画面に描く文字</h4>
+<div class="nb"><span class="who">ナレーション（画像には描かない）</span>強硬派の東條自身に、国策を白紙から調べ直させる。
+東條なら陸軍を抑えられ、結果への責任も陸軍が負う。
+内閣を倒した東條は、陸軍を止められる可能性がある男として選ばれたのである。</div>
+</div></div>
 <div class="koma" data-img="0" id="kD07">
 <div class="left">
 <div class="frame empty"><span class="kid">D07</span><span class="nostate">画像 未生成</span><div class="artdir">東條の前の白紙へ、外交・資源・陸軍・海軍の資料が並ぶ</div></div>
@@ -3147,7 +3516,8 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 同一コマ内のセリフは、【画面に描くセリフ】に書いた順番どおりに、上から下へ読める配置にする（順番を入れ替えない）。
 テロップ指定がある場合は指定位置に太いテロップ文字で描く。
 指定した文字以外の文字要素（貼り紙・看板・新聞の見出し・黒板の書き込み・書類の文面など）を勝手に追加しない。
-文字が多少崩れても再生成しない（軽微なものは編集で修正する）。</pre>
+文字が多少崩れても再生成しない（軽微なものは編集で修正する）。
+ナレーションは画像へ描かない（動画側で字幕帯として載せる）。画面に描く文字は、上の【画面に描くセリフ】と【テロップ】に挙げたものだけとする。</pre>
 </div></details>
 </div>
 <div class="right">
@@ -3158,7 +3528,11 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>音声の要点</b>東條の仕事は全面再検討</div>
 <div><b>役割・事実根拠</b>制度図でも東條を画面の中心に残す</div>
 <div><b>登場</b>東條英機</div>
-</div></div></div>
+</div></div>
+<div class="draw"><h4>画面に描く文字</h4>
+<div class="nb"><span class="who">ナレーション（画像には描かない）</span>東條に与えられたのは、即時和平の命令ではない。
+外交、資源、作戦をすべて調べ、開戦か和平かを決め直す仕事だった。</div>
+</div></div>
 <div class="koma" data-img="0" id="kD08">
 <div class="left">
 <div class="frame empty"><span class="kid">D08</span><span class="nostate">画像 未生成</span><div class="artdir">10/18組閣。総理・陸相・内相の三つの札が東條へ重なる</div></div>
@@ -3205,7 +3579,8 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 同一コマ内のセリフは、【画面に描くセリフ】に書いた順番どおりに、上から下へ読める配置にする（順番を入れ替えない）。
 テロップ指定がある場合は指定位置に太いテロップ文字で描く。
 指定した文字以外の文字要素（貼り紙・看板・新聞の見出し・黒板の書き込み・書類の文面など）を勝手に追加しない。
-文字が多少崩れても再生成しない（軽微なものは編集で修正する）。</pre>
+文字が多少崩れても再生成しない（軽微なものは編集で修正する）。
+ナレーションは画像へ描かない（動画側で字幕帯として載せる）。画面に描く文字は、上の【画面に描くセリフ】と【テロップ】に挙げたものだけとする。</pre>
 </div></details>
 </div>
 <div class="right">
@@ -3216,7 +3591,11 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>音声の要点</b>東條内閣成立、三職兼任</div>
 <div><b>役割・事実根拠</b>ch4年表。主人公の立場の変化</div>
 <div><b>登場</b>東條英機</div>
-</div></div></div>
+</div></div>
+<div class="draw"><h4>画面に描く文字</h4>
+<div class="nb"><span class="who">ナレーション（画像には描かない）</span>翌十月十八日。東條内閣が成立した。
+東條は総理大臣だけでなく、陸軍大臣と内務大臣も兼ねた。</div>
+</div></div>
 <div class="koma" data-img="0" id="kD09">
 <div class="left">
 <div class="frame empty"><span class="kid">D09</span><span class="nostate">画像 未生成</span><div class="artdir">東條から内相の札へ線が伸び、その先に警察組織を置く。反対側に暴動の予兆を小さく描き、二つを東條の手元で束ねる図</div></div>
@@ -3263,7 +3642,8 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 同一コマ内のセリフは、【画面に描くセリフ】に書いた順番どおりに、上から下へ読める配置にする（順番を入れ替えない）。
 テロップ指定がある場合は指定位置に太いテロップ文字で描く。
 指定した文字以外の文字要素（貼り紙・看板・新聞の見出し・黒板の書き込み・書類の文面など）を勝手に追加しない。
-文字が多少崩れても再生成しない（軽微なものは編集で修正する）。</pre>
+文字が多少崩れても再生成しない（軽微なものは編集で修正する）。
+ナレーションは画像へ描かない（動画側で字幕帯として載せる）。画面に描く文字は、上の【画面に描くセリフ】と【テロップ】に挙げたものだけとする。</pre>
 </div></details>
 </div>
 <div class="right">
@@ -3274,7 +3654,11 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>音声の要点</b>東條本人の兼任理由と意味</div>
 <div><b>役割・事実根拠</b>説明の主語を東條に保つ</div>
 <div><b>登場</b>東條英機</div>
-</div></div></div>
+</div></div>
+<div class="draw"><h4>画面に描く文字</h4>
+<div class="nb"><span class="who">ナレーション（画像には描かない）</span>内務大臣は警察を動かせる。東條は、対米妥協で暴動が起きれば自ら鎮圧するためだと説明した。
+これは東條本人の説明である。また、この兼任には、政治と軍事を自分のもとで一致させる意味もあったと考えられる。</div>
+</div></div>
 <div class="koma" data-img="0" id="kD10">
 <div class="left">
 <div class="frame empty"><span class="kid">D10</span><span class="nostate">画像 未生成</span><div class="artdir">東條の前でA08〜A11の3択ボードを白紙上に再点灯</div></div>
@@ -3321,7 +3705,8 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 同一コマ内のセリフは、【画面に描くセリフ】に書いた順番どおりに、上から下へ読める配置にする（順番を入れ替えない）。
 テロップ指定がある場合は指定位置に太いテロップ文字で描く。
 指定した文字以外の文字要素（貼り紙・看板・新聞の見出し・黒板の書き込み・書類の文面など）を勝手に追加しない。
-文字が多少崩れても再生成しない（軽微なものは編集で修正する）。</pre>
+文字が多少崩れても再生成しない（軽微なものは編集で修正する）。
+ナレーションは画像へ描かない（動画側で字幕帯として載せる）。画面に描く文字は、上の【画面に描くセリフ】と【テロップ】に挙げたものだけとする。</pre>
 </div></details>
 </div>
 <div class="right">
@@ -3331,7 +3716,10 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>音声の要点</b>東條の前に三つの選択肢が戻る</div>
 <div><b>役割・事実根拠</b>視聴者と主人公の現在地を同時に戻す</div>
 <div><b>登場</b>東條英機</div>
-</div></div></div>
+</div></div>
+<div class="draw"><h4>画面に描く文字</h4>
+<div class="nb"><span class="who">ナレーション（画像には描かない）</span>こうして東條の前に、三つの選択肢が再び並んだ。妥協か。交渉と準備か。開戦か。</div>
+</div></div>
 <div class="koma" data-img="0" id="kD11">
 <div class="left">
 <div class="frame empty"><span class="kid">D11</span><span class="nostate">画像 未生成</span><div class="artdir">首相席の東條。背後に薄く天皇・木戸・政府・陸海軍、手前に白紙</div></div>
@@ -3380,7 +3768,8 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 同一コマ内のセリフは、【画面に描くセリフ】に書いた順番どおりに、上から下へ読める配置にする（順番を入れ替えない）。
 テロップ指定がある場合は指定位置に太いテロップ文字で描く。
 指定した文字以外の文字要素（貼り紙・看板・新聞の見出し・黒板の書き込み・書類の文面など）を勝手に追加しない。
-文字が多少崩れても再生成しない（軽微なものは編集で修正する）。</pre>
+文字が多少崩れても再生成しない（軽微なものは編集で修正する）。
+ナレーションは画像へ描かない（動画側で字幕帯として載せる）。画面に描く文字は、上の【画面に描くセリフ】と【テロップ】に挙げたものだけとする。</pre>
 </div></details>
 </div>
 <div class="right">
@@ -3392,7 +3781,12 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>音声の要点</b>退場するはずの東條が再検討と責任の中心へ</div>
 <div><b>役割・事実根拠</b>脇役は背景に置き、E章へつなぐ</div>
 <div><b>登場</b>東條英機・木戸幸一・昭和天皇</div>
-</div></div></div>
+</div></div>
+<div class="draw"><h4>画面に描く文字</h4>
+<div class="nb"><span class="who">ナレーション（画像には描かない）</span>内閣を倒して退場するはずだった東條が、今度は再検討を主導し、その結論に責任を負う立場になった。
+それは東條一人の選択ではない。天皇、木戸、政府、陸海軍の判断が重なった結果だった。
+白紙からの再検討は、日本をどの道へ導くのか。</div>
+</div></div>
 <div class="check"><h3>D章の理解検査</h3><ul>
 <li class="">東久邇宮案→木戸の反対→東條推挙の順を説明した</li>
 <li class="">木戸の懸念を皇室保護という記録の範囲で示した</li>
@@ -3459,7 +3853,8 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 同一コマ内のセリフは、【画面に描くセリフ】に書いた順番どおりに、上から下へ読める配置にする（順番を入れ替えない）。
 テロップ指定がある場合は指定位置に太いテロップ文字で描く。
 指定した文字以外の文字要素（貼り紙・看板・新聞の見出し・黒板の書き込み・書類の文面など）を勝手に追加しない。
-文字が多少崩れても再生成しない（軽微なものは編集で修正する）。</pre>
+文字が多少崩れても再生成しない（軽微なものは編集で修正する）。
+ナレーションは画像へ描かない（動画側で字幕帯として載せる）。画面に描く文字は、上の【画面に描くセリフ】と【テロップ】に挙げたものだけとする。</pre>
 </div></details>
 </div>
 <div class="right">
@@ -3471,7 +3866,12 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>音声の要点</b>再検討は外交だけでなく戦争準備も対象</div>
 <div><b>役割・事実根拠</b>D章の「白紙」を東條の具体的な仕事へ接続</div>
 <div><b>登場</b>東條英機</div>
-</div></div></div>
+</div></div>
+<div class="draw"><h4>画面に描く文字</h4>
+<div class="nb"><span class="who">ナレーション（画像には描かない）</span>十月十七日に渡された白紙。つまり、国策を振り出しへ戻して、東條が調べ直すのは外交だけではなかった。
+戦う場合に必要な鉄、船、兵力、食糧まで、すべてを比べなければならない。
+戦争を止めるか考えるために、戦争の準備も具体的に調べる。そこに、この再検討の矛盾があった。</div>
+</div></div>
 <div class="koma" data-img="0" id="kE02">
 <div class="left">
 <div class="frame empty"><span class="kid">E02</span><span class="nostate">画像 未生成</span><div class="artdir">東條を中央に、背後の海軍席が及川から嶋田へ交代。開戦容認の札が東條の机へ届く</div></div>
@@ -3521,7 +3921,8 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 同一コマ内のセリフは、【画面に描くセリフ】に書いた順番どおりに、上から下へ読める配置にする（順番を入れ替えない）。
 テロップ指定がある場合は指定位置に太いテロップ文字で描く。
 指定した文字以外の文字要素（貼り紙・看板・新聞の見出し・黒板の書き込み・書類の文面など）を勝手に追加しない。
-文字が多少崩れても再生成しない（軽微なものは編集で修正する）。</pre>
+文字が多少崩れても再生成しない（軽微なものは編集で修正する）。
+ナレーションは画像へ描かない（動画側で字幕帯として載せる）。画面に描く文字は、上の【画面に描くセリフ】と【テロップ】に挙げたものだけとする。</pre>
 </div></details>
 </div>
 <div class="right">
@@ -3533,7 +3934,12 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>音声の要点</b>東條の新内閣で、新海相・嶋田も開戦容認へ進む</div>
 <div><b>役割・事実根拠</b>海軍単独の別筋にせず、東條を取り巻く条件の変化として描く</div>
 <div><b>登場</b>東條英機・及川古志郎・嶋田繁太郎（参照画像なし）</div>
-</div></div></div>
+</div></div>
+<div class="draw"><h4>画面に描く文字</h4>
+<div class="nb"><span class="who">ナレーション（画像には描かない）</span>十月三十日。東條の新内閣では、海軍の姿勢も変わった。
+前任の海軍大臣・及川は、開戦の是非を総理の判断へ返していた。しかし新しい海軍大臣・嶋田繁太郎は、海軍内部で対米英戦争もやむを得ないとの決意を示した。
+東條が海軍を一方的に押し切ったのではない。海軍の側からも、開戦を止める言葉が消え始めた。</div>
+</div></div>
 <div class="koma" data-img="0" id="kE03">
 <div class="left">
 <div class="frame empty"><span class="kid">E03</span><span class="nostate">画像 未生成</span><div class="artdir">10/31。限られた鉄材を海軍・陸軍・民間が三方向から引く。海軍の艦艇、陸軍装備、工場・鉄道を同時表示</div></div>
@@ -3580,7 +3986,8 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 同一コマ内のセリフは、【画面に描くセリフ】に書いた順番どおりに、上から下へ読める配置にする（順番を入れ替えない）。
 テロップ指定がある場合は指定位置に太いテロップ文字で描く。
 指定した文字以外の文字要素（貼り紙・看板・新聞の見出し・黒板の書き込み・書類の文面など）を勝手に追加しない。
-文字が多少崩れても再生成しない（軽微なものは編集で修正する）。</pre>
+文字が多少崩れても再生成しない（軽微なものは編集で修正する）。
+ナレーションは画像へ描かない（動画側で字幕帯として載せる）。画面に描く文字は、上の【画面に描くセリフ】と【テロップ】に挙げたものだけとする。</pre>
 </div></details>
 </div>
 <div class="right">
@@ -3594,7 +4001,14 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>音声の要点</b>海軍への増配には陸軍か民間の削減が必要。三者が同じ鉄を求める</div>
 <div><b>役割・事実根拠</b>対立の中身を見せてから調整へ進む。OCR疑義のある配分数字は出さない</div>
 <div><b>登場</b>東條英機</div>
-</div></div></div>
+</div></div>
+<div class="draw"><h4>画面に描く文字</h4>
+<div class="nb"><span class="who">ナレーション（画像には描かない）</span>翌三十一日。東條の前に置かれたのは、鉄の配分だった。
+海軍は、艦艇を造るために、より多くの鉄を求めた。だが鉄は、陸軍にも、工場や鉄道などの民間にも必要だった。
+海軍の取り分を増やせば、陸軍か民間の取り分を減らさなければならない。
+海軍は艦艇建造に必要だと譲らず、陸軍も自分たちの装備と作戦に必要な鉄を手放したくない。民間を削れば、工場や鉄道、国民生活にしわ寄せが及ぶ。
+限られた鉄を、三者が奪い合う状態になっていた。</div>
+</div></div>
 <div class="koma" data-img="0" id="kE04">
 <div class="left">
 <div class="frame empty"><span class="kid">E04</span><span class="nostate">画像 未生成</span><div class="artdir">東條の手が民間・陸軍側の鉄を少しずつ海軍へ移す。陸海軍の対立線が消える一方、民間側が暗くなる</div></div>
@@ -3641,7 +4055,8 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 同一コマ内のセリフは、【画面に描くセリフ】に書いた順番どおりに、上から下へ読める配置にする（順番を入れ替えない）。
 テロップ指定がある場合は指定位置に太いテロップ文字で描く。
 指定した文字以外の文字要素（貼り紙・看板・新聞の見出し・黒板の書き込み・書類の文面など）を勝手に追加しない。
-文字が多少崩れても再生成しない（軽微なものは編集で修正する）。</pre>
+文字が多少崩れても再生成しない（軽微なものは編集で修正する）。
+ナレーションは画像へ描かない（動画側で字幕帯として載せる）。画面に描く文字は、上の【画面に描くセリフ】と【テロップ】に挙げたものだけとする。</pre>
 </div></details>
 </div>
 <div class="right">
@@ -3653,7 +4068,12 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>音声の要点</b>東條が双方から削って配分を調整。ただし解けたのは開戦準備の問題</div>
 <div><b>役割・事実根拠</b>主人公の行動、解決、しわ寄せを同じ画面で示す</div>
 <div><b>登場</b>東條英機</div>
-</div></div></div>
+</div></div>
+<div class="draw"><h4>画面に描く文字</h4>
+<div class="nb"><span class="who">ナレーション（画像には描かない）</span>東條は、民間と陸軍に回る分をそれぞれ削り、海軍へ融通することで対立をまとめた。
+陸軍と海軍の争いは解けた。だが、まとまったのは、戦争を止める方法ではない。
+戦争を始められるようにするための配分だった。</div>
+</div></div>
 <div class="koma" data-img="0" id="kE05">
 <div class="left">
 <div class="frame empty"><span class="kid">E05</span><span class="nostate">画像 未生成</span><div class="artdir">11/1〜2。東條を議長位置にした政府・陸海軍の合同会議。外交と準備の二本線</div></div>
@@ -3700,7 +4120,8 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 同一コマ内のセリフは、【画面に描くセリフ】に書いた順番どおりに、上から下へ読める配置にする（順番を入れ替えない）。
 テロップ指定がある場合は指定位置に太いテロップ文字で描く。
 指定した文字以外の文字要素（貼り紙・看板・新聞の見出し・黒板の書き込み・書類の文面など）を勝手に追加しない。
-文字が多少崩れても再生成しない（軽微なものは編集で修正する）。</pre>
+文字が多少崩れても再生成しない（軽微なものは編集で修正する）。
+ナレーションは画像へ描かない（動画側で字幕帯として載せる）。画面に描く文字は、上の【画面に描くセリフ】と【テロップ】に挙げたものだけとする。</pre>
 </div></details>
 </div>
 <div class="right">
@@ -3711,7 +4132,11 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>音声の要点</b>外交継続と開戦準備を並行</div>
 <div><b>役割・事実根拠</b>会議名は字幕で「政府・陸海軍の合同会議」と補足</div>
 <div><b>登場</b>東條英機</div>
-</div></div></div>
+</div></div>
+<div class="draw"><h4>画面に描く文字</h4>
+<div class="nb"><span class="who">ナレーション（画像には描かない）</span>十一月一日から二日。東條は、政府と陸海軍の責任者を集めて国策を検討した。
+結論は二本立てだった。アメリカとの外交を続ける。その一方で、交渉が失敗した場合に備え、開戦準備を進める。</div>
+</div></div>
 <div class="koma" data-img="0" id="kE06">
 <div class="left">
 <div class="frame empty"><span class="kid">E06</span><span class="nostate">画像 未生成</span><div class="artdir">東條の前の三択ボードを、撤兵・並行・開戦の順で再点灯。背後で鉄と部隊が動き始める</div></div>
@@ -3758,7 +4183,8 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 同一コマ内のセリフは、【画面に描くセリフ】に書いた順番どおりに、上から下へ読める配置にする（順番を入れ替えない）。
 テロップ指定がある場合は指定位置に太いテロップ文字で描く。
 指定した文字以外の文字要素（貼り紙・看板・新聞の見出し・黒板の書き込み・書類の文面など）を勝手に追加しない。
-文字が多少崩れても再生成しない（軽微なものは編集で修正する）。</pre>
+文字が多少崩れても再生成しない（軽微なものは編集で修正する）。
+ナレーションは画像へ描かない（動画側で字幕帯として載せる）。画面に描く文字は、上の【画面に描くセリフ】と【テロップ】に挙げたものだけとする。</pre>
 </div></details>
 </div>
 <div class="right">
@@ -3771,7 +4197,13 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>音声の要点</b>三択を言い直し、選択肢を残すはずの準備が後戻りを難しくすると示す</div>
 <div><b>役割・事実根拠</b>画面の選択肢と実際の動きを対比</div>
 <div><b>登場</b>東條英機</div>
-</div></div></div>
+</div></div>
+<div class="draw"><h4>画面に描く文字</h4>
+<div class="nb"><span class="who">ナレーション（画像には描かない）</span>外交が成功すれば、戦争は止められる。だから、準備をしながら交渉を続けてもよい。
+そう考えれば、東條の前には三つの道が残ったように見える。
+中国から撤兵して妥協する。交渉と準備を続ける。交渉を諦めて開戦する。
+しかし、鉄を移し、部隊を動かし、期限を決めるたび、引き返すための負担は大きくなっていった。</div>
+</div></div>
 <div class="koma" data-img="0" id="kE07">
 <div class="left">
 <div class="frame empty"><span class="kid">E07</span><span class="nostate">画像 未生成</span><div class="artdir">11/5御前会議。天皇は奥、東條を手前中央、原は質問者として横に置く</div></div>
@@ -3814,6 +4246,10 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 【シーン（コマE07）】
 11/5御前会議。大元帥服の君主は奥、陸軍大将の男を手前中央、原は質問者として横に置く
 
+【画面に描くセリフ】
+- 枢密院議長の老人〈吹き出し〉:「日本が開戦の決意を示せば、アメリカは本当に条件を譲るのですか。」
+※ 話者の呼び名は誰のセリフかを示す制作上の記号であり、画面には描かない。
+
 【文字ルール】
 文字の扱い: セリフは太めのゴシック体風の日本語で吹き出しに描く。心の声・独白はしっぽのない角丸のモノローグ枠にする。
 セリフやモノローグの文頭に番号（①②③…）や記号を付けない。指定した文章だけをそのまま描く。
@@ -3821,7 +4257,8 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 同一コマ内のセリフは、【画面に描くセリフ】に書いた順番どおりに、上から下へ読める配置にする（順番を入れ替えない）。
 テロップ指定がある場合は指定位置に太いテロップ文字で描く。
 指定した文字以外の文字要素（貼り紙・看板・新聞の見出し・黒板の書き込み・書類の文面など）を勝手に追加しない。
-文字が多少崩れても再生成しない（軽微なものは編集で修正する）。</pre>
+文字が多少崩れても再生成しない（軽微なものは編集で修正する）。
+ナレーションは画像へ描かない（動画側で字幕帯として載せる）。画面に描く文字は、上の【画面に描くセリフ】と【テロップ】に挙げたものだけとする。</pre>
 </div></details>
 </div>
 <div class="right">
@@ -3834,7 +4271,13 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>音声の要点</b>原が「決意を示せば米国は本当に譲るのか」と質問</div>
 <div><b>役割・事実根拠</b>質問は史料内容の現代語要旨と明示し、東條の答えとの因果を作る</div>
 <div><b>登場</b>東條英機・昭和天皇・原嘉道（参照画像なし）</div>
-</div></div></div>
+</div></div>
+<div class="draw"><h4>画面に描く文字</h4>
+<div class="nb"><span class="who">ナレーション（画像には描かない）</span>十一月五日。方針は御前会議へ持ち込まれた。
+御前会議とは、天皇の前で、政府と軍が決めた国策を確認する会議である。
+ここで枢密院議長の原嘉道が、東條の見通しを問いただした。</div>
+<div class="bl"><span class="who">原嘉道</span>日本が開戦の決意を示せば、アメリカは本当に条件を譲るのですか。</div>
+</div></div>
 <div class="koma" data-img="0" id="kE08">
 <div class="left">
 <div class="frame empty"><span class="kid">E08</span><span class="nostate">画像 未生成</span><div class="artdir">東條が原へ答え、兵力、戦死者、遺族、年月、国費の札を一枚ずつ置く</div></div>
@@ -3874,6 +4317,10 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 【シーン（コマE08）】
 陸軍大将の男が原へ答え、兵力、戦死者、遺族、年月、国費の札を一枚ずつ置く
 
+【画面に描くセリフ】
+- 陸軍大将の男〈吹き出し〉:「日本の決意を知れば、撤兵問題で譲るはずです」
+※ 話者の呼び名は誰のセリフかを示す制作上の記号であり、画面には描かない。
+
 【文字ルール】
 文字の扱い: セリフは太めのゴシック体風の日本語で吹き出しに描く。心の声・独白はしっぽのない角丸のモノローグ枠にする。
 セリフやモノローグの文頭に番号（①②③…）や記号を付けない。指定した文章だけをそのまま描く。
@@ -3881,7 +4328,8 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 同一コマ内のセリフは、【画面に描くセリフ】に書いた順番どおりに、上から下へ読める配置にする（順番を入れ替えない）。
 テロップ指定がある場合は指定位置に太いテロップ文字で描く。
 指定した文字以外の文字要素（貼り紙・看板・新聞の見出し・黒板の書き込み・書類の文面など）を勝手に追加しない。
-文字が多少崩れても再生成しない（軽微なものは編集で修正する）。</pre>
+文字が多少崩れても再生成しない（軽微なものは編集で修正する）。
+ナレーションは画像へ描かない（動画側で字幕帯として載せる）。画面に描く文字は、上の【画面に描くセリフ】と【テロップ】に挙げたものだけとする。</pre>
 </div></details>
 </div>
 <div class="right">
@@ -3893,7 +4341,12 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>音声の要点</b>米国が日本の決意を知れば折れるとの見通しと、撤兵できない理由</div>
 <div><b>役割・事実根拠</b>ch4の答弁を現代語要旨と明示。犠牲の数字はナレーションで補う</div>
 <div><b>登場</b>東條英機</div>
-</div></div></div>
+</div></div>
+<div class="draw"><h4>画面に描く文字</h4>
+<div class="bl"><span class="who">東條英機（音声の一部を描く）</span>日本の決意を知れば、撤兵問題で譲るはずです</div>
+<div class="nb"><span class="who">ナレーション（画像には描かない）</span>そのうえで東條は、百万人規模の兵力、十数万人の戦死者と遺族、四年の戦争、数百億円の国費を挙げた。
+そして、これだけの犠牲を払いながら、成果を捨てて撤兵することはできないという趣旨を述べた。</div>
+</div></div>
 <div class="koma" data-img="0" id="kE09">
 <div class="left">
 <div class="frame empty"><span class="kid">E09</span><span class="nostate">画像 未生成</span><div class="artdir">原の言葉を受ける東條。机上で「駐兵」と「撤退要求」が正面衝突</div></div>
@@ -3935,6 +4388,10 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 【シーン（コマE09）】
 原の言葉を受ける陸軍大将の男。机上で「駐兵」と「撤退要求」が正面衝突
 
+【画面に描くセリフ】
+- 枢密院議長の老人〈吹き出し〉:「アメリカが日本の決意を見て折れるなら結構です。しかし、その望みはないと思います。」
+※ 話者の呼び名は誰のセリフかを示す制作上の記号であり、画面には描かない。
+
 【文字ルール】
 文字の扱い: セリフは太めのゴシック体風の日本語で吹き出しに描く。心の声・独白はしっぽのない角丸のモノローグ枠にする。
 セリフやモノローグの文頭に番号（①②③…）や記号を付けない。指定した文章だけをそのまま描く。
@@ -3942,7 +4399,8 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 同一コマ内のセリフは、【画面に描くセリフ】に書いた順番どおりに、上から下へ読める配置にする（順番を入れ替えない）。
 テロップ指定がある場合は指定位置に太いテロップ文字で描く。
 指定した文字以外の文字要素（貼り紙・看板・新聞の見出し・黒板の書き込み・書類の文面など）を勝手に追加しない。
-文字が多少崩れても再生成しない（軽微なものは編集で修正する）。</pre>
+文字が多少崩れても再生成しない（軽微なものは編集で修正する）。
+ナレーションは画像へ描かない（動画側で字幕帯として載せる）。画面に描く文字は、上の【画面に描くセリフ】と【テロップ】に挙げたものだけとする。</pre>
 </div></details>
 </div>
 <div class="right">
@@ -3954,7 +4412,12 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>音声の要点</b>原は「米国が折れる望みはない」と返す</div>
 <div><b>役割・事実根拠</b>記録に残る発言を現代語化し、東條へ現実を返す</div>
 <div><b>登場</b>東條英機・原嘉道（参照画像なし）</div>
-</div></div></div>
+</div></div>
+<div class="draw"><h4>画面に描く文字</h4>
+<div class="bl"><span class="who">原嘉道</span>アメリカが日本の決意を見て折れるなら結構です。しかし、その望みはないと思います。</div>
+<div class="nb"><span class="who">ナレーション（画像には描かない）</span>日本は中国への駐兵を譲らない。アメリカは日本軍の撤退を求める。
+交渉の中心で、双方の条件が正面からぶつかっていた。</div>
+</div></div>
 <div class="koma" data-img="0" id="kE10">
 <div class="left">
 <div class="frame empty"><span class="kid">E10</span><span class="nostate">画像 未生成</span><div class="artdir">東條の前で未来の損失資料と過去の犠牲札を対置。東條の手は過去側に残る</div></div>
@@ -4001,7 +4464,8 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 同一コマ内のセリフは、【画面に描くセリフ】に書いた順番どおりに、上から下へ読める配置にする（順番を入れ替えない）。
 テロップ指定がある場合は指定位置に太いテロップ文字で描く。
 指定した文字以外の文字要素（貼り紙・看板・新聞の見出し・黒板の書き込み・書類の文面など）を勝手に追加しない。
-文字が多少崩れても再生成しない（軽微なものは編集で修正する）。</pre>
+文字が多少崩れても再生成しない（軽微なものは編集で修正する）。
+ナレーションは画像へ描かない（動画側で字幕帯として載せる）。画面に描く文字は、上の【画面に描くセリフ】と【テロップ】に挙げたものだけとする。</pre>
 </div></details>
 </div>
 <div class="right">
@@ -4013,7 +4477,12 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>音声の要点</b>危険を調べても撤兵理由は変わらない</div>
 <div><b>役割・事実根拠</b>内心創作ではなく、E08の確認できる発言から構図化</div>
 <div><b>登場</b>東條英機</div>
-</div></div></div>
+</div></div>
+<div class="draw"><h4>画面に描く文字</h4>
+<div class="nb"><span class="who">ナレーション（画像には描かない）</span>東條が撤兵できない理由として挙げたのは、これから起こる被害の見通しではなかった。
+すでに投入した兵力、戦死者、年月、国費だった。
+白紙に戻ったはずの選択肢から、妥協の道が再び暗くなった。</div>
+</div></div>
 <div class="koma" data-img="0" id="kE11">
 <div class="left">
 <div class="frame empty"><span class="kid">E11</span><span class="nostate">画像 未生成</span><div class="artdir">11/26。東條の机へ米側文書が届く。字幕のみ「ハル・ノート」</div></div>
@@ -4060,7 +4529,8 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 同一コマ内のセリフは、【画面に描くセリフ】に書いた順番どおりに、上から下へ読める配置にする（順番を入れ替えない）。
 テロップ指定がある場合は指定位置に太いテロップ文字で描く。
 指定した文字以外の文字要素（貼り紙・看板・新聞の見出し・黒板の書き込み・書類の文面など）を勝手に追加しない。
-文字が多少崩れても再生成しない（軽微なものは編集で修正する）。</pre>
+文字が多少崩れても再生成しない（軽微なものは編集で修正する）。
+ナレーションは画像へ描かない（動画側で字幕帯として載せる）。画面に描く文字は、上の【画面に描くセリフ】と【テロップ】に挙げたものだけとする。</pre>
 </div></details>
 </div>
 <div class="right">
@@ -4072,7 +4542,12 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>音声の要点</b>中国・仏印からの撤退等を含む米側提案</div>
 <div><b>役割・事実根拠</b>外務省・国会図書館で補助確認済み</div>
 <div><b>登場</b>東條英機</div>
-</div></div></div>
+</div></div>
+<div class="draw"><h4>画面に描く文字</h4>
+<div class="nb"><span class="who">ナレーション（画像には描かない）</span>交渉を続けた日本に、アメリカから新たな提案が届いた。後に、ハル・ノートと呼ばれる文書である。
+そこには、日本軍の中国とフランス領インドシナからの撤退などが求められていた。
+日本側は、それまでの交渉から大きく後退した、最後通告に近い要求だと受け止めた。</div>
+</div></div>
 <div class="koma" data-img="0" id="kE12">
 <div class="left">
 <div class="frame empty"><span class="kid">E12</span><span class="nostate">画像 未生成</span><div class="artdir">東條の背後にA章の中国地図。提案文書から「撤兵」へ線が戻る</div></div>
@@ -4119,7 +4594,8 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 同一コマ内のセリフは、【画面に描くセリフ】に書いた順番どおりに、上から下へ読める配置にする（順番を入れ替えない）。
 テロップ指定がある場合は指定位置に太いテロップ文字で描く。
 指定した文字以外の文字要素（貼り紙・看板・新聞の見出し・黒板の書き込み・書類の文面など）を勝手に追加しない。
-文字が多少崩れても再生成しない（軽微なものは編集で修正する）。</pre>
+文字が多少崩れても再生成しない（軽微なものは編集で修正する）。
+ナレーションは画像へ描かない（動画側で字幕帯として載せる）。画面に描く文字は、上の【画面に描くセリフ】と【テロップ】に挙げたものだけとする。</pre>
 </div></details>
 </div>
 <div class="right">
@@ -4131,7 +4607,12 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>音声の要点</b>最初の問題が東條へ戻る</div>
 <div><b>役割・事実根拠</b>人物名ではなく主人公の選択として理解させる</div>
 <div><b>登場</b>東條英機</div>
-</div></div></div>
+</div></div>
+<div class="draw"><h4>画面に描く文字</h4>
+<div class="nb"><span class="who">ナレーション（画像には描かない）</span>東條の前に、最初の問題がそのまま戻ってきた。
+戦争を避けるには、東條が守ろうとしてきた中国への駐兵を譲らなければならない。
+外交を続けながら撤兵を避ける道は、ほとんど残っていなかった。</div>
+</div></div>
 <div class="koma" data-img="0" id="kE13">
 <div class="left">
 <div class="frame empty"><span class="kid">E13</span><span class="nostate">画像 未生成</span><div class="artdir">11/27。大将会で説明する東條。「軍備ほぼ完成」の札</div></div>
@@ -4178,7 +4659,8 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 同一コマ内のセリフは、【画面に描くセリフ】に書いた順番どおりに、上から下へ読める配置にする（順番を入れ替えない）。
 テロップ指定がある場合は指定位置に太いテロップ文字で描く。
 指定した文字以外の文字要素（貼り紙・看板・新聞の見出し・黒板の書き込み・書類の文面など）を勝手に追加しない。
-文字が多少崩れても再生成しない（軽微なものは編集で修正する）。</pre>
+文字が多少崩れても再生成しない（軽微なものは編集で修正する）。
+ナレーションは画像へ描かない（動画側で字幕帯として載せる）。画面に描く文字は、上の【画面に描くセリフ】と【テロップ】に挙げたものだけとする。</pre>
 </div></details>
 </div>
 <div class="right">
@@ -4189,7 +4671,11 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>音声の要点</b>東條が国策・軍備を説明</div>
 <div><b>役割・事実根拠</b>ch4。会合を独立エピソードにしない</div>
 <div><b>登場</b>東條英機</div>
-</div></div></div>
+</div></div>
+<div class="draw"><h4>画面に描く文字</h4>
+<div class="nb"><span class="who">ナレーション（画像には描かない）</span>翌十一月二十七日。東條は、陸軍の大将たちを集めた会合で、国策と軍備の状況を説明した。
+軍備は、ほぼ完成したと説明された。</div>
+</div></div>
 <div class="koma" data-img="0" id="kE14">
 <div class="left">
 <div class="frame empty"><span class="kid">E14</span><span class="nostate">画像 未生成</span><div class="artdir">東條を遠景に残し、手前の真崎の日記へ「心細し」だけ大きく</div></div>
@@ -4238,7 +4724,8 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 同一コマ内のセリフは、【画面に描くセリフ】に書いた順番どおりに、上から下へ読める配置にする（順番を入れ替えない）。
 テロップ指定がある場合は指定位置に太いテロップ文字で描く。
 指定した文字以外の文字要素（貼り紙・看板・新聞の見出し・黒板の書き込み・書類の文面など）を勝手に追加しない。
-文字が多少崩れても再生成しない（軽微なものは編集で修正する）。</pre>
+文字が多少崩れても再生成しない（軽微なものは編集で修正する）。
+ナレーションは画像へ描かない（動画側で字幕帯として載せる）。画面に描く文字は、上の【画面に描くセリフ】と【テロップ】に挙げたものだけとする。</pre>
 </div></details>
 </div>
 <div class="right">
@@ -4250,7 +4737,12 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>音声の要点</b>説明を聞いた側は納得していない</div>
 <div><b>役割・事実根拠</b>真崎の反応を東條の説明への評価として配置</div>
 <div><b>登場</b>東條英機・真崎甚三郎（参照画像なし）</div>
-</div></div></div>
+</div></div>
+<div class="draw"><h4>画面に描く文字</h4>
+<div class="nb"><span class="who">ナレーション（画像には描かない）</span>しかし、同じ場で東條の説明を聞いた陸軍大将・真崎甚三郎は、その日の日記にこう残した。</div>
+<div class="nb"><span class="who">ナレーション（画像には描かない）</span>十分之を納得する能わざりし。説明も曖昧なり。</div>
+<div class="nb"><span class="who">ナレーション（画像には描かない）</span>そして、東京を守る防空戦力について記した横に、短くこう書き添えている。心細し。</div>
+</div></div>
 <div class="koma" data-img="0" id="kE15">
 <div class="left">
 <div class="frame empty"><span class="kid">E15</span><span class="nostate">画像 未生成</span><div class="artdir">「外交と準備」の道を待合室の時計として表示。東條の前で残時間が減る</div></div>
@@ -4297,7 +4789,8 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 同一コマ内のセリフは、【画面に描くセリフ】に書いた順番どおりに、上から下へ読める配置にする（順番を入れ替えない）。
 テロップ指定がある場合は指定位置に太いテロップ文字で描く。
 指定した文字以外の文字要素（貼り紙・看板・新聞の見出し・黒板の書き込み・書類の文面など）を勝手に追加しない。
-文字が多少崩れても再生成しない（軽微なものは編集で修正する）。</pre>
+文字が多少崩れても再生成しない（軽微なものは編集で修正する）。
+ナレーションは画像へ描かない（動画側で字幕帯として載せる）。画面に描く文字は、上の【画面に描くセリフ】と【テロップ】に挙げたものだけとする。</pre>
 </div></details>
 </div>
 <div class="right">
@@ -4308,7 +4801,11 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>音声の要点</b>並行案は期限付きだった</div>
 <div><b>役割・事実根拠</b>抽象的な制度を一つの比喩画面で理解させる</div>
 <div><b>登場</b>東條英機</div>
-</div></div></div>
+</div></div>
+<div class="draw"><h4>画面に描く文字</h4>
+<div class="nb"><span class="who">ナレーション（画像には描かない）</span>東條が選んだ「外交と準備の並行」は、第三の解決策ではなかった。
+外交が成功しなければ終わる、期限付きの待合室だったのである。</div>
+</div></div>
 <div class="koma" data-img="0" id="kE16">
 <div class="left">
 <div class="frame empty"><span class="kid">E16</span><span class="nostate">画像 未生成</span><div class="artdir">東條の前の三択ボード。「撤兵」は黒く塗り潰され、「並行」の残時間表示はゼロ寸前。「開戦」と「準備停止」だけが明るい</div></div>
@@ -4355,7 +4852,8 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 同一コマ内のセリフは、【画面に描くセリフ】に書いた順番どおりに、上から下へ読める配置にする（順番を入れ替えない）。
 テロップ指定がある場合は指定位置に太いテロップ文字で描く。
 指定した文字以外の文字要素（貼り紙・看板・新聞の見出し・黒板の書き込み・書類の文面など）を勝手に追加しない。
-文字が多少崩れても再生成しない（軽微なものは編集で修正する）。</pre>
+文字が多少崩れても再生成しない（軽微なものは編集で修正する）。
+ナレーションは画像へ描かない（動画側で字幕帯として載せる）。画面に描く文字は、上の【画面に描くセリフ】と【テロップ】に挙げたものだけとする。</pre>
 </div></details>
 </div>
 <div class="right">
@@ -4368,7 +4866,13 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>音声の要点</b>再検討するほど選択肢が減った</div>
 <div><b>役割・事実根拠</b>F章の最終判断へ接続</div>
 <div><b>登場</b>東條英機</div>
-</div></div></div>
+</div></div>
+<div class="draw"><h4>画面に描く文字</h4>
+<div class="nb"><span class="who">ナレーション（画像には描かない）</span>撤兵して妥協する道は、東條自身が閉じた。
+交渉を続ける時間も、尽きようとしていた。
+白紙に戻った三つの選択肢は、再検討するほど減っていった。
+残るのは、開戦するか。それとも、ここまで進めた準備を止めるか。</div>
+</div></div>
 <div class="check"><h3>E章の理解検査</h3><ul>
 <li class="">全16コマの因果を、東條が情報を受け、調整し、説明し、選択肢を失う流れへ統一した</li>
 <li class="">嶋田・原・真崎の発言や判断を、東條の物語へ作用するものとして配置した</li>
@@ -4434,7 +4938,8 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 同一コマ内のセリフは、【画面に描くセリフ】に書いた順番どおりに、上から下へ読める配置にする（順番を入れ替えない）。
 テロップ指定がある場合は指定位置に太いテロップ文字で描く。
 指定した文字以外の文字要素（貼り紙・看板・新聞の見出し・黒板の書き込み・書類の文面など）を勝手に追加しない。
-文字が多少崩れても再生成しない（軽微なものは編集で修正する）。</pre>
+文字が多少崩れても再生成しない（軽微なものは編集で修正する）。
+ナレーションは画像へ描かない（動画側で字幕帯として載せる）。画面に描く文字は、上の【画面に描くセリフ】と【テロップ】に挙げたものだけとする。</pre>
 </div></details>
 </div>
 <div class="right">
@@ -4445,7 +4950,11 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>音声の要点</b>議論が「するか」から「いつするか」へ変化</div>
 <div><b>役割・事実根拠</b>E章の期限切れを東條の現在地へ接続</div>
 <div><b>登場</b>東條英機</div>
-</div></div></div>
+</div></div>
+<div class="draw"><h4>画面に描く文字</h4>
+<div class="nb"><span class="who">ナレーション（画像には描かない）</span>十一月末。外交は行き詰まり、部隊は開戦に向けて動き始めていた。
+白紙から始まった再検討は、戦争をするかどうかの議論から、いつ始めるかの確認へ変わりつつあった。</div>
+</div></div>
 <div class="koma" data-img="0" id="kF02">
 <div class="left">
 <div class="frame empty"><span class="kid">F02</span><span class="nostate">画像 未生成</span><div class="artdir">東條の机へ船舶損耗、資源、防空、交渉不成立の資料が重なる</div></div>
@@ -4492,7 +5001,8 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 同一コマ内のセリフは、【画面に描くセリフ】に書いた順番どおりに、上から下へ読める配置にする（順番を入れ替えない）。
 テロップ指定がある場合は指定位置に太いテロップ文字で描く。
 指定した文字以外の文字要素（貼り紙・看板・新聞の見出し・黒板の書き込み・書類の文面など）を勝手に追加しない。
-文字が多少崩れても再生成しない（軽微なものは編集で修正する）。</pre>
+文字が多少崩れても再生成しない（軽微なものは編集で修正する）。
+ナレーションは画像へ描かない（動画側で字幕帯として載せる）。画面に描く文字は、上の【画面に描くセリフ】と【テロップ】に挙げたものだけとする。</pre>
 </div></details>
 </div>
 <div class="right">
@@ -4504,7 +5014,12 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>音声の要点</b>危険を示す材料も残っていた</div>
 <div><b>役割・事実根拠</b>戦争の危険を知らなかった構図にしない</div>
 <div><b>登場</b>東條英機</div>
-</div></div></div>
+</div></div>
+<div class="draw"><h4>画面に描く文字</h4>
+<div class="nb"><span class="who">ナレーション（画像には描かない）</span>東條の前には、戦争の危険を示す材料も残っていた。
+海上輸送の大きな損失予測。長期戦を支える資源への不安。説明を聞いた大将が、心細いと記した防空戦力。
+そして、アメリカとの交渉はまとまっていない。</div>
+</div></div>
 <div class="koma" data-img="0" id="kF03">
 <div class="left">
 <div class="frame empty"><span class="kid">F03</span><span class="nostate">画像 未生成</span><div class="artdir">東條の前に「対米妥協」「撤兵受け入れ」と過去の犠牲札。手はどちらにも触れない</div></div>
@@ -4551,7 +5066,8 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 同一コマ内のセリフは、【画面に描くセリフ】に書いた順番どおりに、上から下へ読める配置にする（順番を入れ替えない）。
 テロップ指定がある場合は指定位置に太いテロップ文字で描く。
 指定した文字以外の文字要素（貼り紙・看板・新聞の見出し・黒板の書き込み・書類の文面など）を勝手に追加しない。
-文字が多少崩れても再生成しない（軽微なものは編集で修正する）。</pre>
+文字が多少崩れても再生成しない（軽微なものは編集で修正する）。
+ナレーションは画像へ描かない（動画側で字幕帯として載せる）。画面に描く文字は、上の【画面に描くセリフ】と【テロップ】に挙げたものだけとする。</pre>
 </div></details>
 </div>
 <div class="right">
@@ -4563,7 +5079,12 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>音声の要点</b>危険の認識と準備停止は別。政府の妥協と東條による陸軍の取りまとめが必要</div>
 <div><b>役割・事実根拠</b>主人公の最後の障害を制度上の因果とともに明示</div>
 <div><b>登場</b>東條英機</div>
-</div></div></div>
+</div></div>
+<div class="draw"><h4>画面に描く文字</h4>
+<div class="nb"><span class="who">ナレーション（画像には描かない）</span>しかし、危険が分かることと、準備を止められることは同じではなかった。
+止めるには、政府が対米妥協を選び、東條が陸軍をまとめて撤兵を受け入れ、これまでの犠牲を国民へ説明しなければならない。
+東條が十月から守り続けたものを、自ら手放す決断が必要だった。</div>
+</div></div>
 <div class="koma" data-img="0" id="kF04">
 <div class="left">
 <div class="frame empty"><span class="kid">F04</span><span class="nostate">画像 未生成</span><div class="artdir">12/1御前会議。東條を政府側の中心、天皇を奥、陸海軍を両側へ置く</div></div>
@@ -4611,7 +5132,8 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 同一コマ内のセリフは、【画面に描くセリフ】に書いた順番どおりに、上から下へ読める配置にする（順番を入れ替えない）。
 テロップ指定がある場合は指定位置に太いテロップ文字で描く。
 指定した文字以外の文字要素（貼り紙・看板・新聞の見出し・黒板の書き込み・書類の文面など）を勝手に追加しない。
-文字が多少崩れても再生成しない（軽微なものは編集で修正する）。</pre>
+文字が多少崩れても再生成しない（軽微なものは編集で修正する）。
+ナレーションは画像へ描かない（動画側で字幕帯として載せる）。画面に描く文字は、上の【画面に描くセリフ】と【テロップ】に挙げたものだけとする。</pre>
 </div></details>
 </div>
 <div class="right">
@@ -4622,7 +5144,11 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>音声の要点</b>合同会議で固めた結論を正式決定する場</div>
 <div><b>役割・事実根拠</b>御前会議を一から討論する場と誤解させない</div>
 <div><b>登場</b>東條英機・昭和天皇</div>
-</div></div></div>
+</div></div>
+<div class="draw"><h4>画面に描く文字</h4>
+<div class="nb"><span class="who">ナレーション（画像には描かない）</span>十二月一日。開戦方針は、再び御前会議へ上げられた。
+ここで一から議論したのではない。東條が率いる政府と、陸軍、海軍が、合同会議で固めた結論を、天皇の前で正式に決定する場だった。</div>
+</div></div>
 <div class="koma" data-img="0" id="kF05">
 <div class="left">
 <div class="frame empty"><span class="kid">F05</span><span class="nostate">画像 未生成</span><div class="artdir">東條を中心に政府・陸軍・海軍の三つの合意印が集まる</div></div>
@@ -4669,7 +5195,8 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 同一コマ内のセリフは、【画面に描くセリフ】に書いた順番どおりに、上から下へ読める配置にする（順番を入れ替えない）。
 テロップ指定がある場合は指定位置に太いテロップ文字で描く。
 指定した文字以外の文字要素（貼り紙・看板・新聞の見出し・黒板の書き込み・書類の文面など）を勝手に追加しない。
-文字が多少崩れても再生成しない（軽微なものは編集で修正する）。</pre>
+文字が多少崩れても再生成しない（軽微なものは編集で修正する）。
+ナレーションは画像へ描かない（動画側で字幕帯として載せる）。画面に描く文字は、上の【画面に描くセリフ】と【テロップ】に挙げたものだけとする。</pre>
 </div></details>
 </div>
 <div class="right">
@@ -4681,7 +5208,12 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <div><b>音声の要点</b>単独命令ではないが、首相の責任も消えない</div>
 <div><b>役割・事実根拠</b>多主体性と主人公の責任を両立</div>
 <div><b>登場</b>東條英機</div>
-</div></div></div>
+</div></div>
+<div class="draw"><h4>画面に描く文字</h4>
+<div class="nb"><span class="who">ナレーション（画像には描かない）</span>この決定は、東條一人の命令ではない。
+政府、陸軍、海軍が会議を重ね、合意した結論だった。
+だが、その内閣を率い、決定をまとめた首相としての責任まで消えるわけではない。</div>
+</div></div>
 <div class="koma" data-img="0" id="kF06">
 <div class="left">
 <div class="frame empty"><span class="kid">F06</span><span class="nostate">画像 未生成</span><div class="artdir">D章の白紙へ「開戦決定」の印。東條の顔は横から静かに見せる</div></div>
@@ -4728,7 +5260,8 @@ D章の白紙へ「開戦決定」の印。陸軍大将の男の顔は横から�
 同一コマ内のセリフは、【画面に描くセリフ】に書いた順番どおりに、上から下へ読める配置にする（順番を入れ替えない）。
 テロップ指定がある場合は指定位置に太いテロップ文字で描く。
 指定した文字以外の文字要素（貼り紙・看板・新聞の見出し・黒板の書き込み・書類の文面など）を勝手に追加しない。
-文字が多少崩れても再生成しない（軽微なものは編集で修正する）。</pre>
+文字が多少崩れても再生成しない（軽微なものは編集で修正する）。
+ナレーションは画像へ描かない（動画側で字幕帯として載せる）。画面に描く文字は、上の【画面に描くセリフ】と【テロップ】に挙げたものだけとする。</pre>
 </div></details>
 </div>
 <div class="right">
@@ -4739,7 +5272,11 @@ D章の白紙へ「開戦決定」の印。陸軍大将の男の顔は横から�
 <div><b>音声の要点</b>白紙再検討の結論は開戦</div>
 <div><b>役割・事実根拠</b>F-012。物語の中心的反転</div>
 <div><b>登場</b>東條英機</div>
-</div></div></div>
+</div></div>
+<div class="draw"><h4>画面に描く文字</h4>
+<div class="nb"><span class="who">ナレーション（画像には描かない）</span>会議は、アメリカ、イギリス、オランダとの開戦を決定した。
+十月十七日、東條へ渡された白紙。その再検討が出した結論は、和平ではなく開戦だった。</div>
+</div></div>
 <div class="koma" data-img="0" id="kF07">
 <div class="left">
 <div class="frame empty"><span class="kid">F07</span><span class="nostate">画像 未生成</span><div class="artdir">三択ボードの「撤兵」と「並行」が黒く塗り潰され、東條は明るいまま残る「開戦」の札の前に立つ</div></div>
@@ -4786,7 +5323,8 @@ D章の白紙へ「開戦決定」の印。陸軍大将の男の顔は横から�
 同一コマ内のセリフは、【画面に描くセリフ】に書いた順番どおりに、上から下へ読める配置にする（順番を入れ替えない）。
 テロップ指定がある場合は指定位置に太いテロップ文字で描く。
 指定した文字以外の文字要素（貼り紙・看板・新聞の見出し・黒板の書き込み・書類の文面など）を勝手に追加しない。
-文字が多少崩れても再生成しない（軽微なものは編集で修正する）。</pre>
+文字が多少崩れても再生成しない（軽微なものは編集で修正する）。
+ナレーションは画像へ描かない（動画側で字幕帯として載せる）。画面に描く文字は、上の【画面に描くセリフ】と【テロップ】に挙げたものだけとする。</pre>
 </div></details>
 </div>
 <div class="right">
@@ -4798,7 +5336,12 @@ D章の白紙へ「開戦決定」の印。陸軍大将の男の顔は横から�
 <div><b>音声の要点</b>危険を知っても陸軍が引く道を選ばなかった</div>
 <div><b>役割・事実根拠</b>内心ではなく、選ばれた結果を描く</div>
 <div><b>登場</b>東條英機</div>
-</div></div></div>
+</div></div>
+<div class="draw"><h4>画面に描く文字</h4>
+<div class="nb"><span class="who">ナレーション（画像には描かない）</span>東條は、戦えると確信できたから撤兵を退けたのではない。
+戦争の危険を知った後も、陸軍が引く決断を選ばなかった。
+三つの選択肢のうち、「撤兵」と「交渉を続ける時間」が消えた。</div>
+</div></div>
 <div class="koma" data-img="0" id="kF08">
 <div class="left">
 <div class="frame empty"><span class="kid">F08</span><span class="nostate">画像 未生成</span><div class="artdir">12/2。封緘命令と時計、動き出す艦隊・車列。東條は命令系統の起点</div></div>
@@ -4845,7 +5388,8 @@ D章の白紙へ「開戦決定」の印。陸軍大将の男の顔は横から�
 同一コマ内のセリフは、【画面に描くセリフ】に書いた順番どおりに、上から下へ読める配置にする（順番を入れ替えない）。
 テロップ指定がある場合は指定位置に太いテロップ文字で描く。
 指定した文字以外の文字要素（貼り紙・看板・新聞の見出し・黒板の書き込み・書類の文面など）を勝手に追加しない。
-文字が多少崩れても再生成しない（軽微なものは編集で修正する）。</pre>
+文字が多少崩れても再生成しない（軽微なものは編集で修正する）。
+ナレーションは画像へ描かない（動画側で字幕帯として載せる）。画面に描く文字は、上の【画面に描くセリフ】と【テロップ】に挙げたものだけとする。</pre>
 </div></details>
 </div>
 <div class="right">
@@ -4856,7 +5400,11 @@ D章の白紙へ「開戦決定」の印。陸軍大将の男の顔は横から�
 <div><b>音声の要点</b>開戦日を12/8と決定</div>
 <div><b>役割・事実根拠</b>日付決定後の不可逆性</div>
 <div><b>登場</b>東條英機</div>
-</div></div></div>
+</div></div>
+<div class="draw"><h4>画面に描く文字</h4>
+<div class="nb"><span class="who">ナレーション（画像には描かない）</span>翌十二月二日。開戦日は十二月八日と定められた。
+日付が決まると、準備してきた組織が一斉に動き出す。封じられた命令が運ばれ、艦隊と部隊は決められた位置へ進んだ。</div>
+</div></div>
 <div class="koma" data-img="0" id="kF09">
 <div class="left">
 <div class="frame empty"><span class="kid">F09</span><span class="nostate">画像 未生成</span><div class="artdir">東條を中央に、陸軍・海軍・政府の人物がそれぞれ背後へ下がる</div></div>
@@ -4903,7 +5451,8 @@ D章の白紙へ「開戦決定」の印。陸軍大将の男の顔は横から�
 同一コマ内のセリフは、【画面に描くセリフ】に書いた順番どおりに、上から下へ読める配置にする（順番を入れ替えない）。
 テロップ指定がある場合は指定位置に太いテロップ文字で描く。
 指定した文字以外の文字要素（貼り紙・看板・新聞の見出し・黒板の書き込み・書類の文面など）を勝手に追加しない。
-文字が多少崩れても再生成しない（軽微なものは編集で修正する）。</pre>
+文字が多少崩れても再生成しない（軽微なものは編集で修正する）。
+ナレーションは画像へ描かない（動画側で字幕帯として載せる）。画面に描く文字は、上の【画面に描くセリフ】と【テロップ】に挙げたものだけとする。</pre>
 </div></details>
 </div>
 <div class="right">
@@ -4915,7 +5464,12 @@ D章の白紙へ「開戦決定」の印。陸軍大将の男の顔は横から�
 <div><b>音声の要点</b>東條から撤兵決定は出ず、政府・海軍からも開戦中止は出なかった</div>
 <div><b>役割・事実根拠</b>責任分散を免責にしない結論</div>
 <div><b>登場</b>東條英機</div>
-</div></div></div>
+</div></div>
+<div class="draw"><h4>画面に描く文字</h4>
+<div class="nb"><span class="who">ナレーション（画像には描かない）</span>陸軍を抑えられると期待された東條からも、陸軍を撤兵させる決定は出なかった。
+政府からも海軍からも、開戦を止める決定は出なかった。
+誰か一人が始めた戦争ではない。だからこそ、最後に止める一人も現れなかった。</div>
+</div></div>
 <div class="koma" data-img="0" id="kF10">
 <div class="left">
 <div class="frame empty"><span class="kid">F10</span><span class="nostate">画像 未生成</span><div class="artdir">白紙の上に「開戦」の一本だけが残り、その線がそのまま道路になって、暗い東京を走る東條の公用車へ続く。テロップ「十二月八日　未明」</div></div>
@@ -4955,6 +5509,9 @@ D章の白紙へ「開戦決定」の印。陸軍大将の男の顔は横から�
 【シーン（コマF10）】
 白紙の上に「開戦」の一本だけが残り、その線がそのまま道路になって、暗い東京を走る陸軍大将の男の公用車へ続く。テロップ「十二月八日　未明」
 
+【テロップ】
+- 十二月八日　未明
+
 【文字ルール】
 文字の扱い: セリフは太めのゴシック体風の日本語で吹き出しに描く。心の声・独白はしっぽのない角丸のモノローグ枠にする。
 セリフやモノローグの文頭に番号（①②③…）や記号を付けない。指定した文章だけをそのまま描く。
@@ -4962,7 +5519,8 @@ D章の白紙へ「開戦決定」の印。陸軍大将の男の顔は横から�
 同一コマ内のセリフは、【画面に描くセリフ】に書いた順番どおりに、上から下へ読める配置にする（順番を入れ替えない）。
 テロップ指定がある場合は指定位置に太いテロップ文字で描く。
 指定した文字以外の文字要素（貼り紙・看板・新聞の見出し・黒板の書き込み・書類の文面など）を勝手に追加しない。
-文字が多少崩れても再生成しない（軽微なものは編集で修正する）。</pre>
+文字が多少崩れても再生成しない（軽微なものは編集で修正する）。
+ナレーションは画像へ描かない（動画側で字幕帯として載せる）。画面に描く文字は、上の【画面に描くセリフ】と【テロップ】に挙げたものだけとする。</pre>
 </div></details>
 </div>
 <div class="right">
@@ -4974,7 +5532,13 @@ D章の白紙へ「開戦決定」の印。陸軍大将の男の顔は横から�
 <div><b>音声の要点</b>12/8未明、開戦直前の公用車へ直接場面転換</div>
 <div><b>役割・事実根拠</b>問いかけや出典説明で止めず、G章へ映像と時間を連続させる</div>
 <div><b>登場</b>東條英機</div>
-</div></div></div>
+</div></div>
+<div class="draw"><h4>画面に描く文字</h4>
+<div class="tl"><span class="who">テロップ</span>十二月八日　未明</div>
+<div class="nb"><span class="who">ナレーション（画像には描かない）</span>白紙の上に残った道は、開戦だけになった。
+そして十二月八日、未明。開戦まで、あとわずか。
+その決定をまとめた東條を乗せ、公用車がまだ暗い東京を走っていた。</div>
+</div></div>
 <div class="check"><h3>F章の理解検査</h3><ul>
 <li class="">東條が危険を知らずに決めたという単純化を避けた</li>
 <li class="">開戦決定を東條一人の命令として描いていない</li>
@@ -5037,7 +5601,8 @@ D章の白紙へ「開戦決定」の印。陸軍大将の男の顔は横から�
 同一コマ内のセリフは、【画面に描くセリフ】に書いた順番どおりに、上から下へ読める配置にする（順番を入れ替えない）。
 テロップ指定がある場合は指定位置に太いテロップ文字で描く。
 指定した文字以外の文字要素（貼り紙・看板・新聞の見出し・黒板の書き込み・書類の文面など）を勝手に追加しない。
-文字が多少崩れても再生成しない（軽微なものは編集で修正する）。</pre>
+文字が多少崩れても再生成しない（軽微なものは編集で修正する）。
+ナレーションは画像へ描かない（動画側で字幕帯として載せる）。画面に描く文字は、上の【画面に描くセリフ】と【テロップ】に挙げたものだけとする。</pre>
 </div></details>
 </div>
 <div class="right">
@@ -5048,7 +5613,11 @@ D章の白紙へ「開戦決定」の印。陸軍大将の男の顔は横から�
 <div><b>音声の要点</b>ハンドルを握る柄澤が、鏡越しに東條を見る</div>
 <div><b>役割・事実根拠</b>最初に「誰が・どこから・誰を見たか」を一目で理解させる。字幕は小さく「運転手・柄澤好三郎」</div>
 <div><b>登場</b>東條英機・柄澤好三郎（参照画像なし）</div>
-</div></div></div>
+</div></div>
+<div class="draw"><h4>画面に描く文字</h4>
+<div class="nb"><span class="who">ナレーション（画像には描かない）</span>ハンドルを握っていたのは、運転手の柄澤好三郎だった。
+柄澤は、バックミラー越しに、後部座席の東條の顔を見た。</div>
+</div></div>
 <div class="koma" data-img="0" id="kG02">
 <div class="left">
 <div class="frame empty"><span class="kid">G02</span><span class="nostate">画像 未生成</span><div class="artdir">G01と同じ画像からバックミラーへゆっくり寄る。鏡の中だけに東條の顔を映し、口元は固く、頬と目の周囲に緊張をにじませる。歯を食いしばる、汗を流す、目を見開くなどの誇張はしない。画面の端に柄澤の目元をぼかして残す</div></div>
@@ -5090,6 +5659,10 @@ D章の白紙へ「開戦決定」の印。陸軍大将の男の顔は横から�
 【シーン（コマG02）】
 G01と同じ画像からバックミラーへゆっくり寄る。鏡の中だけに陸軍大将の男の顔を映し、口元は固く、頬と目の周囲に緊張をにじませる。歯を食いしばる、汗を流す、目を見開くなどの誇張はしない。画面の端に公用車の運転手の目元をぼかして残す
 
+【画面に描くセリフ】
+- 公用車の運転手〈吹き出し〉:「緊張の極、というんでしょうか。ひきつったような顔をしていました。」
+※ 話者の呼び名は誰のセリフかを示す制作上の記号であり、画面には描かない。
+
 【文字ルール】
 文字の扱い: セリフは太めのゴシック体風の日本語で吹き出しに描く。心の声・独白はしっぽのない角丸のモノローグ枠にする。
 セリフやモノローグの文頭に番号（①②③…）や記号を付けない。指定した文章だけをそのまま描く。
@@ -5097,7 +5670,8 @@ G01と同じ画像からバックミラーへゆっくり寄る。鏡の中だ�
 同一コマ内のセリフは、【画面に描くセリフ】に書いた順番どおりに、上から下へ読める配置にする（順番を入れ替えない）。
 テロップ指定がある場合は指定位置に太いテロップ文字で描く。
 指定した文字以外の文字要素（貼り紙・看板・新聞の見出し・黒板の書き込み・書類の文面など）を勝手に追加しない。
-文字が多少崩れても再生成しない（軽微なものは編集で修正する）。</pre>
+文字が多少崩れても再生成しない（軽微なものは編集で修正する）。
+ナレーションは画像へ描かない（動画側で字幕帯として載せる）。画面に描く文字は、上の【画面に描くセリフ】と【テロップ】に挙げたものだけとする。</pre>
 </div></details>
 </div>
 <div class="right">
@@ -5108,7 +5682,11 @@ G01と同じ画像からバックミラーへゆっくり寄る。鏡の中だ�
 <div><b>音声の要点</b>柄澤には、東條が緊張の極にあり、顔がひきつったように見えた</div>
 <div><b>役割・事実根拠</b>ch4・柄澤証言。正面の客観映像ではなく、最後まで証言者の視界として描く。後悔・恐怖・好戦性などの内心を足さない</div>
 <div><b>登場</b>東條英機・柄澤好三郎（参照画像なし）</div>
-</div></div></div>
+</div></div>
+<div class="draw"><h4>画面に描く文字</h4>
+<div class="bl"><span class="who">柄澤好三郎</span>緊張の極、というんでしょうか。ひきつったような顔をしていました。</div>
+<div class="nb"><span class="who">ナレーション（画像には描かない）</span>本人が何を考えていたのかは分からない。ただ、開戦直前の表情だけが、運転手の記憶に残った。</div>
+</div></div>
 <div class="koma" data-img="0" id="kG03">
 <div class="left">
 <div class="frame empty"><span class="kid">G03</span><span class="nostate">画像 未生成</span><div class="artdir">官邸へ届く報告書。東條が受け取る</div></div>
@@ -5155,7 +5733,8 @@ G01と同じ画像からバックミラーへゆっくり寄る。鏡の中だ�
 同一コマ内のセリフは、【画面に描くセリフ】に書いた順番どおりに、上から下へ読める配置にする（順番を入れ替えない）。
 テロップ指定がある場合は指定位置に太いテロップ文字で描く。
 指定した文字以外の文字要素（貼り紙・看板・新聞の見出し・黒板の書き込み・書類の文面など）を勝手に追加しない。
-文字が多少崩れても再生成しない（軽微なものは編集で修正する）。</pre>
+文字が多少崩れても再生成しない（軽微なものは編集で修正する）。
+ナレーションは画像へ描かない（動画側で字幕帯として載せる）。画面に描く文字は、上の【画面に描くセリフ】と【テロップ】に挙げたものだけとする。</pre>
 </div></details>
 </div>
 <div class="right">
@@ -5165,7 +5744,10 @@ G01と同じ画像からバックミラーへゆっくり寄る。鏡の中だ�
 <div><b>音声の要点</b>真珠湾攻撃が予定どおり進んだとの報告</div>
 <div><b>役割・事実根拠</b>表情変化の原因を一コマで示す</div>
 <div><b>登場</b>東條英機</div>
-</div></div></div>
+</div></div>
+<div class="draw"><h4>画面に描く文字</h4>
+<div class="nb"><span class="who">ナレーション（画像には描かない）</span>やがて、真珠湾攻撃が予定どおり進んだという報告が届いた。</div>
+</div></div>
 <div class="koma" data-img="0" id="kG04">
 <div class="left">
 <div class="frame empty"><span class="kid">G04</span><span class="nostate">画像 未生成</span><div class="artdir">同じバックミラー、同じ構図。鏡の中の東條の口元がゆるみ、朗らかな表情になっている</div></div>
@@ -5207,6 +5789,10 @@ G01と同じ画像からバックミラーへゆっくり寄る。鏡の中だ�
 【シーン（コマG04）】
 同じバックミラー、同じ構図。鏡の中の陸軍大将の男の口元がゆるみ、朗らかな表情になっている
 
+【画面に描くセリフ】
+- 公用車の運転手〈吹き出し〉:「本当にほがらかな、うれしそうな顔をしていました。」
+※ 話者の呼び名は誰のセリフかを示す制作上の記号であり、画面には描かない。
+
 【文字ルール】
 文字の扱い: セリフは太めのゴシック体風の日本語で吹き出しに描く。心の声・独白はしっぽのない角丸のモノローグ枠にする。
 セリフやモノローグの文頭に番号（①②③…）や記号を付けない。指定した文章だけをそのまま描く。
@@ -5214,7 +5800,8 @@ G01と同じ画像からバックミラーへゆっくり寄る。鏡の中だ�
 同一コマ内のセリフは、【画面に描くセリフ】に書いた順番どおりに、上から下へ読める配置にする（順番を入れ替えない）。
 テロップ指定がある場合は指定位置に太いテロップ文字で描く。
 指定した文字以外の文字要素（貼り紙・看板・新聞の見出し・黒板の書き込み・書類の文面など）を勝手に追加しない。
-文字が多少崩れても再生成しない（軽微なものは編集で修正する）。</pre>
+文字が多少崩れても再生成しない（軽微なものは編集で修正する）。
+ナレーションは画像へ描かない（動画側で字幕帯として載せる）。画面に描く文字は、上の【画面に描くセリフ】と【テロップ】に挙げたものだけとする。</pre>
 </div></details>
 </div>
 <div class="right">
@@ -5226,7 +5813,12 @@ G01と同じ画像からバックミラーへゆっくり寄る。鏡の中だ�
 <div><b>音声の要点</b>運転手にはうれしそうに見えたが、理由は証言にない</div>
 <div><b>役割・事実根拠</b>同一証言者・同一画角で変化を比較し、好戦性などの内心へ結びつけない</div>
 <div><b>登場</b>東條英機・柄澤好三郎（参照画像なし）</div>
-</div></div></div>
+</div></div>
+<div class="draw"><h4>画面に描く文字</h4>
+<div class="nb"><span class="who">ナレーション（画像には描かない）</span>その後、同じ運転手が見た東條は、先ほどとは違っていた。</div>
+<div class="bl"><span class="who">柄澤好三郎</span>本当にほがらかな、うれしそうな顔をしていました。</div>
+<div class="nb"><span class="who">ナレーション（画像には描かない）</span>表情の理由は、証言に残っていない。不安からの解放だったのか、最初の戦果への喜びだったのかは分からない。</div>
+</div></div>
 <div class="koma" data-img="0" id="kG05">
 <div class="left">
 <div class="frame empty"><span class="kid">G05</span><span class="nostate">画像 未生成</span><div class="artdir">D章の東條と白紙、F章の開戦印を左右に並べる</div></div>
@@ -5273,7 +5865,8 @@ D章の陸軍大将の男と白紙、F章の開戦印を左右に並べる
 同一コマ内のセリフは、【画面に描くセリフ】に書いた順番どおりに、上から下へ読める配置にする（順番を入れ替えない）。
 テロップ指定がある場合は指定位置に太いテロップ文字で描く。
 指定した文字以外の文字要素（貼り紙・看板・新聞の見出し・黒板の書き込み・書類の文面など）を勝手に追加しない。
-文字が多少崩れても再生成しない（軽微なものは編集で修正する）。</pre>
+文字が多少崩れても再生成しない（軽微なものは編集で修正する）。
+ナレーションは画像へ描かない（動画側で字幕帯として載せる）。画面に描く文字は、上の【画面に描くセリフ】と【テロップ】に挙げたものだけとする。</pre>
 </div></details>
 </div>
 <div class="right">
@@ -5285,7 +5878,12 @@ D章の陸軍大将の男と白紙、F章の開戦印を左右に並べる
 <div><b>音声の要点</b>強硬派だから陸軍を抑えられると期待された</div>
 <div><b>役割・事実根拠</b>セントラルクエスチョンへ明答</div>
 <div><b>登場</b>東條英機</div>
-</div></div></div>
+</div></div>
+<div class="draw"><h4>画面に描く文字</h4>
+<div class="nb"><span class="who">ナレーション（画像には描かない）</span>なぜ、開戦強硬派の東條に、戦争を止める仕事が任されたのか。
+強硬派の東條なら、陸軍を抑え、国策を白紙から調べ直せると期待されたからである。
+しかし、期待された東條から、陸軍を撤兵させる決定は出なかった。</div>
+</div></div>
 <div class="koma" data-img="0" id="kG06">
 <div class="left">
 <div class="frame empty"><span class="kid">G06</span><span class="nostate">画像 未生成</span><div class="artdir">東條を中央に政府・陸海軍を背後へ置き、三択が一本になる</div></div>
@@ -5332,7 +5930,8 @@ D章の陸軍大将の男と白紙、F章の開戦印を左右に並べる
 同一コマ内のセリフは、【画面に描くセリフ】に書いた順番どおりに、上から下へ読める配置にする（順番を入れ替えない）。
 テロップ指定がある場合は指定位置に太いテロップ文字で描く。
 指定した文字以外の文字要素（貼り紙・看板・新聞の見出し・黒板の書き込み・書類の文面など）を勝手に追加しない。
-文字が多少崩れても再生成しない（軽微なものは編集で修正する）。</pre>
+文字が多少崩れても再生成しない（軽微なものは編集で修正する）。
+ナレーションは画像へ描かない（動画側で字幕帯として載せる）。画面に描く文字は、上の【画面に描くセリフ】と【テロップ】に挙げたものだけとする。</pre>
 </div></details>
 </div>
 <div class="right">
@@ -5344,7 +5943,12 @@ D章の陸軍大将の男と白紙、F章の開戦印を左右に並べる
 <div><b>音声の要点</b>東條は陸軍が引く決断をせず、他組織も止める責任を取らなかった</div>
 <div><b>役割・事実根拠</b>単独犯化も免責も避けて本編完結</div>
 <div><b>登場</b>東條英機</div>
-</div></div></div>
+</div></div>
+<div class="draw"><h4>画面に描く文字</h4>
+<div class="nb"><span class="who">ナレーション（画像には描かない）</span>開戦は東條一人だけで決めたものではない。政府、陸軍、海軍が、それぞれ止める決定を出さないまま合意した結果だった。
+内閣を倒した男は、国の退路を開く役を与えられ、最後には自らその退路を塞ぐ決定をまとめた。
+白紙から始まった三つの道は、こうして一本になった。</div>
+</div></div>
 <div class="koma" data-img="0" id="kG07">
 <div class="left">
 <div class="frame empty"><span class="kid">G07</span><span class="nostate">画像 未生成</span><div class="artdir">暗い画面に、輸送船の影と資源表がうっすら浮かぶ</div></div>
@@ -5391,7 +5995,8 @@ D章の陸軍大将の男と白紙、F章の開戦印を左右に並べる
 同一コマ内のセリフは、【画面に描くセリフ】に書いた順番どおりに、上から下へ読める配置にする（順番を入れ替えない）。
 テロップ指定がある場合は指定位置に太いテロップ文字で描く。
 指定した文字以外の文字要素（貼り紙・看板・新聞の見出し・黒板の書き込み・書類の文面など）を勝手に追加しない。
-文字が多少崩れても再生成しない（軽微なものは編集で修正する）。</pre>
+文字が多少崩れても再生成しない（軽微なものは編集で修正する）。
+ナレーションは画像へ描かない（動画側で字幕帯として載せる）。画面に描く文字は、上の【画面に描くセリフ】と【テロップ】に挙げたものだけとする。</pre>
 </div></details>
 </div>
 <div class="right">
@@ -5402,7 +6007,11 @@ D章の陸軍大将の男と白紙、F章の開戦印を左右に並べる
 <div><b>音声の要点</b>知っていた不足の中でどう戦争を続けるのか</div>
 <div><b>役割・事実根拠</b>第2話への任意フック。本編の答えの後に置く</div>
 <div><b>登場</b>東條英機</div>
-</div></div></div>
+</div></div>
+<div class="draw"><h4>画面に描く文字</h4>
+<div class="nb"><span class="who">ナレーション（画像には描かない）</span>だが、東條はすでに、物量と輸送の不安を知っていた。
+その東條は、始まった戦争を、どう続けようとしたのか。</div>
+</div></div>
 <div class="check"><h3>G章の理解検査</h3><ul>
 <li class="">東條の表情を本人の内心ではなく柄澤好三郎の証言として示した</li>
 <li class="">緊張を後悔、朗らかさを好戦性と断定していない</li>
