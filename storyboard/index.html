@@ -54,6 +54,8 @@ padding:2px 9px;border-radius:4px;letter-spacing:.06em}
 .artdir::before{content:"絵の指示";display:block;font-size:10px;letter-spacing:.14em;color:var(--muted);
 font-weight:700;margin-bottom:3px}
 .nostate{font-size:11px;color:var(--warn);font-weight:700;letter-spacing:.08em}
+.cutwarn{display:block;font-size:11px;font-weight:700;color:#fff;background:#B4432B;
+border-radius:4px;padding:3px 8px;margin-top:4px}
 details.pr{margin-top:10px;border:1px solid var(--line);border-radius:6px;background:var(--paper)}
 details.pr>summary{cursor:pointer;padding:7px 11px;font-size:12px;font-weight:700;color:var(--acc);
 list-style:none;display:flex;align-items:center;gap:7px}
@@ -102,9 +104,10 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <p class="lede">軸 — 陸軍の退路を守って内閣を倒した男が、国家の退路を開く役を与えられ、最後には自分でその退路を塞ぐ話。</p>
 <p class="lede">問い — なぜ開戦強硬派の東條英機に、戦争を止める仕事が任されたのか。</p>
 <div class="stats">
-<div class="stat"><b>87</b>コマ</div>
-<div class="stat"><b>15:07</b>想定尺</div>
-<div class="stat"><b>0 / 87</b>コマ画像</div>
+<div class="stat"><b>88</b>コマ</div>
+<div class="stat"><b>15:09</b>想定尺</div>
+<div class="stat"><b>0 / 88</b>コマ画像</div>
+<div class="stat"><b>0</b>1枚で描けない指示</div>
 <div class="stat"><b>A–D</b>確認済み</div>
 <div class="stat"><b>E–G</b>確認中</div>
 </div></header>
@@ -122,8 +125,8 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 </nav>
 <div class="guide"><h3>この画面の使い方</h3><p>左がコマ枠です。画像が確定していれば絵が入り、未生成なら「絵の指示」と画像プロンプト草案が入ります。右がそのコマのナレーションとセリフです。</p><p>入力は <code>02_scenario_v2.md</code> と <code>03_koma_v2_*.md</code> だけです。<code>koma_data.py</code> は読み書きしません（統合は全章承認後）。修正はマークダウンを直してから、このページを再生成してください。</p></div>
 <section class="chap" id="cA">
-<h2 class="chap"><span class="ltr">A</span>内閣を倒す男<span class="badge done">確認済み</span><small>17 コマ・2:21</small></h2>
-<p class="chapnote">17コマ／約2分45秒。各コマの音声は1〜3行とし、同じ画像上で情報を増やす場合も</p>
+<h2 class="chap"><span class="ltr">A</span>内閣を倒す男<span class="badge done">確認済み</span><small>18 コマ・2:23</small></h2>
+<p class="chapnote">18コマ／約2分29秒。各コマの音声は1〜3行とし、同じ画像上で情報を増やす場合も</p>
 <div class="koma" data-img="0" id="kA01">
 <div class="left">
 <div class="frame empty"><span class="kid">A01</span><span class="nostate">画像 未生成</span><div class="artdir">黒背景から、1941年10月16日の官邸。新聞号外の「総辞職」だけ赤</div></div>
@@ -184,7 +187,7 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 </div></div></div>
 <div class="koma" data-img="0" id="kA02">
 <div class="left">
-<div class="frame empty"><span class="kid">A02</span><span class="nostate">画像 未生成</span><div class="artdir">官邸を去る近衛の車→東條の静止画へ切替</div></div>
+<div class="frame empty"><span class="kid">A02</span><span class="nostate">画像 未生成</span><div class="artdir">首相官邸の前。奥で近衛の車が門を出ていき、その手前に軍服の東條を大きく立たせる</div></div>
 <details class="pr"><summary>画像プロンプト草案</summary><div class="pb">
 <p class="pnote">草案 —— koma_data.py 統合後に lib_koma.build_prompt() が確定版を作る。このまま画像生成へ渡さない。</p>
 <button class="copy" data-target="p_A02">プロンプトをコピー</button>
@@ -220,7 +223,7 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 - 公家出身の首相（50歳前後）: 長身で撫で肩、細面。オールバックにした黒髪、細い口髭。上等な三つ揃いの背広（濃紺またはグレー）、ネクタイ。物腰は優雅だが、目線が定まらず疲れて見える。軍服は着ない（民間人の政治家）。
 
 【シーン（コマA02）】
-官邸を去る背広の首相の車→陸軍大将の男の静止画へ切替
+首相官邸の前。奥で背広の首相の車が門を出ていき、その手前に軍服の陸軍大将の男を大きく立たせる
 
 【文字ルール】
 文字の扱い: セリフは太めのゴシック体風の日本語で吹き出しに描く。心の声・独白はしっぽのない角丸のモノローグ枠にする。
@@ -302,7 +305,7 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 </div></div></div>
 <div class="koma" data-img="0" id="kA04">
 <div class="left">
-<div class="frame empty"><span class="kid">A04</span><span class="nostate">画像 未生成</span><div class="artdir">日本列島から中国大陸へ地図を広げ、1937→1941の年表示</div></div>
+<div class="frame empty"><span class="kid">A04</span><span class="nostate">画像 未生成</span><div class="artdir">日本列島と中国大陸を一枚に収めた地図。左下に一九三七、右下に一九四一の年号を置く</div></div>
 <details class="pr"><summary>画像プロンプト草案</summary><div class="pb">
 <p class="pnote">草案 —— koma_data.py 統合後に lib_koma.build_prompt() が確定版を作る。このまま画像生成へ渡さない。</p>
 <button class="copy" data-target="p_A04">プロンプトをコピー</button>
@@ -336,7 +339,7 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 - 人物なし、または参照画像が未確定。図解・風景として組む。
 
 【シーン（コマA04）】
-日本列島から中国大陸へ地図を広げ、1937→1941の年表示
+日本列島と中国大陸を一枚に収めた地図。左下に一九三七、右下に一九四一の年号を置く
 
 【文字ルール】
 文字の扱い: セリフは太めのゴシック体風の日本語で吹き出しに描く。心の声・独白はしっぽのない角丸のモノローグ枠にする。
@@ -358,7 +361,7 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 </div></div></div>
 <div class="koma" data-img="0" id="kA05">
 <div class="left">
-<div class="frame empty"><span class="kid">A05</span><span class="nostate">画像 未生成</span><div class="artdir">中国大陸の駐留兵→南部仏印へ矢印</div></div>
+<div class="frame empty"><span class="kid">A05</span><span class="nostate">画像 未生成</span><div class="artdir">中国大陸の駐留兵から南部仏印へ、太い矢印を一本描いた地図</div></div>
 <details class="pr"><summary>画像プロンプト草案</summary><div class="pb">
 <p class="pnote">草案 —— koma_data.py 統合後に lib_koma.build_prompt() が確定版を作る。このまま画像生成へ渡さない。</p>
 <button class="copy" data-target="p_A05">プロンプトをコピー</button>
@@ -392,7 +395,7 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 - 人物なし、または参照画像が未確定。図解・風景として組む。
 
 【シーン（コマA05）】
-中国大陸の駐留兵→南部仏印へ矢印
+中国大陸の駐留兵から南部仏印へ、太い矢印を一本描いた地図
 
 【文字ルール】
 文字の扱い: セリフは太めのゴシック体風の日本語で吹き出しに描く。心の声・独白はしっぽのない角丸のモノローグ枠にする。
@@ -414,7 +417,7 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 </div></div></div>
 <div class="koma" data-img="0" id="kA06">
 <div class="left">
-<div class="frame empty"><span class="kid">A06</span><span class="nostate">画像 未生成</span><div class="artdir">米国旗→石油タンクのバルブが閉じる→軍艦・飛行機が暗転</div></div>
+<div class="frame empty"><span class="kid">A06</span><span class="nostate">画像 未生成</span><div class="artdir">閉じられた石油タンクのバルブを画面中央に大きく。背後の軍艦と飛行機を灰色に沈め、上部へ米国旗を小さく置く</div></div>
 <details class="pr"><summary>画像プロンプト草案</summary><div class="pb">
 <p class="pnote">草案 —— koma_data.py 統合後に lib_koma.build_prompt() が確定版を作る。このまま画像生成へ渡さない。</p>
 <button class="copy" data-target="p_A06">プロンプトをコピー</button>
@@ -448,7 +451,7 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 - 人物なし、または参照画像が未確定。図解・風景として組む。
 
 【シーン（コマA06）】
-米国旗→石油タンクのバルブが閉じる→軍艦・飛行機が暗転
+閉じられた石油タンクのバルブを画面中央に大きく。背後の軍艦と飛行機を灰色に沈め、上部へ米国旗を小さく置く
 
 【文字ルール】
 文字の扱い: セリフは太めのゴシック体風の日本語で吹き出しに描く。心の声・独白はしっぽのない角丸のモノローグ枠にする。
@@ -808,7 +811,7 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 </div></div></div>
 <div class="koma" data-img="0" id="kA13">
 <div class="left">
-<div class="frame empty"><span class="kid">A13</span><span class="nostate">画像 未生成</span><div class="artdir">「4日前」カード→10/12、近衛私邸・荻外荘。近衛・東條・及川</div></div>
+<div class="frame empty"><span class="kid">A13</span><span class="nostate">画像 未生成</span><div class="artdir">近衛私邸・荻外荘の和室。近衛・東條・及川が三方向に座る。テロップ「総辞職の四日前　十月十二日」</div></div>
 <details class="pr"><summary>画像プロンプト草案</summary><div class="pb">
 <p class="pnote">草案 —— koma_data.py 統合後に lib_koma.build_prompt() が確定版を作る。このまま画像生成へ渡さない。</p>
 <button class="copy" data-target="p_A13">プロンプトをコピー</button>
@@ -845,7 +848,7 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 - 海軍大将（58歳前後）: 中背でやや太め。短く刈った白髪混じりの髪、丸顔。濃紺の海軍の軍服（詰襟・金の袖章）、白い手袋。陸軍のカーキ色の軍服と必ず色で描き分ける。困っているのを隠すような曖昧な表情。
 
 【シーン（コマA13）】
-「4日前」カード→10/12、背広の首相私邸・荻外荘。背広の首相・陸軍大将の男・海軍大将（丸顔）
+背広の首相私邸・荻外荘の和室。背広の首相・陸軍大将の男・海軍大将（丸顔）が三方向に座る。テロップ「総辞職の四日前　十月十二日」
 
 【文字ルール】
 文字の扱い: セリフは太めのゴシック体風の日本語で吹き出しに描く。心の声・独白はしっぽのない角丸のモノローグ枠にする。
@@ -928,7 +931,7 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 </div></div></div>
 <div class="koma" data-img="0" id="kA15">
 <div class="left">
-<div class="frame empty"><span class="kid">A15</span><span class="nostate">画像 未生成</span><div class="artdir">太平洋海図を前にする及川→判断書類が近衛へ戻る</div></div>
+<div class="frame empty"><span class="kid">A15</span><span class="nostate">画像 未生成</span><div class="artdir">太平洋海図を前にした及川が、判断書類を近衛の側へ押し戻す。近衛の手だけが画面端に入る</div></div>
 <details class="pr"><summary>画像プロンプト草案</summary><div class="pb">
 <p class="pnote">草案 —— koma_data.py 統合後に lib_koma.build_prompt() が確定版を作る。このまま画像生成へ渡さない。</p>
 <button class="copy" data-target="p_A15">プロンプトをコピー</button>
@@ -964,7 +967,7 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 - 海軍大将（58歳前後）: 中背でやや太め。短く刈った白髪混じりの髪、丸顔。濃紺の海軍の軍服（詰襟・金の袖章）、白い手袋。陸軍のカーキ色の軍服と必ず色で描き分ける。困っているのを隠すような曖昧な表情。
 
 【シーン（コマA15）】
-太平洋海図を前にする海軍大将（丸顔）→判断書類が背広の首相へ戻る
+太平洋海図を前にした海軍大将（丸顔）が、判断書類を背広の首相の側へ押し戻す。背広の首相の手だけが画面端に入る
 
 【文字ルール】
 文字の扱い: セリフは太めのゴシック体風の日本語で吹き出しに描く。心の声・独白はしっぽのない角丸のモノローグ枠にする。
@@ -987,7 +990,7 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 </div></div></div>
 <div class="koma" data-img="0" id="kA16">
 <div class="left">
-<div class="frame empty"><span class="kid">A16</span><span class="nostate">画像 未生成</span><div class="artdir">「2日後」カード→10/14閣議。東條が語り、閣僚が沈黙</div></div>
+<div class="frame empty"><span class="kid">A16</span><span class="nostate">画像 未生成</span><div class="artdir">閣議室。立って語る東條と、目を伏せて沈黙する閣僚たち。テロップ「十月十四日　閣議」</div></div>
 <details class="pr"><summary>画像プロンプト草案</summary><div class="pb">
 <p class="pnote">草案 —— koma_data.py 統合後に lib_koma.build_prompt() が確定版を作る。このまま画像生成へ渡さない。</p>
 <button class="copy" data-target="p_A16">プロンプトをコピー</button>
@@ -1023,7 +1026,7 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 - 閣僚たち（モブ・複数人）: 40〜60代の男性。国民服または濃色の三つ揃いの背広。短く整えた髪、丸眼鏡の者が混じる。個々の表情は目立たせず、一様に押し黙って視線を落としている集団として描く。彩度を落とす。
 
 【シーン（コマA16）】
-「2日後」カード→10/14閣議。陸軍大将の男が語り、閣僚たちが沈黙
+閣議室。立って語る陸軍大将の男と、目を伏せて沈黙する閣僚たちたち。テロップ「十月十四日　閣議」
 
 【文字ルール】
 文字の扱い: セリフは太めのゴシック体風の日本語で吹き出しに描く。心の声・独白はしっぽのない角丸のモノローグ枠にする。
@@ -1047,7 +1050,7 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 </div></div></div>
 <div class="koma" data-img="0" id="kA17">
 <div class="left">
-<div class="frame empty"><span class="kid">A17</span><span class="nostate">画像 未生成</span><div class="artdir">3択がすべて点滅→総辞職号外→首相席に座る東條→宮中の門</div></div>
+<div class="frame empty"><span class="kid">A17</span><span class="nostate">画像 未生成</span><div class="artdir">三択ボードの三本すべてに斜線が入り、その手前に「総辞職」の号外が落ちている</div></div>
 <details class="pr"><summary>画像プロンプト草案</summary><div class="pb">
 <p class="pnote">草案 —— koma_data.py 統合後に lib_koma.build_prompt() が確定版を作る。このまま画像生成へ渡さない。</p>
 <button class="copy" data-target="p_A17">プロンプトをコピー</button>
@@ -1079,11 +1082,10 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 
 【登場人物の定義（変更禁止・省略禁止）】
 ※ 人物の氏名は指定しない。下の外見定義だけに従って描くこと。
-- 主人公の陸軍大将（57歳前後）: 頭を短く刈り上げてほぼ剃り上げた坊主頭。丸い黒縁の眼鏡。鼻の下に短く整えた黒い口髭。四角い顎、引き締まった小柄な体格（身長は周囲より低め）。昭和期の日本陸軍のカーキ色の軍服（詰襟・立襟）、襟に階級章、胸に略綬（勲章のリボン）、腰に革のベルトと軍刀。姿勢は常にまっすぐで硬い。表情は生真面目で険しく、笑うときも目が笑わない。私邸の場面では和服（濃紺の着物）または白いシャツ姿。
 - 公家出身の首相（50歳前後）: 長身で撫で肩、細面。オールバックにした黒髪、細い口髭。上等な三つ揃いの背広（濃紺またはグレー）、ネクタイ。物腰は優雅だが、目線が定まらず疲れて見える。軍服は着ない（民間人の政治家）。
 
 【シーン（コマA17）】
-3択がすべて点滅→総辞職号外→首相席に座る陸軍大将の男→宮中の門
+三択ボードの三本すべてに斜線が入り、その手前に「総辞職」の号外が落ちている
 
 【文字ルール】
 文字の扱い: セリフは太めのゴシック体風の日本語で吹き出しに描く。心の声・独白はしっぽのない角丸のモノローグ枠にする。
@@ -1096,16 +1098,72 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 </div></details>
 </div>
 <div class="right">
-<div class="rhead"><span class="t">行き詰まり</span><span class="sec">A17 ／ 約14秒</span></div>
+<div class="rhead"><span class="t">行き詰まり</span><span class="sec">A17 ／ 約8秒</span></div>
 <div class="line nar"><div class="sp">ナレーション<span class="em">〔低く〕</span></div><div class="tx">交渉をまとめる案も、開戦を決める統一見解もない。
-近衛内閣は、総辞職した。
-そして二日後、この行き詰まりを作った東條が、次の総理大臣になる。</div></div>
+近衛内閣は、総辞職した。</div></div>
+<div class="meta">
+<div><b>音声の要点</b>交渉案も統一見解もないまま内閣総辞職</div>
+<div><b>役割・事実根拠</b>A01回収</div>
+<div><b>登場</b>近衛文麿</div>
+</div></div></div>
+<div class="koma" data-img="0" id="kA18">
+<div class="left">
+<div class="frame empty"><span class="kid">A18</span><span class="nostate">画像 未生成</span><div class="artdir">首相官邸の空席の椅子と、その奥に閉じた宮中の門。門の側に東條の後ろ姿</div></div>
+<details class="pr"><summary>画像プロンプト草案</summary><div class="pb">
+<p class="pnote">草案 —— koma_data.py 統合後に lib_koma.build_prompt() が確定版を作る。このまま画像生成へ渡さない。</p>
+<button class="copy" data-target="p_A18">プロンプトをコピー</button>
+<pre class="pt" id="p_A18">【出力】1920×1080・16:9横型・PNG・1枚。
+
+【スタイル】
+昭和期の日本を舞台にした歴史劇画の1コマとして描く（1枚絵の風景画ではなく、主役を大きく見せるコマ演出）。16:9横型（1920×1080）。
+太めの黒い主線、フラット〜1段影までのアニメ塗り。写実的な写真調・3Dレンダー・厚塗り・ソフトシェーディング・強い光沢は使わない。
+人物は等身大のリアルな頭身で描く（デフォルメ・二頭身・カートゥーン調にしない）。表情は劇画らしく強く。
+添付した参照画像と同一の人物・同一の作画スタイルで描くこと。
+画風の見本として添付した過去のコマ画像は、線・塗り・色使いの参考にのみ使う。その画像の場所・背景・家具・構図は一切引き継がず、背景は本プロンプトの【シーン】の指定だけに従う。
+
+【背景スタイル】
+背景は昭和戦前〜戦中期（1930〜40年代）の日本を、彩度を落とした時代色（くすんだ茶・灰・カーキ・藍・生成り）で描く。
+塗りは人物と同じフラット〜1段影のハードシャドウまで（にじみ・グラデーション・紙テクスチャは使わない）。
+年代考証を優先する: 木造の官庁建築、畳と障子、裸電球、黒電話、木製の大机と回転椅子、軍装、軍刀、和装と国民服。
+現代的な物（液晶画面・プラスチック製品・現代の自動車・現代の服装）は絶対に描かない。実在の企業ロゴ・現代のブランドは描かない。
+
+【構図ルール】
+構図ルール（全コマ共通）:
+- 漫画のコマとして、このコマの主役を手前に大きく配置する（目安: 画面の高さの1/2以上）。背景と脇役は小さく描く。
+- 人物と家具の接地関係を物理的に正しく描く。椅子に座る・床に立つ・畳に正座する。机や台の上に立たせたり座らせたりしない。
+- 部屋の机や椅子は向きとパースを1つに統一する。家具は「向き」ではなく基準物との位置関係で捉える（机の正面が窓のある壁に正対する等）。
+- 椅子の背もたれは、座っている人物の背中の真後ろに描く（横や肘の位置に描かない）。
+- 複数人が並ぶときは身長比を参照シートどおりに保つ。
+- 軍服の階級章・勲章・徽章は人物定義の指定どおりに描く（勝手に増やさない・減らさない）。
+- 実在の企業ロゴ・ブランドロゴは描かない。
+- 流血・遺体の直接描写はしない。戦闘や死は、暗示と結果（燃える街・空の焼け跡・沈黙する人物）で見せる。
+
+【登場人物の定義（変更禁止・省略禁止）】
+※ 人物の氏名は指定しない。下の外見定義だけに従って描くこと。
+- 主人公の陸軍大将（57歳前後）: 頭を短く刈り上げてほぼ剃り上げた坊主頭。丸い黒縁の眼鏡。鼻の下に短く整えた黒い口髭。四角い顎、引き締まった小柄な体格（身長は周囲より低め）。昭和期の日本陸軍のカーキ色の軍服（詰襟・立襟）、襟に階級章、胸に略綬（勲章のリボン）、腰に革のベルトと軍刀。姿勢は常にまっすぐで硬い。表情は生真面目で険しく、笑うときも目が笑わない。私邸の場面では和服（濃紺の着物）または白いシャツ姿。
+
+【シーン（コマA18）】
+首相官邸の空席の椅子と、その奥に閉じた宮中の門。門の側に陸軍大将の男の後ろ姿
+
+【文字ルール】
+文字の扱い: セリフは太めのゴシック体風の日本語で吹き出しに描く。心の声・独白はしっぽのない角丸のモノローグ枠にする。
+セリフやモノローグの文頭に番号（①②③…）や記号を付けない。指定した文章だけをそのまま描く。
+吹き出しのしっぽは必ずその話者に向ける。話者から遠い位置に置く場合も、しっぽの方向で話者が分かるようにする。
+同一コマ内のセリフは、【画面に描くセリフ】に書いた順番どおりに、上から下へ読める配置にする（順番を入れ替えない）。
+テロップ指定がある場合は指定位置に太いテロップ文字で描く。
+指定した文字以外の文字要素（貼り紙・看板・新聞の見出し・黒板の書き込み・書類の文面など）を勝手に追加しない。
+文字が多少崩れても再生成しない（軽微なものは編集で修正する）。</pre>
+</div></details>
+</div>
+<div class="right">
+<div class="rhead"><span class="t">答えは別の場所に</span><span class="sec">A18 ／ 約8秒</span></div>
+<div class="line nar"><div class="sp">ナレーション</div><div class="tx">そして二日後、この行き詰まりを作った東條が、次の総理大臣になる。</div></div>
 <div class="line nar"><div class="sp">ナレーション<span class="em">〔問いかける〕</span></div><div class="tx">なぜ、東條だったのか。
 その答えは、内閣とは別の場所にあった。</div></div>
 <div class="meta">
-<div><b>音声の要点</b>内閣総辞職。2日後に東條。答えは内閣とは別の場所に</div>
-<div><b>役割・事実根拠</b>A01回収。次章の宮中へつなぐ</div>
-<div><b>登場</b>東條英機・近衛文麿</div>
+<div><b>音声の要点</b>2日後に東條が総理へ。答えは内閣とは別の場所に</div>
+<div><b>役割・事実根拠</b>次章の宮中へつなぐ</div>
+<div><b>登場</b>東條英機</div>
 </div></div></div>
 <div class="check"><h3>A章の理解検査</h3><ul>
 <li class="">最初の30秒で、誰の・何をめぐる話か分かる</li>
@@ -1125,7 +1183,7 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <p class="chapnote">16コマ／約2分45秒。A章で説明済みの背景を繰り返さず、10月6日→7日→8日→12日の順で</p>
 <div class="koma" data-img="0" id="kB01">
 <div class="left">
-<div class="frame empty"><span class="kid">B01</span><span class="nostate">画像 未生成</span><div class="artdir">「総辞職の10日前」→10/6、海軍の会議机と太平洋海図。手前に報告書、末尾の一行に寄る</div></div>
+<div class="frame empty"><span class="kid">B01</span><span class="nostate">画像 未生成</span><div class="artdir">海軍の会議机と太平洋海図。手前に開かれた報告書を大きく置き、末尾の一行が読める。テロップ「十月六日」</div></div>
 <details class="pr"><summary>画像プロンプト草案</summary><div class="pb">
 <p class="pnote">草案 —— koma_data.py 統合後に lib_koma.build_prompt() が確定版を作る。このまま画像生成へ渡さない。</p>
 <button class="copy" data-target="p_B01">プロンプトをコピー</button>
@@ -1159,7 +1217,7 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 - 人物なし、または参照画像が未確定。図解・風景として組む。
 
 【シーン（コマB01）】
-「総辞職の10日前」→10/6、海軍の会議机と太平洋海図。手前に報告書、末尾の一行に寄る
+海軍の会議机と太平洋海図。手前に開かれた報告書を大きく置き、末尾の一行が読める。テロップ「十月六日」
 
 【文字ルール】
 文字の扱い: セリフは太めのゴシック体風の日本語で吹き出しに描く。心の声・独白はしっぽのない角丸のモノローグ枠にする。
@@ -1949,7 +2007,7 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 </div></div></div>
 <div class="koma" data-img="0" id="kB15">
 <div class="left">
-<div class="frame empty"><span class="kid">B15</span><span class="nostate">画像 未生成</span><div class="artdir">近衛→陸軍→海軍→近衛を矢印が一周し、中央の「中止」書類に誰の印もない</div></div>
+<div class="frame empty"><span class="kid">B15</span><span class="nostate">画像 未生成</span><div class="artdir">近衛・陸軍・海軍の三者を円形に配し、矢印が三者を一周する図。中央の「中止」書類に誰の印もない</div></div>
 <details class="pr"><summary>画像プロンプト草案</summary><div class="pb">
 <p class="pnote">草案 —— koma_data.py 統合後に lib_koma.build_prompt() が確定版を作る。このまま画像生成へ渡さない。</p>
 <button class="copy" data-target="p_B15">プロンプトをコピー</button>
@@ -1984,7 +2042,7 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 - 公家出身の首相（50歳前後）: 長身で撫で肩、細面。オールバックにした黒髪、細い口髭。上等な三つ揃いの背広（濃紺またはグレー）、ネクタイ。物腰は優雅だが、目線が定まらず疲れて見える。軍服は着ない（民間人の政治家）。
 
 【シーン（コマB15）】
-背広の首相→陸軍→海軍→背広の首相を矢印が一周し、中央の「中止」書類に誰の印もない
+背広の首相・陸軍・海軍の三者を円形に配し、矢印が三者を一周する図。中央の「中止」書類に誰の印もない
 
 【文字ルール】
 文字の扱い: セリフは太めのゴシック体風の日本語で吹き出しに描く。心の声・独白はしっぽのない角丸のモノローグ枠にする。
@@ -2084,7 +2142,7 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 <p class="chapnote">10コマ／約1分45秒。撤兵を「過去の犠牲」と「未来の犠牲」の板挟みとして可視化し、</p>
 <div class="koma" data-img="0" id="kC01">
 <div class="left">
-<div class="frame empty"><span class="kid">C01</span><span class="nostate">画像 未生成</span><div class="artdir">中国大陸から日本へ戻る兵士の単純な矢印→画面が止まる</div></div>
+<div class="frame empty"><span class="kid">C01</span><span class="nostate">画像 未生成</span><div class="artdir">中国大陸から日本へ戻る兵士を、輪郭だけの単純な一本の矢印で示した図</div></div>
 <details class="pr"><summary>画像プロンプト草案</summary><div class="pb">
 <p class="pnote">草案 —— koma_data.py 統合後に lib_koma.build_prompt() が確定版を作る。このまま画像生成へ渡さない。</p>
 <button class="copy" data-target="p_C01">プロンプトをコピー</button>
@@ -2119,7 +2177,7 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 - 主人公の陸軍大将（57歳前後）: 頭を短く刈り上げてほぼ剃り上げた坊主頭。丸い黒縁の眼鏡。鼻の下に短く整えた黒い口髭。四角い顎、引き締まった小柄な体格（身長は周囲より低め）。昭和期の日本陸軍のカーキ色の軍服（詰襟・立襟）、襟に階級章、胸に略綬（勲章のリボン）、腰に革のベルトと軍刀。姿勢は常にまっすぐで硬い。表情は生真面目で険しく、笑うときも目が笑わない。私邸の場面では和服（濃紺の着物）または白いシャツ姿。
 
 【シーン（コマC01）】
-中国大陸から日本へ戻る兵士の単純な矢印→画面が止まる
+中国大陸から日本へ戻る兵士を、輪郭だけの単純な一本の矢印で示した図
 
 【文字ルール】
 文字の扱い: セリフは太めのゴシック体風の日本語で吹き出しに描く。心の声・独白はしっぽのない角丸のモノローグ枠にする。
@@ -2143,7 +2201,7 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 </div></div></div>
 <div class="koma" data-img="0" id="kC02">
 <div class="left">
-<div class="frame empty"><span class="kid">C02</span><span class="nostate">画像 未生成</span><div class="artdir">出征兵→戦死公報→遺族→軍費帳簿を順に追加</div></div>
+<div class="frame empty"><span class="kid">C02</span><span class="nostate">画像 未生成</span><div class="artdir">一枚の机の上に、出征兵の写真、戦死公報、遺族の姿、軍費帳簿を左から右へ並べて置く</div></div>
 <details class="pr"><summary>画像プロンプト草案</summary><div class="pb">
 <p class="pnote">草案 —— koma_data.py 統合後に lib_koma.build_prompt() が確定版を作る。このまま画像生成へ渡さない。</p>
 <button class="copy" data-target="p_C02">プロンプトをコピー</button>
@@ -2177,7 +2235,7 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 - 人物なし、または参照画像が未確定。図解・風景として組む。
 
 【シーン（コマC02）】
-出征兵→戦死公報→遺族→軍費帳簿を順に追加
+一枚の机の上に、出征兵の写真、戦死公報、遺族の姿、軍費帳簿を左から右へ並べて置く
 
 【文字ルール】
 文字の扱い: セリフは太めのゴシック体風の日本語で吹き出しに描く。心の声・独白はしっぽのない角丸のモノローグ枠にする。
@@ -2258,7 +2316,7 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 </div></div></div>
 <div class="koma" data-img="0" id="kC04">
 <div class="left">
-<div class="frame empty"><span class="kid">C04</span><span class="nostate">画像 未生成</span><div class="artdir">中国北部・満洲国の簡略地図→陸軍組織図に亀裂</div></div>
+<div class="frame empty"><span class="kid">C04</span><span class="nostate">画像 未生成</span><div class="artdir">中国北部と満洲国の簡略地図を背景に、手前の陸軍組織図へ一本の亀裂が走る</div></div>
 <details class="pr"><summary>画像プロンプト草案</summary><div class="pb">
 <p class="pnote">草案 —— koma_data.py 統合後に lib_koma.build_prompt() が確定版を作る。このまま画像生成へ渡さない。</p>
 <button class="copy" data-target="p_C04">プロンプトをコピー</button>
@@ -2293,7 +2351,7 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 - 主人公の陸軍大将（57歳前後）: 頭を短く刈り上げてほぼ剃り上げた坊主頭。丸い黒縁の眼鏡。鼻の下に短く整えた黒い口髭。四角い顎、引き締まった小柄な体格（身長は周囲より低め）。昭和期の日本陸軍のカーキ色の軍服（詰襟・立襟）、襟に階級章、胸に略綬（勲章のリボン）、腰に革のベルトと軍刀。姿勢は常にまっすぐで硬い。表情は生真面目で険しく、笑うときも目が笑わない。私邸の場面では和服（濃紺の着物）または白いシャツ姿。
 
 【シーン（コマC04）】
-中国北部・満洲国の簡略地図→陸軍組織図に亀裂
+中国北部と満洲国の簡略地図を背景に、手前の陸軍組織図へ一本の亀裂が走る
 
 【文字ルール】
 文字の扱い: セリフは太めのゴシック体風の日本語で吹き出しに描く。心の声・独白はしっぽのない角丸のモノローグ枠にする。
@@ -2374,7 +2432,7 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 </div></div></div>
 <div class="koma" data-img="0" id="kC06">
 <div class="left">
-<div class="frame empty"><span class="kid">C06</span><span class="nostate">画像 未生成</span><div class="artdir">10/8、沢本の日記の手元→二つの損失の間に東條</div></div>
+<div class="frame empty"><span class="kid">C06</span><span class="nostate">画像 未生成</span><div class="artdir">開かれた日記の手元を手前に、その向こうへ東條を置く。東條の左右に過去の戦死公報と沈む輸送船。テロップ「十月八日」</div></div>
 <details class="pr"><summary>画像プロンプト草案</summary><div class="pb">
 <p class="pnote">草案 —— koma_data.py 統合後に lib_koma.build_prompt() が確定版を作る。このまま画像生成へ渡さない。</p>
 <button class="copy" data-target="p_C06">プロンプトをコピー</button>
@@ -2409,7 +2467,7 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 - 主人公の陸軍大将（57歳前後）: 頭を短く刈り上げてほぼ剃り上げた坊主頭。丸い黒縁の眼鏡。鼻の下に短く整えた黒い口髭。四角い顎、引き締まった小柄な体格（身長は周囲より低め）。昭和期の日本陸軍のカーキ色の軍服（詰襟・立襟）、襟に階級章、胸に略綬（勲章のリボン）、腰に革のベルトと軍刀。姿勢は常にまっすぐで硬い。表情は生真面目で険しく、笑うときも目が笑わない。私邸の場面では和服（濃紺の着物）または白いシャツ姿。
 
 【シーン（コマC06）】
-10/8、沢本の日記の手元→二つの損失の間に陸軍大将の男
+開かれた日記の手元を手前に、その向こうへ陸軍大将の男を置く。陸軍大将の男の左右に過去の戦死公報と沈む輸送船。テロップ「十月八日」
 
 【文字ルール】
 文字の扱い: セリフは太めのゴシック体風の日本語で吹き出しに描く。心の声・独白はしっぽのない角丸のモノローグ枠にする。
@@ -2614,7 +2672,7 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 </div></div></div>
 <div class="koma" data-img="0" id="kC10">
 <div class="left">
-<div class="frame empty"><span class="kid">C10</span><span class="nostate">画像 未生成</span><div class="artdir">空席の東條→宮中の門→門の内側に東條の人事書類</div></div>
+<div class="frame empty"><span class="kid">C10</span><span class="nostate">画像 未生成</span><div class="artdir">閉じた宮中の門を中央に大きく。門の内側に東條の人事書類が置かれ、門の外に空席の椅子が一つ残る</div></div>
 <details class="pr"><summary>画像プロンプト草案</summary><div class="pb">
 <p class="pnote">草案 —— koma_data.py 統合後に lib_koma.build_prompt() が確定版を作る。このまま画像生成へ渡さない。</p>
 <button class="copy" data-target="p_C10">プロンプトをコピー</button>
@@ -2649,7 +2707,7 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 - 主人公の陸軍大将（57歳前後）: 頭を短く刈り上げてほぼ剃り上げた坊主頭。丸い黒縁の眼鏡。鼻の下に短く整えた黒い口髭。四角い顎、引き締まった小柄な体格（身長は周囲より低め）。昭和期の日本陸軍のカーキ色の軍服（詰襟・立襟）、襟に階級章、胸に略綬（勲章のリボン）、腰に革のベルトと軍刀。姿勢は常にまっすぐで硬い。表情は生真面目で険しく、笑うときも目が笑わない。私邸の場面では和服（濃紺の着物）または白いシャツ姿。
 
 【シーン（コマC10）】
-空席の陸軍大将の男→宮中の門→門の内側に陸軍大将の男の人事書類
+閉じた宮中の門を中央に大きく。門の内側に陸軍大将の男の人事書類が置かれ、門の外に空席の椅子が一つ残る
 
 【文字ルール】
 文字の扱い: セリフは太めのゴシック体風の日本語で吹き出しに描く。心の声・独白はしっぽのない角丸のモノローグ枠にする。
@@ -2862,7 +2920,7 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 </div></div></div>
 <div class="koma" data-img="0" id="kD04">
 <div class="left">
-<div class="frame empty"><span class="kid">D04</span><span class="nostate">画像 未生成</span><div class="artdir">木戸が文書を読み、東條は引きの構図で止まる。テロップ「天皇の意向を受けて」→組閣命令書</div></div>
+<div class="frame empty"><span class="kid">D04</span><span class="nostate">画像 未生成</span><div class="artdir">宮中の一室。木戸が文書を読み上げ、その正面で東條が引きの構図のまま止まる。木戸の手元の文書の下に、封を切った組閣命令書が重ねてある。テロップ「天皇の意向を受けて」</div></div>
 <details class="pr"><summary>画像プロンプト草案</summary><div class="pb">
 <p class="pnote">草案 —— koma_data.py 統合後に lib_koma.build_prompt() が確定版を作る。このまま画像生成へ渡さない。</p>
 <button class="copy" data-target="p_D04">プロンプトをコピー</button>
@@ -2899,7 +2957,7 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 - 若い君主（40歳前後）: 細身。短く整えた黒髪、丸い眼鏡、細い口髭。陸軍の大元帥服（濃色・肩章と飾緒つき）。描き方の制約: 常に画面の奥または一段高い位置に置き、顔は正面から大きく描かず、後ろ姿・横顔・逆光のシルエット・手元のみのいずれかで示す。表情を誇張しない。
 
 【シーン（コマD04）】
-宮中の側近が文書を読み、陸軍大将の男は引きの構図で止まる。テロップ「大元帥服の君主の意向を受けて」→組閣命令書
+宮中の一室。宮中の側近が文書を読み上げ、その正面で陸軍大将の男が引きの構図のまま止まる。宮中の側近の手元の文書の下に、封を切った組閣命令書が重ねてある。テロップ「大元帥服の君主の意向を受けて」
 
 【文字ルール】
 文字の扱い: セリフは太めのゴシック体風の日本語で吹き出しに描く。心の声・独白はしっぽのない角丸のモノローグ枠にする。
@@ -3157,7 +3215,7 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 </div></div></div>
 <div class="koma" data-img="0" id="kD09">
 <div class="left">
-<div class="frame empty"><span class="kid">D09</span><span class="nostate">画像 未生成</span><div class="artdir">東條から内相札→警察組織へ線。妥協→暴動懸念／政治と軍事を束ねる図</div></div>
+<div class="frame empty"><span class="kid">D09</span><span class="nostate">画像 未生成</span><div class="artdir">東條から内相の札へ線が伸び、その先に警察組織を置く。反対側に暴動の予兆を小さく描き、二つを東條の手元で束ねる図</div></div>
 <details class="pr"><summary>画像プロンプト草案</summary><div class="pb">
 <p class="pnote">草案 —— koma_data.py 統合後に lib_koma.build_prompt() が確定版を作る。このまま画像生成へ渡さない。</p>
 <button class="copy" data-target="p_D09">プロンプトをコピー</button>
@@ -3192,7 +3250,7 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 - 主人公の陸軍大将（57歳前後）: 頭を短く刈り上げてほぼ剃り上げた坊主頭。丸い黒縁の眼鏡。鼻の下に短く整えた黒い口髭。四角い顎、引き締まった小柄な体格（身長は周囲より低め）。昭和期の日本陸軍のカーキ色の軍服（詰襟・立襟）、襟に階級章、胸に略綬（勲章のリボン）、腰に革のベルトと軍刀。姿勢は常にまっすぐで硬い。表情は生真面目で険しく、笑うときも目が笑わない。私邸の場面では和服（濃紺の着物）または白いシャツ姿。
 
 【シーン（コマD09）】
-陸軍大将の男から内相札→警察組織へ線。妥協→暴動懸念／政治と軍事を束ねる図
+陸軍大将の男から内相の札へ線が伸び、その先に警察組織を置く。反対側に暴動の予兆を小さく描き、二つを陸軍大将の男の手元で束ねる図
 
 【文字ルール】
 文字の扱い: セリフは太めのゴシック体風の日本語で吹き出しに描く。心の声・独白はしっぽのない角丸のモノローグ枠にする。
@@ -4249,7 +4307,7 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 </div></div></div>
 <div class="koma" data-img="0" id="kE16">
 <div class="left">
-<div class="frame empty"><span class="kid">E16</span><span class="nostate">画像 未生成</span><div class="artdir">東條の前の三択ボード。「撤兵」は暗転、「並行」は残時間ゼロ寸前、「開戦」と「準備停止」が残る</div></div>
+<div class="frame empty"><span class="kid">E16</span><span class="nostate">画像 未生成</span><div class="artdir">東條の前の三択ボード。「撤兵」は黒く塗り潰され、「並行」の残時間表示はゼロ寸前。「開戦」と「準備停止」だけが明るい</div></div>
 <details class="pr"><summary>画像プロンプト草案</summary><div class="pb">
 <p class="pnote">草案 —— koma_data.py 統合後に lib_koma.build_prompt() が確定版を作る。このまま画像生成へ渡さない。</p>
 <button class="copy" data-target="p_E16">プロンプトをコピー</button>
@@ -4284,7 +4342,7 @@ margin:18px 0 0;font-size:14px;box-shadow:var(--shadow)}
 - 主人公の陸軍大将（57歳前後）: 頭を短く刈り上げてほぼ剃り上げた坊主頭。丸い黒縁の眼鏡。鼻の下に短く整えた黒い口髭。四角い顎、引き締まった小柄な体格（身長は周囲より低め）。昭和期の日本陸軍のカーキ色の軍服（詰襟・立襟）、襟に階級章、胸に略綬（勲章のリボン）、腰に革のベルトと軍刀。姿勢は常にまっすぐで硬い。表情は生真面目で険しく、笑うときも目が笑わない。私邸の場面では和服（濃紺の着物）または白いシャツ姿。
 
 【シーン（コマE16）】
-陸軍大将の男の前の三択ボード。「撤兵」は暗転、「並行」は残時間ゼロ寸前、「開戦」と「準備停止」が残る
+陸軍大将の男の前の三択ボード。「撤兵」は黒く塗り潰され、「並行」の残時間表示はゼロ寸前。「開戦」と「準備停止」だけが明るい
 
 【文字ルール】
 文字の扱い: セリフは太めのゴシック体風の日本語で吹き出しに描く。心の声・独白はしっぽのない角丸のモノローグ枠にする。
@@ -4680,7 +4738,7 @@ D章の白紙へ「開戦決定」の印。陸軍大将の男の顔は横から�
 </div></div></div>
 <div class="koma" data-img="0" id="kF07">
 <div class="left">
-<div class="frame empty"><span class="kid">F07</span><span class="nostate">画像 未生成</span><div class="artdir">三択ボードで撤兵・並行が暗転。東條は残る開戦札の前</div></div>
+<div class="frame empty"><span class="kid">F07</span><span class="nostate">画像 未生成</span><div class="artdir">三択ボードの「撤兵」と「並行」が黒く塗り潰され、東條は明るいまま残る「開戦」の札の前に立つ</div></div>
 <details class="pr"><summary>画像プロンプト草案</summary><div class="pb">
 <p class="pnote">草案 —— koma_data.py 統合後に lib_koma.build_prompt() が確定版を作る。このまま画像生成へ渡さない。</p>
 <button class="copy" data-target="p_F07">プロンプトをコピー</button>
@@ -4715,7 +4773,7 @@ D章の白紙へ「開戦決定」の印。陸軍大将の男の顔は横から�
 - 主人公の陸軍大将（57歳前後）: 頭を短く刈り上げてほぼ剃り上げた坊主頭。丸い黒縁の眼鏡。鼻の下に短く整えた黒い口髭。四角い顎、引き締まった小柄な体格（身長は周囲より低め）。昭和期の日本陸軍のカーキ色の軍服（詰襟・立襟）、襟に階級章、胸に略綬（勲章のリボン）、腰に革のベルトと軍刀。姿勢は常にまっすぐで硬い。表情は生真面目で険しく、笑うときも目が笑わない。私邸の場面では和服（濃紺の着物）または白いシャツ姿。
 
 【シーン（コマF07）】
-三択ボードで撤兵・並行が暗転。陸軍大将の男は残る開戦札の前
+三択ボードの「撤兵」と「並行」が黒く塗り潰され、陸軍大将の男は明るいまま残る「開戦」の札の前に立つ
 
 【文字ルール】
 文字の扱い: セリフは太めのゴシック体風の日本語で吹き出しに描く。心の声・独白はしっぽのない角丸のモノローグ枠にする。
@@ -4929,7 +4987,7 @@ D章の白紙へ「開戦決定」の印。陸軍大将の男の顔は横から�
 <p class="chapnote">7コマ／約1分。運転手の証言で開戦当日の東條を見せ、中心問いへ答えて完結する。</p>
 <div class="koma" data-img="0" id="kG01">
 <div class="left">
-<div class="frame empty"><span class="kid">G01</span><span class="nostate">画像 未生成</span><div class="artdir">F10の車外カットから車内へ。カメラは運転席の柄澤の斜め後ろに置き、柄澤の肩、中央のバックミラー、後部座席の東條を一画面に入れる。夜明け前の弱い青い光。東條の顔はこの時点では小さく見せる</div></div>
+<div class="frame empty"><span class="kid">G01</span><span class="nostate">画像 未生成</span><div class="artdir">カメラは運転席の柄澤の斜め後ろに置き、柄澤の肩、中央のバックミラー、後部座席の東條を一画面に入れる。夜明け前の弱い青い光。東條の顔はこの時点では小さく見せる</div></div>
 <details class="pr"><summary>画像プロンプト草案</summary><div class="pb">
 <p class="pnote">草案 —— koma_data.py 統合後に lib_koma.build_prompt() が確定版を作る。このまま画像生成へ渡さない。</p>
 <button class="copy" data-target="p_G01">プロンプトをコピー</button>
@@ -4966,7 +5024,7 @@ D章の白紙へ「開戦決定」の印。陸軍大将の男の顔は横から�
 - 公用車の運転手: 外見は未確定。仮の呼び名のまま生成に使わない。
 
 【シーン（コマG01）】
-F10の車外カットから車内へ。カメラは運転席の公用車の運転手の斜め後ろに置き、公用車の運転手の肩、中央のバックミラー、後部座席の陸軍大将の男を一画面に入れる。夜明け前の弱い青い光。陸軍大将の男の顔はこの時点では小さく見せる
+カメラは運転席の公用車の運転手の斜め後ろに置き、公用車の運転手の肩、中央のバックミラー、後部座席の陸軍大将の男を一画面に入れる。夜明け前の弱い青い光。陸軍大将の男の顔はこの時点では小さく見せる
 
 【文字ルール】
 文字の扱い: セリフは太めのゴシック体風の日本語で吹き出しに描く。心の声・独白はしっぽのない角丸のモノローグ枠にする。
@@ -5106,7 +5164,7 @@ G01と同じ画像からバックミラーへゆっくり寄る。鏡の中だ�
 </div></div></div>
 <div class="koma" data-img="0" id="kG04">
 <div class="left">
-<div class="frame empty"><span class="kid">G04</span><span class="nostate">画像 未生成</span><div class="artdir">同じバックミラー、同じ構図。東條の表情だけが朗らかに変わる</div></div>
+<div class="frame empty"><span class="kid">G04</span><span class="nostate">画像 未生成</span><div class="artdir">同じバックミラー、同じ構図。鏡の中の東條の口元がゆるみ、朗らかな表情になっている</div></div>
 <details class="pr"><summary>画像プロンプト草案</summary><div class="pb">
 <p class="pnote">草案 —— koma_data.py 統合後に lib_koma.build_prompt() が確定版を作る。このまま画像生成へ渡さない。</p>
 <button class="copy" data-target="p_G04">プロンプトをコピー</button>
@@ -5143,7 +5201,7 @@ G01と同じ画像からバックミラーへゆっくり寄る。鏡の中だ�
 - 公用車の運転手: 外見は未確定。仮の呼び名のまま生成に使わない。
 
 【シーン（コマG04）】
-同じバックミラー、同じ構図。陸軍大将の男の表情だけが朗らかに変わる
+同じバックミラー、同じ構図。鏡の中の陸軍大将の男の口元がゆるみ、朗らかな表情になっている
 
 【文字ルール】
 文字の扱い: セリフは太めのゴシック体風の日本語で吹き出しに描く。心の声・独白はしっぽのない角丸のモノローグ枠にする。
@@ -5285,7 +5343,7 @@ D章の陸軍大将の男と白紙、F章の開戦印を左右に並べる
 </div></div></div>
 <div class="koma" data-img="0" id="kG07">
 <div class="left">
-<div class="frame empty"><span class="kid">G07</span><span class="nostate">画像 未生成</span><div class="artdir">暗転直前、輸送船と資源表が一瞬だけ浮かぶ</div></div>
+<div class="frame empty"><span class="kid">G07</span><span class="nostate">画像 未生成</span><div class="artdir">暗い画面に、輸送船の影と資源表がうっすら浮かぶ</div></div>
 <details class="pr"><summary>画像プロンプト草案</summary><div class="pb">
 <p class="pnote">草案 —— koma_data.py 統合後に lib_koma.build_prompt() が確定版を作る。このまま画像生成へ渡さない。</p>
 <button class="copy" data-target="p_G07">プロンプトをコピー</button>
@@ -5320,7 +5378,7 @@ D章の陸軍大将の男と白紙、F章の開戦印を左右に並べる
 - 主人公の陸軍大将（57歳前後）: 頭を短く刈り上げてほぼ剃り上げた坊主頭。丸い黒縁の眼鏡。鼻の下に短く整えた黒い口髭。四角い顎、引き締まった小柄な体格（身長は周囲より低め）。昭和期の日本陸軍のカーキ色の軍服（詰襟・立襟）、襟に階級章、胸に略綬（勲章のリボン）、腰に革のベルトと軍刀。姿勢は常にまっすぐで硬い。表情は生真面目で険しく、笑うときも目が笑わない。私邸の場面では和服（濃紺の着物）または白いシャツ姿。
 
 【シーン（コマG07）】
-暗転直前、輸送船と資源表が一瞬だけ浮かぶ
+暗い画面に、輸送船の影と資源表がうっすら浮かぶ
 
 【文字ルール】
 文字の扱い: セリフは太めのゴシック体風の日本語で吹き出しに描く。心の声・独白はしっぽのない角丸のモノローグ枠にする。
